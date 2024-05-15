@@ -28,9 +28,11 @@ module.exports = {
     },
     extend: {
       colors: {
-        'euclid-blue': '#006895',
-        'euclid-red': '#f62516',
-        'euclid-yellow': '#ffba00',
+        'light-blue': '#E3FFFF',
+        'light-green': '#E3FFF5',
+        'dark-blue': '#346880',
+        'dark-green': '#348066',
+        'gray-blue': '#E3EDFF'
       },
     },
   },

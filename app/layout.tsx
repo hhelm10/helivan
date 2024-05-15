@@ -6,7 +6,7 @@ import BackButton from "@/components/back-button";
 const font = Lora({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Nomad Garden',
+  title: 'HELIVAN RESEARCH',
 }
 
 export default function RootLayout({
