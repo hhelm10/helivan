@@ -7,45 +7,51 @@ const meta1 =
   {title: 'Comparing GenAI to Humans //',
     arxiv: 'https://arxiv.org/abs/2309.08913',
     arxiv_title: 'A Statistical Turing Test for Generative Models',
-    snippet: `Generative AI is producing human-expert level content across various domains and its content is often propagated as if it were created by human users.
-    Statistical frameworks to assess the proximity of human-produced content and machine-produced content are necessary to understand risks associated with deep-fakes. 
-    Our framework provides a statistical pattern recognition perspective to evaluating the detectability of a machine.`,
+    snippet: `Generative AI is producing human-expert level content across various domains. 
+    This content is often propagated as if it were created by a human user.
+    It is necessary to formalize the human-detection problem to most effectively assess the proximity of human-produced content and machine-produced content. 
+    The framework we present leverages classical pattern recognition to equip every human-detection problem with an interpretable detactability measure.
+    The empirical version of the measure can be used to rank the human-ness of different models in general settings.`,
     tldr: 'GPT-4 (Sept 2023) is detectable given enough machine-produced content. GPT-3 is more detectable than GPT-4 across human detection classifiers.'
 };
 
 const meta2 =
-  {title: 'Defining the Data Kernel //',
+  {
+    title: 'Defining the Data Kernel //',
     arxiv: 'https://arxiv.org/abs/2305.05126',
     arxiv_title: 'Comparing Foundation Models using Data Kernels',
     snippet: `Foundation models are notoriously complicated to understand. 
-    In some cases, an embedding function associated with a foundation model is available -- either as an explicit decoding layer or as a simple function of intermediary layers.
-    The relative positions of the embeddings of input data provide insights into how the model relates high-level concepts.
-    Embeddings across models is typically impossible due to incongruities in the dimensionality or basis vectors of the embedding spaces.
+    In some cases, an embedding function associated with a foundation model is available.
+    The relative positions of the embeddings of input data provide insights into how the model relates high-level concepts, which is often sufficent for a single model.
+    Comparisons across models is more challenging -- embeddings are typically natively incompatible due to incongruities in the dimensionality or basis vectors of the embedding spaces.
     We introduce the data kernel to rectify this issue and demonstrate that it can be used to automatically discover systematic differences in the data used to train models.`,
-    tldr: 'The data kernel enables comparison of embedding spaces across models. It is useful for automatically discovering systematic differences in pre-training data.'
-};
+    tldr: 'The data kernel enables comparison of the embedding spaces across models. It can be used to understand how models interpret and represent high-level concepts.'
+  }
 
-const metas = [meta1, meta2];
+const slides = [meta1, meta2];
 const delay = 10000;
 
-function getHTML(index) {
-    const title = metas[index].title
-    const arxiv = metas[index].arxiv
-    const arxiv_title = metas[index].arxiv_title
-    const snippet = metas[index].snippet
-    const tldr = metas[index].tldr 
+function getHTML(index, slideIndex) {
+    const title = slides[index].title
+    const arxiv = slides[index].arxiv
+    const arxiv_title = slides[index].arxiv_title
+    const snippet = slides[index].snippet
+    const tldr = slides[index].tldr 
     return (
-        <div className="mt-8 ws-normal slide items-center" key={index}> 
-            <div className="text-center text-blue-6 text-4xl italic mt-4">
+        <div 
+        key={index} 
+        className={`slide ${index === slideIndex ? 'active' : ''}`}
+        > 
+            <div className="text-blue-6 text-4xl italic">
                 <p><b> {title} </b></p>
             </div>
-            <div className="flex-wrap text-center text-blue-6 text-xl italic mt-2 underline">
+            <div className="text-blue-6 text-xl italic mt-2 underline">
                 <a href={arxiv}> {arxiv_title}</a>
             </div>
             <div className="text-blue-6 text-2xl mt-8">
-                {snippet}
+                <p>{snippet}</p>
             </div>
-            <div className="text-blue-6 text-xlarge mt-8 italic">
+            <div className="text-blue-6 text-2xl mt-8 italic">
                 <p> <b>TLDR:</b> {tldr}
                 </p>
             </div>
@@ -53,69 +59,62 @@ function getHTML(index) {
     )
 }
 
-function Slideshow(metas) {
-  const [index, setIndex] = useState(0);
-  const timeoutRef = useRef(null);
-  const indices = [...Array(2).keys()];
+function Slideshow() {
+  const [slideIndex, setSlideIndex] = useState(0);
 
-  function resetTimeout() {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-  }
+  const changeSlide = (n) => {
+    let newIndex = slideIndex + n;
+    if (newIndex >= slides.length) newIndex = 0;
+    if (newIndex < 0) newIndex = slides.length - 1;
+    setSlideIndex(newIndex);
+  };
 
-  useEffect(() => {
-    resetTimeout();
-    timeoutRef.current = setTimeout(
-      () =>
-        setIndex((prevIndex) =>
-          prevIndex === 2 - 1 ? 0 : prevIndex + 1
-        ),
-      delay
-    );
-
-    return () => {
-      resetTimeout();
-    };
-  }, [index]);
-
+  const goToSlide = (index) => {
+    setSlideIndex(index);
+  };
+  
   return (
-    <div className="slideshow">
-      <div
-        className="mt-10 slideshowSlider"
-        style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
-      >
-        {indices.map((idx) => getHTML(idx))}
-      </div>
-      <div className="mt-2 slideshowDots">
-      {indices.map((idx) => (
-          <div
-            key={idx}
-            className={`slideshowDot${index === idx ? " active" : ""}`}
-            onClick={() => {
-              setIndex(idx);
-            }}
-          ></div>
+    <div className="slideshow-container">
+      {
+      slides.map((slide, index) => getHTML(index, slideIndex))
+      }
+        {/* // <div
+          // key={index}
+          // className={`slide ${index === slideIndex ? 'active' : ''}`}
+        // >
+        //  </>
+        // </div>
+      // ))} */}
+      <button className="prev" onClick={() => changeSlide(-1)}>&#10094;</button>
+      <button className="next" onClick={() => changeSlide(1)}>&#10095;</button>
+      <div className="dots-container">
+        {slides.map((_, index) => (
+          <span
+            key={index}
+            className={`dot ${index === slideIndex ? 'active' : ''}`}
+            onClick={() => goToSlide(index)}
+          ></span>
         ))}
       </div>
     </div>
   );
 }
 
+
 export default function Landing() {    
     return (
         <div>
             <div className="mt-4 text-8xl text-blue-6">
-                <center><p> Helivan Research</p></center>
+                <center><p> Helivan // Research</p></center>
             </div> 
-            <div className="text-4xl text-blue-4 italic">
-                <center> <p> applied principled statistics //<br></br>on the cutting edge</p> </center>
+            <div className="text-4xl text-blue-4 italic mt-4">
+                <center> <p> principled statistics, next-gen applications </p> </center>
             </div>
-            <div> <Slideshow/></div>
-            <div className="mt-8 text-4xl text-blue-4 text-center">
+            <div className="mt-12"><Slideshow/></div>
+            <div className="mt-8 text-2xl text-blue-4 text-center">
              <p> In collaboration with </p>
             </div>
-            <div className="mt-4 mb-4 flex flex-row items-center justify-center gap-150">
+            <div className="mt-6 mb-4 flex flex-row items-center justify-center gap-150">
                 <img src={"/msr_logo.png"} width='225px'/>
                 <img src={"/nomic_dark_logo.png"} width='120px'/>
                 <img src={"/jhu-logo.png"} width='425px'/>
@@ -123,74 +122,4 @@ export default function Landing() {
             </div>
         </div>
     )
-    //     <div>
-    //         <div>
-    //             <br></br>
-    //         </div>
-    //         <div className="text-8xl text-blue-6">
-    //             <center><p> Helivan Research</p></center>
-    //         </div> 
-    //         <div className="text-4xl text-blue-4 italic">
-    //             <center> <p> applied principled statistics //<br></br>on the cutting edge</p> </center>
-    //         </div>
-    //         {/* <div className="mt-8 flex flex-row items-center justify-center slideshow-container"> */}
-    //         <div className="slideshow-container">
-    //                 <div className="panel panel1"> 
-    //                     <div className="text-center text-blue-6 text-4xl italic mt-4">
-    //                         <p><b> Comparing GenAI to Humans </b></p>
-    //                     </div>
-    //                     <div className="text-center text-blue-6 text-xl italic mt-2 underline">
-    //                     <a href="https://arxiv.org/abs/2309.08913"> A Statistical Turing Test for Generative Models</a>
-    //                     </div>
-    //                     <div className="text-blue-6 text-2xl mt-8">
-    //                         <p> Generative AI is producing human-expert level content across various domains and its content is often propagated as if it were created by human users.
-    //                             Statistical frameworks to assess the proximity of human-produced content and machine-produced content are necessary to understand risks associated with deep-fakes. 
-    //                             Our framework provides a statistical pattern recognition perspective to evaluating the detectability of a machine.
-    //                         </p>
-    //                     </div>
-    //                     <div className="text-blue-6 text-lg mt-8 italic">
-    //                         <p> <b>TLDR:</b> GPT-4 (Sept 2023) is detectable given enough machine-produced content. GPT-3 is more detectable than GPT-4 across human detection classifiers.
-    //                         </p>
-    //                     </div>
-    //                 </div>
-    //                 <div className="panel panel1"> 
-    //                     <div className="text-center text-blue-6 text-4xl italic mt-4">
-    //                         <p><b> Comparing GenAI to Humans </b></p>
-    //                     </div>
-    //                     <div className="text-center text-blue-6 text-xl italic mt-2 underline">
-    //                     <a href="https://arxiv.org/abs/2309.08913"> A Statistical Turing Test for Generative Models</a>
-    //                     </div>
-    //                     <div className="text-blue-6 text-2xl mt-8">
-    //                         <p> Generative AI is producing human-expert level content across various domains and its content is often propagated as if it were created by human users.
-    //                             Statistical frameworks to assess the proximity of human-produced content and machine-produced content are necessary to understand risks associated with deep-fakes. 
-    //                             Our framework provides a statistical pattern recognition perspective to evaluating the detectability of a machine.
-    //                         </p>
-    //                     </div>
-    //                     <div className="text-blue-6 text-lg mt-8 italic">
-    //                         <p> <b>TLDR:</b> GPT-4 (Sept 2023) is detectable given enough machine-produced content. GPT-3 is more detectable than GPT-4 across human detection classifiers.
-    //                         </p>
-    //                     </div>
-    //                 </div>
-    //                 <div className="panel panel1"> 
-    //                     <div className="text-center text-blue-6 text-4xl italic mt-4">
-    //                         <p><b> Comparing GenAI to Humans </b></p>
-    //                     </div>
-    //                     <div className="text-center text-blue-6 text-xl italic mt-2 underline">
-    //                     <a href="https://arxiv.org/abs/2309.08913"> A Statistical Turing Test for Generative Models</a>
-    //                     </div>
-    //                     <div className="text-blue-6 text-2xl mt-8">
-    //                         <p> Generative AI is producing human-expert level content across various domains and its content is often propagated as if it were created by human users.
-    //                             Statistical frameworks to assess the proximity of human-produced content and machine-produced content are necessary to understand risks associated with deep-fakes. 
-    //                             Our framework provides a statistical pattern recognition perspective to evaluating the detectability of a machine.
-    //                         </p>
-    //                     </div>
-    //                     <div className="text-blue-6 text-lg mt-8 italic">
-    //                         <p> <b>TLDR:</b> GPT-4 (Sept 2023) is detectable given enough machine-produced content. GPT-3 is more detectable than GPT-4 across human detection classifiers.
-    //                         </p>
-    //                     </div>
-    //                 {/* </div> */}
-    //             </div>
-    //         </div>
-    //     </div>
-    // );
 }
