@@ -1,6 +1,6 @@
 import path from "path";
 import fs from "fs";
-import Landing from "@/components/landing";
+import { Landing, Slideshow, getHTML } from "@/components/landing";
 
 export default async function Home() {
 
