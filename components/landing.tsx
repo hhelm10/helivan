@@ -1,7 +1,6 @@
 'use client'
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import DownTriangle from "@/components/down-triangle";
 
 const meta1 =
   {title: 'Comparing GenAI to Humans //',
@@ -99,7 +98,6 @@ export function Slideshow() {
     </div>
   );
 }
-
 
 export default function Landing() {    
     return (

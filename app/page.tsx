@@ -1,7 +1,6 @@
 import path from "path";
 import fs from "fs";
 import Landing from "@/components/landing";
-import '@/.next/static/css/app/layout.css';
 
 export default async function Home() {
 
