@@ -31,7 +31,7 @@ const meta2 =
 const slides = [meta1, meta2];
 const delay = 10000;
 
-function getHTML(index, slideIndex) {
+export function getHTML(index, slideIndex) {
     const title = slides[index].title
     const arxiv = slides[index].arxiv
     const arxiv_title = slides[index].arxiv_title
@@ -59,7 +59,7 @@ function getHTML(index, slideIndex) {
     )
 }
 
-function Slideshow() {
+export function Slideshow() {
   const [slideIndex, setSlideIndex] = useState(0);
 
   const changeSlide = (n) => {
