@@ -638,6 +638,11 @@ video {
 .mt-8 {
   margin-top: 2rem;
 }
+.mt10 {
+  margin-top: 2.25rem;
+}
+
+
 .mt-\[10vh\] {
   margin-top: 10vh;
 }
@@ -719,6 +724,9 @@ video {
 }
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.flex-row {
+  flex-direction: row;
 }
 .flex-col {
   flex-direction: column;
@@ -841,26 +849,6 @@ video {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
-.text-blue1 {
-  color: #E0EDFF
-}
-.text-blue2 {
-  color: #93AACC
-}
-.text-blue3 {
-  color: #506D99
-}
-.text-blue4 {
-  color: #213C66
-}
-.text-blue5 {
-  color: #061833
-}
-.partners {
-  display: flex;
-  flex-flow: row nowrap;
-  gap: 200px
-}
 .font-bold {
   font-weight: 700;
 }
@@ -913,6 +901,150 @@ video {
 .duration-300 {
   transition-duration: 300ms;
 }
+.text-blue-1 {
+  color:#E0EDFF
+}
+.text-blue-2 {
+  color: #93AACC
+}
+.text-blue-3 {
+  color: #506D99
+}
+.text-blue-4 {
+  color: #213C66
+}
+.text-blue-5 {
+  color: #061833
+}
+.text-blue-6 {
+  color: #0A2245
+}
+.ws-normal {
+  white-space: normal;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  margin: 0;
+  width: auto;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: xx-large;
+  transition: 0.6s;
+  user-select: none;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: black;
+  opacity: 0.7;
+}
+
+/* Slideshow */
+
+.slideshow {
+  margin: 0 auto;
+  overflow: hidden;
+  max-width: 1000px;
+  width:1000px;
+}
+
+.slideshowSlider {
+  white-space: nowrap;
+  transition: ease 1000ms;
+}
+
+.slide {
+  display: inline-block;
+  gap:40px;
+  height: 500px;
+  width: 1000px;
+  border-radius: 20px;
+  background: #E0EDFF;
+  min-height: 100px;
+  box-shadow:1px 1px 2px 2px #93AACC;
+  /* -webkit-box-shadow:1px 1px 2px 2px #93AACC; */
+  /* -moz-box-shadow:1px 1px 2px 2px #93AACC; */
+  margin: 0px;
+  padding: 5px;
+}
+
+/* Buttons */
+
+.slideshowDots {
+  text-align: center;
+}
+
+.slideshowDot {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+
+  cursor: pointer;
+  margin: 15px 7px 0px;
+
+  background-color: #c4c4c4;
+}
+
+.slideshowDot.active {
+  background-color: #061833;
+}
+
+.panel {
+  display: inline-block;
+  background: #E0EDFF;
+  min-height: 100px;
+  height: 600px;
+  box-shadow:0px 0px 5px 5px #93AACC;
+  -webkit-box-shadow:2px 2px 5px 5x #93AACC;
+  -moz-box-shadow:2px 2px 5px 5px #93AACC;
+  margin: 10px;
+  padding: 10px;
+}
+
+.box {
+  inline-size: 95%;
+  overflow-wrap: normal;
+}
+
+
+.panel1 {
+  min-width: 100px;
+  width: 98%;
+}
+.slide {
+  min-width: 100px;
+  width: 100%;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.gap-150 {
+  gap: 150px
+}
+
 @keyframes enter {
 
   from {
