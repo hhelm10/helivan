@@ -3,145 +3,194 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import DownTriangle from "@/components/down-triangle";
 
-export default function Landing({ slugs, metas }) {
-    const [currentThumbnail, setCurrentThumbnail] = useState("");
-    const [currentDescription, setCurrentDescription] = useState("");
-    const handleMouseOver = (thumbnail, description) => {
-        setCurrentThumbnail(thumbnail);
-        setCurrentDescription(description);
+const meta1 =
+  {title: 'Comparing GenAI to Humans //',
+    arxiv: 'https://arxiv.org/abs/2309.08913',
+    arxiv_title: 'A Statistical Turing Test for Generative Models',
+    snippet: `Generative AI is producing human-expert level content across various domains and its content is often propagated as if it were created by human users.
+    Statistical frameworks to assess the proximity of human-produced content and machine-produced content are necessary to understand risks associated with deep-fakes. 
+    Our framework provides a statistical pattern recognition perspective to evaluating the detectability of a machine.`,
+    tldr: 'GPT-4 (Sept 2023) is detectable given enough machine-produced content. GPT-3 is more detectable than GPT-4 across human detection classifiers.'
+};
+
+const meta2 =
+  {title: 'Defining the Data Kernel //',
+    arxiv: 'https://arxiv.org/abs/2305.05126',
+    arxiv_title: 'Comparing Foundation Models using Data Kernels',
+    snippet: `Foundation models are notoriously complicated to understand. 
+    In some cases, an embedding function associated with a foundation model is available -- either as an explicit decoding layer or as a simple function of intermediary layers.
+    The relative positions of the embeddings of input data provide insights into how the model relates high-level concepts.
+    Embeddings across models is typically impossible due to incongruities in the dimensionality or basis vectors of the embedding spaces.
+    We introduce the data kernel to rectify this issue and demonstrate that it can be used to automatically discover systematic differences in the data used to train models.`,
+    tldr: 'The data kernel enables comparison of embedding spaces across models. It is useful for automatically discovering systematic differences in pre-training data.'
+};
+
+const metas = [meta1, meta2];
+const delay = 10000;
+
+function getHTML(index) {
+    const title = metas[index].title
+    const arxiv = metas[index].arxiv
+    const arxiv_title = metas[index].arxiv_title
+    const snippet = metas[index].snippet
+    const tldr = metas[index].tldr 
+    return (
+        <div className="mt-8 ws-normal slide items-center" key={index}> 
+            <div className="text-center text-blue-6 text-4xl italic mt-4">
+                <p><b> {title} </b></p>
+            </div>
+            <div className="flex-wrap text-center text-blue-6 text-xl italic mt-2 underline">
+                <a href={arxiv}> {arxiv_title}</a>
+            </div>
+            <div className="text-blue-6 text-2xl mt-8">
+                {snippet}
+            </div>
+            <div className="text-blue-6 text-xlarge mt-8 italic">
+                <p> <b>TLDR:</b> {tldr}
+                </p>
+            </div>
+        </div>
+    )
+}
+
+function Slideshow(metas) {
+  const [index, setIndex] = useState(0);
+  const timeoutRef = useRef(null);
+  const indices = [...Array(2).keys()];
+
+  function resetTimeout() {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+  }
+
+  useEffect(() => {
+    resetTimeout();
+    timeoutRef.current = setTimeout(
+      () =>
+        setIndex((prevIndex) =>
+          prevIndex === 2 - 1 ? 0 : prevIndex + 1
+        ),
+      delay
+    );
+
+    return () => {
+      resetTimeout();
     };
+  }, [index]);
 
-    const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
-    const listRef = useRef(null);
-    const handleListScroll = () => {
-        const { scrollTop, scrollHeight, clientHeight } = listRef.current;
-        const atBottom = scrollTop + clientHeight === scrollHeight;
-        setIsScrolledToBottom(atBottom);
-    };
+  return (
+    <div className="slideshow">
+      <div
+        className="mt-10 slideshowSlider"
+        style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
+      >
+        {indices.map((idx) => getHTML(idx))}
+      </div>
+      <div className="mt-2 slideshowDots">
+      {indices.map((idx) => (
+          <div
+            key={idx}
+            className={`slideshowDot${index === idx ? " active" : ""}`}
+            onClick={() => {
+              setIndex(idx);
+            }}
+          ></div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
-    const scrollListDown = () => {
-        const { clientHeight } = listRef.current;
-        listRef.current.scrollBy({ top: clientHeight, behavior: 'smooth' });
-    };
-
-    const indices = [...Array(metas.length).keys()];
-    const sortedIndices = indices.sort((a, b) => {
-        const priorityA = metas[a].priority;
-        const priorityB = metas[b].priority;
-
-        // If both are undefined, maintain their original order
-        if (priorityA === undefined && priorityB === undefined) return a - b;
-
-        // If priorityA is undefined but priorityB is defined, place a after b
-        if (priorityA === undefined) return 1;
-
-        // If priorityB is undefined but priorityA is defined, place a before b
-        if (priorityB === undefined) return -1;
-
-        // If both are defined, compare their values
-        return priorityA - priorityB;
-    });
-
-
+export default function Landing() {    
     return (
         <div>
-            <div>
-                <br></br><br></br>
-            </div>
-            <div className="text-8xl text-blue5">
+            <div className="mt-4 text-8xl text-blue-6">
                 <center><p> Helivan Research</p></center>
             </div> 
-            <div className="text-4xl text-blue4 italic">
+            <div className="text-4xl text-blue-4 italic">
                 <center> <p> applied principled statistics //<br></br>on the cutting edge</p> </center>
             </div>
-            <div className="mt-[10vh] mt-[10vh] mt-[10vh] mt-[10vh] mt-[10vh] text-4xl text-blue4 text-center">
-                <p> In collaboration with </p>
-                <br></br>
+            <div> <Slideshow/></div>
+            <div className="mt-8 text-4xl text-blue-4 text-center">
+             <p> In collaboration with </p>
             </div>
-            <div className="partners items-center justify-center">
-                <img src={"/nomic_logo.svg"} width='120px'/>
+            <div className="mt-4 mb-4 flex flex-row items-center justify-center gap-150">
                 <img src={"/msr_logo.png"} width='225px'/>
+                <img src={"/nomic_dark_logo.png"} width='120px'/>
                 <img src={"/jhu-logo.png"} width='425px'/>
                 <img src={"/Palate_Logo.png"} width='200px'/>
             </div>
         </div>
-
-        // <div className="flex flex-col h-screen text-lg text-base">
-        //     <div className="w-full mt-[10vh]">
-        //         <div className="grid grid-cols-1 md:grid-cols-11 gap-4 h-[calc(screen-mt-[10vh])]">
-        //             <div className="hidden md:block md:col-span-1"></div>
-
-        //             <div className="col-span-1 md:col-span-4 p-4 flex justify-center">
-        //                 {currentDescription.length == 0 ? (
-        //                     <div className="flex flex-col items-center">
-        //                         <div className="w-full relative">
-        //                             <img src={'/w_refik.webp'} className="max-h-[34rem] border-2 border-black"/>
-        //                             <div className="absolute overflow-hidden flex justify-center items-center left-1/2 transform -translate-x-1/2 w-full">
-        //                                 <div className="text-center">
-        //                                     <p className="whitespace-normal pt-4">
-        //                                         <em className="overflow-y-auto max-h-40">Getting my latent space poster signed by <a href={'https://refikanadol.com/'} className={'cursor-pointer underline'}>Refik Anadol</a></em>
-        //                                     </p>
-        //                                 </div>
-        //                             </div>
-        //                         </div>
-        //                     </div>
-        //                 ) : (
-        //                     <div className="flex flex-col items-center">
-        //                         <div className="w-full relative">
-        //                             <img src={'/w_refik.webp'} className="max-h-[34rem] border-2 border-black"/>
-        //                             <div className="absolute overflow-hidden flex justify-center items-center left-1/2 transform -translate-x-1/2 w-full">
-        //                                 <div className="text-center">
-        //                                     <p className="whitespace-normal pt-4">
-        //                                         <em className="overflow-y-auto max-h-40">{currentDescription}</em>
-        //                                     </p>
-        //                                 </div>
-        //                             </div>
-        //                         </div>
-        //                     </div>
-        //                 )}
-        //             </div>
-
-        //             <div className="min-h-[6vh] md:min-h-0 col-span-1"></div>
-
-        //             <div className="col-span-1 md:col-span-4 p-4 flex justify-center">
-        //                 <div>
-        //                     <div className="text-justify pb-8">
-        //                         {/* <p>Hi, I'm <a href={'/posts/bio'} className={'cursor-pointer underline'}>Brandon</a>. This is my corner of the internet.
-        //                         I spend most of my time working as the cofounder and CEO of <a href={'https://nomic.ai/'} className={'cursor-pointer underline'}>Nomic</a>.
-        //                         I spend the rest of my time doing things without considering their <a href={'https://en.wikipedia.org/wiki/Utility_monster'} className={'cursor-pointer underline'}>utility</a>.
-        //                         I've written about some of these things here:</p> */}
-        //                         <p> Helivan Research. Principled and applied statistics on the cutting edge. </p>
-        //                     </div>
-        //                     <div className=''>
-        //                         <ul className="text-center overflow-y-scroll mb-2 md:max-h-[calc(2.5rem*10)]" ref={listRef} onScroll={handleListScroll} >
-        //                             {sortedIndices.map((index) => (
-        //                                 <li
-        //                                     key={slugs[index]}
-        //                                     onMouseOver={() => handleMouseOver(metas[index].thumbnail, metas[index].description)}
-        //                                     className="cursor-pointer hover:underline mb-2"
-        //                                 >
-        //                                     <Link href={`/posts/${slugs[index]}`}>
-        //                                         <p className="block">{metas[index].title}</p>
-        //                                     </Link>
-        //                                 </li>
-        //                             ))
-        //                                 .filter((slug, index) => {return metas[sortedIndices[index]].hidden === undefined || !metas[sortedIndices[index]].hidden})
-        //                             }
-        //                         </ul>
-        //                         <div className="hidden md:block w-8 h-6 relative left-1/2 bottom-0 pb-10 transform -translate-x-1/2 hover:cursor-pointer" >
-        //                         {!isScrolledToBottom &&
-        //                            <div onClick={scrollListDown}>
-        //                             <DownTriangle/>
-        //                            </div>
-        //                         }
-        //                         </div>
-        //                     </div>
-        //                 </div>
-        //             </div>
-
-        //             <div className="hidden md:block md:col-span-1"></div>
-        //         </div>
-        //     </div>
-        // </div>
-    );
+    )
+    //     <div>
+    //         <div>
+    //             <br></br>
+    //         </div>
+    //         <div className="text-8xl text-blue-6">
+    //             <center><p> Helivan Research</p></center>
+    //         </div> 
+    //         <div className="text-4xl text-blue-4 italic">
+    //             <center> <p> applied principled statistics //<br></br>on the cutting edge</p> </center>
+    //         </div>
+    //         {/* <div className="mt-8 flex flex-row items-center justify-center slideshow-container"> */}
+    //         <div className="slideshow-container">
+    //                 <div className="panel panel1"> 
+    //                     <div className="text-center text-blue-6 text-4xl italic mt-4">
+    //                         <p><b> Comparing GenAI to Humans </b></p>
+    //                     </div>
+    //                     <div className="text-center text-blue-6 text-xl italic mt-2 underline">
+    //                     <a href="https://arxiv.org/abs/2309.08913"> A Statistical Turing Test for Generative Models</a>
+    //                     </div>
+    //                     <div className="text-blue-6 text-2xl mt-8">
+    //                         <p> Generative AI is producing human-expert level content across various domains and its content is often propagated as if it were created by human users.
+    //                             Statistical frameworks to assess the proximity of human-produced content and machine-produced content are necessary to understand risks associated with deep-fakes. 
+    //                             Our framework provides a statistical pattern recognition perspective to evaluating the detectability of a machine.
+    //                         </p>
+    //                     </div>
+    //                     <div className="text-blue-6 text-lg mt-8 italic">
+    //                         <p> <b>TLDR:</b> GPT-4 (Sept 2023) is detectable given enough machine-produced content. GPT-3 is more detectable than GPT-4 across human detection classifiers.
+    //                         </p>
+    //                     </div>
+    //                 </div>
+    //                 <div className="panel panel1"> 
+    //                     <div className="text-center text-blue-6 text-4xl italic mt-4">
+    //                         <p><b> Comparing GenAI to Humans </b></p>
+    //                     </div>
+    //                     <div className="text-center text-blue-6 text-xl italic mt-2 underline">
+    //                     <a href="https://arxiv.org/abs/2309.08913"> A Statistical Turing Test for Generative Models</a>
+    //                     </div>
+    //                     <div className="text-blue-6 text-2xl mt-8">
+    //                         <p> Generative AI is producing human-expert level content across various domains and its content is often propagated as if it were created by human users.
+    //                             Statistical frameworks to assess the proximity of human-produced content and machine-produced content are necessary to understand risks associated with deep-fakes. 
+    //                             Our framework provides a statistical pattern recognition perspective to evaluating the detectability of a machine.
+    //                         </p>
+    //                     </div>
+    //                     <div className="text-blue-6 text-lg mt-8 italic">
+    //                         <p> <b>TLDR:</b> GPT-4 (Sept 2023) is detectable given enough machine-produced content. GPT-3 is more detectable than GPT-4 across human detection classifiers.
+    //                         </p>
+    //                     </div>
+    //                 </div>
+    //                 <div className="panel panel1"> 
+    //                     <div className="text-center text-blue-6 text-4xl italic mt-4">
+    //                         <p><b> Comparing GenAI to Humans </b></p>
+    //                     </div>
+    //                     <div className="text-center text-blue-6 text-xl italic mt-2 underline">
+    //                     <a href="https://arxiv.org/abs/2309.08913"> A Statistical Turing Test for Generative Models</a>
+    //                     </div>
+    //                     <div className="text-blue-6 text-2xl mt-8">
+    //                         <p> Generative AI is producing human-expert level content across various domains and its content is often propagated as if it were created by human users.
+    //                             Statistical frameworks to assess the proximity of human-produced content and machine-produced content are necessary to understand risks associated with deep-fakes. 
+    //                             Our framework provides a statistical pattern recognition perspective to evaluating the detectability of a machine.
+    //                         </p>
+    //                     </div>
+    //                     <div className="text-blue-6 text-lg mt-8 italic">
+    //                         <p> <b>TLDR:</b> GPT-4 (Sept 2023) is detectable given enough machine-produced content. GPT-3 is more detectable than GPT-4 across human detection classifiers.
+    //                         </p>
+    //                     </div>
+    //                 {/* </div> */}
+    //             </div>
+    //         </div>
+    //     </div>
+    // );
 }

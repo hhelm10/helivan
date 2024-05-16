@@ -9,16 +9,16 @@ export default async function Home() {
   const slugs = fileNames
       .filter((fileName: string) => fileName.endsWith('mdx'))
       .map((fileName) => fileName.replace('.mdx', ''));
-  const metas = await Promise.all(slugs.map((slug) => getPostMeta(slug)));
+  const metas = slugs.map((slug) => getSlideMeta(slug));
 
   return (
       <div>
-          <Landing slugs={slugs} metas={metas}/>
+          <Landing/>
       </div>
   );
 }
 
-async function getPostMeta(post: string) {
-    const mod = await import(`./posts/${post}.mdx`);
+async function getSlideMeta(slide: string) {
+    const mod = await import(`./posts/${slide}.mdx`);
     return mod.meta;
 }
