@@ -2,8 +2,21 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 
+const meta0 = 
+{
+    title: 'Towards a digital twin for society //',
+    arxiv: '',
+    arxiv_title: 'Forthcoming',
+    snippet: `Insofar as a single generative AI model is an appropriate proxy for a single human, a collection of genAI models can be considered a proxy for a community.
+    While there are necessary precautions to take before claiming any particular simulation result on a collection of models generalizes to human society, in this work we develop a framework and complementary tool to systematically study the effect of interventions and community structure on the evolution of individuals and the entire system.
+    Our results demonstrate the importance of cross-community communication, the need for new information to be injected into a system lest the behavior of the individual models become degenerate, and the sensitivity of groups to simple propaganda machines.`,
+    tldr: 'The perspective space and its derivatives capture information related to the dynamics of individual models and the entire system.',
+    image: 'general.png'
+};
+
 const meta1 =
-  {title: 'Comparing GenAI to Humans //',
+{
+    title: 'Comparing GenAI to Humans //',
     arxiv: 'https://arxiv.org/abs/2309.08913',
     arxiv_title: 'A Statistical Turing Test for Generative Models',
     snippet: `Generative AI is producing human-expert level content across various domains. 
@@ -57,7 +70,7 @@ const meta2 =
     image: '/Hayden_BCI_Flow_1920px_1080px_nobg_v2_4x.png'
   };
 
-const slides = [meta1, meta2, meta3, meta4];
+const slides = [meta0, meta1, meta2, meta3, meta4];
 const delay = 10000;
 
 export function getHTML(index, slideIndex) {
