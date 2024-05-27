@@ -1,1 +1,0 @@
-self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/mnt/c/Users/hhelm/Documents/Helivan/helivan/app/layout\":[\"static/media/3a8dc5763a8ae4b2-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"
