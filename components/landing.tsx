@@ -78,15 +78,15 @@ export function getHTML(index, slideIndex) {
             <div className="text-blue-6 text-xl mt-2 flex inline">
               <p>Technical write-up: <u><i><a href={arxiv}> {arxiv_title}</a> </i></u></p>
             </div>
-            <div className="text-blue-6 text-xl mt-4 italic">
-                <p> <b>TLDR:</b> {tldr}
-                </p>
-            </div>
             <div className="mt-6 flex justify-center">
               <img src={image} style={{'height': '300px'}}/>
             </div>
             <div className="text-blue-6 text-xl mt-8">
                 <p>{snippet}</p>
+            </div>
+            <div className="text-blue-6 text-xl mt-4 italic">
+                <p> <b>TLDR:</b> {tldr}
+                </p>
                 <br></br>
                 <br></br>
             </div>
