@@ -27,7 +27,7 @@ const meta2 =
     We introduce the data kernel to rectify this issue and demonstrate that it can be used to automatically discover systematic differences in the data used to train models.`,
     tldr: 'The data kernel enables comparison of the embedding spaces across models. It can be used to understand how models interpret and represent high-level concepts.',
     image: '/figure2.png'
-  }
+  };
 
   const meta3 =
   {
@@ -41,7 +41,7 @@ const meta2 =
     We demonstrate that the empirical approximation of the optimal solution is extremely effective at mitigating calibration time for EEG- and ECG-based systems.`,
     tldr: 'Empirical approximation of optimal domain adaptation technique can dramatically reduce amount of calibration data required for wearables.',
     image: `/illustrative-figure-tfld-3d-no-axes.PNG`
-  }
+  };
 
   const meta4 =
   {
@@ -54,18 +54,18 @@ const meta2 =
     For mental state classification, the proposed multi-graph features are complementary to classical EEG signals such as relative delta, alpha, and beta band power.`,
     tldr: 'Multi-graph features based on statistical network analysis can improve mental state classification.',
     image: '/Hayden_BCI_Flow_1920px_1080px_nobg_v2_4x.png'
-  }
+  };
 
 const slides = [meta1, meta2, meta3, meta4];
 const delay = 10000;
 
 export function getHTML(index, slideIndex) {
-    const title = slides[index].title
-    const arxiv = slides[index].arxiv
-    const arxiv_title = slides[index].arxiv_title
-    const snippet = slides[index].snippet
-    const tldr = slides[index].tldr 
-    const image = slides[index].image
+    const title = slides[index].title;
+    const arxiv = slides[index].arxiv;
+    const arxiv_title = slides[index].arxiv_title;
+    const snippet = slides[index].snippet;
+    const tldr = slides[index].tldr;
+    const image = slides[index].image;
     return (
         <div 
         key={index} 
