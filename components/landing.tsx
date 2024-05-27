@@ -33,14 +33,14 @@ const meta2 =
   {
     title: 'Reducing calibration time for wearables //',
     arxiv: 'https://www.mdpi.com/2227-7390/12/5/746',
-    arxiv_title: 'Approximately Optimal Domain Adaptation with Fisher’s Linear Discriminant',
+    arxiv_title: `Approximately Optimal Domain Adaptation with Fisher’s Linear Discriminant`,
     snippet: `Physiological prediction problems such as mental state classification, stress detection, etc. often require user-specific data to properly calibrate the prediction system.
     This is particular relevant for EEG- and ECG-based systems where a small shift in sensor location can cause a large change in the distribution of the signal.
     Since training a system from scratch for each session is typically untenable from the user's perspective, domain adaptation or transfer learning techniques are necessary.
     In this work we derive an optimal domain adaptation technique in the setting where one user's prediction system has access to private derivates of other user's prediction systems.
     We demonstrate that the empirical approximation of the optimal solution is extremely effective at mitigating calibration time for EEG- and ECG-based systems.`,
     tldr: 'Empirical approximation of optimal domain adaptation technique can dramatically reduce amount of calibration data required for wearables.',
-    image: '/illustrative-figure-tfld-3d-no-axes.PNG'
+    image: `/illustrative-figure-tfld-3d-no-axes.PNG`
   }
 
   const meta4 =
