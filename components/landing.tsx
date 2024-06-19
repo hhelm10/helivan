@@ -5,13 +5,13 @@ import Link from "next/link";
 const meta0 = 
 {
     title: 'Towards a digital twin for society //',
-    arxiv: '',
-    arxiv_title: 'Forthcoming',
+    arxiv: 'https://arxiv.org/abs/2406.11938',
+    arxiv_title: 'Tracking the perspectives of interacting language models',
     snippet: `Insofar as a single generative AI model is an appropriate proxy for a single human, a collection of genAI models can be considered a proxy for a community.
     While there are necessary precautions to take before claiming any particular simulation result on a collection of models generalizes to human society, in this work we develop a framework and complementary tool to systematically study the effect of interventions and community structure on the evolution of individuals and the entire system.
     Our results demonstrate the importance of cross-community communication, the need for new information to be injected into a system lest the behavior of the individual models become degenerate, and the sensitivity of groups to simple propaganda machines.`,
     tldr: 'The perspective space and its derivatives capture information related to the dynamics of individual models and the entire system.',
-    image: 'general.png'
+    image: 'general.svg'
 };
 
 const meta1 =
@@ -29,6 +29,19 @@ const meta1 =
 };
 
 const meta2 =
+{
+    title: 'Testing the robustness of GenAI //',
+    arxiv: 'https://arxiv.org/abs/2406.06573',
+    arxiv_title: 'MedFuzz: Exploring the Robustness of LLMs in Medical Question Answering',
+    snippet: `LLMs can pass challenging benchmarks -- but benchmarks are typically artificially simple or the LLMs are overengineered to perform well on them.
+    In this work we introduce MedFuzz, a framework designed to challenge the performance of a model on a benchmark by directly attacking the benchmark's underyling assumptions.
+    As an example, we design an adversarial method for the MedQA benchmark by targeting the assumption that all of the information presented in the prompt is medically relevant.
+    We find that the average accuracy of GPT4 on MedQA is affected by repeated attacks and that the decrease is typically not assignable to the additional content and -- instead -- is assignable to the presence or structure of the additional tokens.`,
+    tldr: `GPT-4's performance on MedQA is sensitive to the addition medically irrelevant information in the prompts.`,
+    image: 'POST_ATTACK_ACCURACY.png'
+};
+
+const meta3 =
   {
     title: 'Defining the Data Kernel //',
     arxiv: 'https://arxiv.org/abs/2305.05126',
@@ -43,7 +56,7 @@ const meta2 =
 
   }
 
-  const meta3 =
+  const meta4 =
   {
     title: 'Reducing calibration time for wearables //',
     arxiv: 'https://www.mdpi.com/2227-7390/12/5/746',
@@ -57,7 +70,7 @@ const meta2 =
     image: `/illustrative-figure-tfld-3d-no-axes.PNG`
   };
 
-  const meta4 =
+  const meta5 =
   {
     title: 'Signal processing meets statistical network analysis for BCI //',
     arxiv: 'https://www.frontiersin.org/articles/10.3389/fnhum.2022.930291/full',
@@ -70,7 +83,7 @@ const meta2 =
     image: '/Hayden_BCI_Flow_1920px_1080px_nobg_v2_4x.png'
   };
 
-const slides = [meta0, meta1, meta2, meta3, meta4];
+const slides = [meta0, meta1, meta2, meta3, meta4, meta5];
 const delay = 10000;
 
 export function getHTML(index, slideIndex) {
