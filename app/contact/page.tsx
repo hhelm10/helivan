@@ -17,9 +17,9 @@ export default async function ContactUs() {
             </p>
         </div>
         <div className="text-center margin-top-30">
-            <p className="text-4xl text-blue-5 text-bold"> Contact Us//</p>
-            <p className="text-xl text-blue-5"> for questions&comments on projects, collaboration opportunities, and general inquiries:</p>
-            <p className="text-2xl text-blue-5 mt-8"> Email: info@helivan.io</p>
+            <p className="text-4xl text-blue-5 text-bold"> Contact Us //</p>
+            <p className="text-xl text-blue-5"> for questions & comments on projects, collaboration opportunities, and general inquiries</p>
+            <p className="text-xl text-blue-5"> email us at <a href='info@helivan.io'> info@helivan.io </a></p>
         </div>
     </div>
     );
