@@ -97,10 +97,10 @@ export function getHTML(index, slideIndex) {
         key={index} 
         className={`slide ${index === slideIndex ? 'active' : ''} overflow-auto section`}
         > 
-            <div className="text-blue-6 text-2xl italic">
+            <div className="text-blue-6 text-4xl italic">
               <p><b> {title} </b></p>
             </div>
-            <div className="text-blue-6 text-xl mt-2 flex inline">
+            <div className="text-blue-6 text-2xl mt-2 flex inline">
               <p>Technical write-up: <u><i><a href={arxiv}> {arxiv_title}</a> </i></u></p>
             </div>
             <div className="mt-6 flex justify-center">
