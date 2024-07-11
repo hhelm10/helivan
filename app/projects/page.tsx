@@ -82,7 +82,20 @@ const meta3 =
     image: '/Hayden_BCI_Flow_1920px_1080px_nobg_v2_4x.png'
   };
 
-const slides = [meta0, meta1, meta2, meta3, meta4, meta5];
+  const meta6 =
+  {
+    title: 'Finding the right number of participants //',
+    arxiv: 'N/A',
+    arxiv_title: 'N/A',
+    snippet: `Plant-based products are often more environmentally friendly than their traditional alternatives for the price of a deviation in flavor, texture, etc.
+    Companies making plant-based products continuously iterate on product versions to improve marketability to the wider public.
+    As such, consumer testing is an integral part of their workflow.
+    We partnered with Palate Insights to create a easy-to-use and easy-to-digest tool for companies to determine how many users are required to make a claim related to their product.`,
+    tldr: `The easy-to-use sample size calculator can be found at palateinsights.com/sample-size-calculator.`,
+    image: '/sample-size-calculator.jpg'
+  };
+
+const slides = [meta0, meta1, meta2, meta3, meta4, meta5, meta6];
 const delay = 10000;
 
 export function getHTML(index, slideIndex) {
@@ -163,22 +176,22 @@ export function Slideshow() {
 export default async function Projects() {
     return (
     <div>
-        <div className="static-header">
-            <p className='text-blue-1 text-bold text-4xl'> <a href="/"> HLVN// </a>
-            <span className="float-right word-spacing-20pt">
-                {/* <a href="/about"> 
-                <span className="text-xl text-blue-1 text-bold"> About</span>
-                </a> */}
-                <a href="/projects"> 
-                <span className="text-xl text-blue-1 text-bold"> Projects</span>
-                </a>
-                <a href="/contact"> 
-                <span className="text-xl text-blue-1 text-bold"> Contact</span>
-                </a>
+      <div className="static-header">
+        <p className='text-blue-1 text-bold text-4xl font-arial-black'> <a href="/"> HLVN// </a>
+          <span className="float-right word-spacing-20pt font-latin">
+              {/* <a href="/about"> 
+              <span className="text-xl text-blue-1 text-bold"> About</span>
+              </a> */}
+              <a href="/projects"> 
+              <span className="text-xl text-blue-1 text-bold"> Projects</span>
+              </a>
+              <a href="/contact"> 
+              <span className="text-xl text-blue-1 text-bold"> Contact</span>
+              </a>
             </span>
-            </p>
+          </p>
         </div>
-        <div className="mt-8"><Slideshow/></div>
+      <div className="mt-8"><Slideshow/></div>
     </div>
     );
 }

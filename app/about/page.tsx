@@ -2,8 +2,8 @@ export default async function About() {
     return (
     <div>
         <div className="static-header">
-            <p className='text-blue-1 text-bold text-4xl'> <a href="/"> HLVN// </a>
-            <span className="float-right word-spacing-20pt">
+            <p className='text-blue-1 text-bold text-4xl font-arial-black'> <a href="/"> HLVN// </a>
+            <span className="float-right word-spacing-20pt font-latin">
                 {/* <a href="/about"> 
                 <span className="text-xl text-blue-1 text-bold"> About</span>
                 </a> */}

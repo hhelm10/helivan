@@ -6,8 +6,8 @@ export default function Landing() {
     return (
         <div>
             <div className="static-header">
-              <p className='text-blue-1 text-bold text-4xl'> <a href="/"> HLVN// </a>
-                <span className="float-right word-spacing-20pt">
+              <p className='text-blue-1 text-bold text-4xl font-arial-black'> <a href="/"> HLVN// </a>
+                <span className="float-right word-spacing-20pt font-latin">
                     {/* <a href="/about"> 
                     <span className="text-xl text-blue-1 text-bold"> About</span>
                     </a> */}
@@ -20,7 +20,7 @@ export default function Landing() {
                 </span>
               </p>
             </div>
-            <div className="mt-8 text-8xl text-blue-6">
+            <div className="mt-10 text-8xl text-blue-6">
                 <center><p> Helivan // Research</p></center>
             </div> 
             <div className="text-2xl text-blue-4 italic mt-4">

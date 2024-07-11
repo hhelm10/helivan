@@ -1265,6 +1265,7 @@ body {
   top:0;
   padding:20px;
   background: #213C66;
+  width: 100wh;
 }
 
 .text-left {
@@ -1297,6 +1298,18 @@ body {
   border-radius: 100px;
 }
 
-.margin-top-30 {
+/* .margin-top-30 {
   margin-top: 20vh;
+} */
+
+.margin-top-30 {
+  margin-top: 30vh;
+}
+
+.font-arial-black {
+  font-family: 'Arial Black'
+}
+
+.font-latin {
+  font-family: 'latin'
 }
