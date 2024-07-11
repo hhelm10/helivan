@@ -180,9 +180,10 @@ body {
 
 .slideshow-container {
   margin: auto;
+  margin-bottom: 5%;
   position: relative;
-  width: 1000px;
-  height: 450px;
+  width: 75vw;
+  height: 73vh;
   overflow: hidden;
 }
 
@@ -1257,4 +1258,45 @@ body {
 }
 .text-blue-6 {
   color: #0A2245;
+}
+
+.static-header {
+  position: sticky;
+  top:0;
+  padding:20px;
+  background: #213C66;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.float-right {
+  float: right;
+}
+
+.word-spacing-20pt {
+  word-spacing:20pt;
+}
+
+.section::-webkit-scrollbar {
+  width: 10px;
+}
+
+.section::-webkit-scrollbar-track {
+  background-color: #9ca3af;
+  border-radius: 100px;
+}
+
+.section::-webkit-scrollbar-thumb {
+  background-color: #213C66;
+  border-radius: 100px;
+}
+
+.margin-top-30 {
+  margin-top: 20vh;
 }

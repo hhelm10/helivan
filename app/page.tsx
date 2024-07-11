@@ -1,3 +1,4 @@
+'use client'
 import path from "path";
 import fs from "fs";
 import Landing from "@/components/landing";
