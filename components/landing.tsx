@@ -29,10 +29,10 @@ export default function Landing() {
             <div className="text-2xl text-blue-4 italic mt-4">
                 <center> <p> principled statistics, next-gen applications </p> </center>
             </div>
-            <div className="mt-2text-xl text-blue-4 text-center">
+            <div className="mt-4 text-xl text-blue-4 text-center">
              <p> In collaboration with </p>
             </div>
-            <div className="mt-4 flex flex-row items-center justify-center gap-50">
+            <div className="mt-2 flex flex-row items-center justify-center gap-50">
                 <img src={"/msr_logo.png"} width='225px'/>
                 <img src={"/nomic_dark_logo.png"} width='120px'/>
                 <img src={"/jhu-logo.png"} width='425px'/>
