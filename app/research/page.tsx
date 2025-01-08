@@ -108,21 +108,21 @@ export function getHTML(index, slideIndex) {
     return (
         <div 
         key={index} 
-        className={`slide ${index === slideIndex ? 'active' : ''} overflow-auto section`}
+        className={`slide ${index === slideIndex ? 'active' : ''} overflow-auto section background-blue-1 text-blue-4 font-deja-vu`}
         > 
-            <div className="text-blue-6 text-4xl italic">
+            <div className="text-4xl italic">
               <p><b> {title} </b></p>
             </div>
-            <div className="text-blue-6 text-2xl mt-2 flex inline">
+            <div className="text-2xl mt-2 flex inline">
               <p>Technical write-up: <u><i><a href={arxiv}> {arxiv_title}</a> </i></u></p>
             </div>
             <div className="mt-6 flex justify-center">
               <img src={image} style={{'height': '300px'}}/>
             </div>
-            <div className="text-blue-6 text-xl mt-8">
+            <div className="text-xl mt-8">
                 <p>{snippet}</p>
             </div>
-            <div className="text-blue-6 text-xl mt-4 italic">
+            <div className="text-xl mt-4 italic">
                 <p> <b>TLDR:</b> {tldr}
                 </p>
                 <br></br>
@@ -177,22 +177,23 @@ export default async function Projects() {
     return (
     <div>
       <div className="static-header">
-        <p className='text-blue-1 text-bold text-4xl font-arial-black'> <a href="/"> HLVN// </a>
-          <span className="float-right word-spacing-20pt font-latin">
-              {/* <a href="/about"> 
-              <span className="text-xl text-blue-1 text-bold"> About</span>
-              </a> */}
-              <a href="/projects"> 
-              <span className="text-xl text-blue-1 text-bold"> Projects</span>
-              </a>
-              <a href="/contact"> 
-              <span className="text-xl text-blue-1 text-bold"> Contact</span>
-              </a>
-            </span>
-          </p>
+        <div> <a href="/"> <img src={"/favicon.png"} width='3.4%'/> </a> </div>
+        <div className="text-blue-4 text-2xl float-right word-spacing-20pt font-impact center-vertical">
+            <a href="/claros"> 
+                <span> claros</span>
+            </a>
+            <a href="/explore"> 
+                <span> explore</span>
+            </a>
+            <a href="/research"> 
+                <span className="text-4xl"> research</span>
+            </a>
+            <a href="/about"> 
+                <span> about</span>
+            </a>
         </div>
+      </div>
       <div className="mt-8"><Slideshow/></div>
     </div>
     );
 }
-

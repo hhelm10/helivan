@@ -4,39 +4,42 @@ import Link from "next/link";
 
 export default function Landing() {    
     return (
-        <div>
-            <div className="static-header">
-              <p className='text-blue-1 text-bold text-4xl font-arial-black'> <a href="/"> HLVN// </a>
-                <span className="float-right word-spacing-20pt font-latin">
-                    {/* <a href="/about"> 
-                    <span className="text-xl text-blue-1 text-bold"> About</span>
-                    </a> */}
-                    <a href="/projects"> 
-                    <span className="text-xl text-blue-1 text-bold"> Projects</span>
+    <div>
+        <div className="static-header">
+            <div> <a href="/"> <img src={"/logo-v2.png"} width='11%'/> </a> </div>
+                <div className="text-2xl text-blue-4 float-right word-spacing-20pt font-impact center-vertical">
+                    <a href="/claros"> 
+                        <span> claros</span>
                     </a>
-                    <a href="/contact"> 
-                    <span className="text-xl text-blue-1 text-bold"> Contact</span>
+                    <a href="/explore"> 
+                        <span> explore</span>
                     </a>
-                </span>
-              </p>
+                    <a href="/research"> 
+                        <span> research</span>
+                    </a>
+                    <a href="/about"> 
+                        <span> about</span>
+                    </a>
+                </div>
             </div>
-            <div className="text-8xl text-blue-6">
-                <center><p> Helivan // Research</p></center>
-            </div> 
-            <div className="items-center justify-center mt-6">
-                <center> <img src={"/general.svg"} width='25%'/> </center>
+            <div className="font-deja-vu text-2xl text-blue-1" style={{marginTop: '3rem', textAlign: 'left'}}>
+                <p style={{marginLeft:'5%', marginRight:'5%'}}> A digital twin is a virtual construct of a physical or social object that sufficiently captures the behavior of the physical / social object.</p>
+                <p className="mt-6" style={{marginLeft:'25%',marginRight:'5%'}}> At Helivan, we combine the capabilities of modern language models and dynamic data streams to develop and study digital twins of groups of individuals – such as U.S. Congress. </p>
+                <p className="mt-6" style={{marginLeft:'45%',marginRight:'5%'}}>While only approximations of the groups of individuals, our digital twins provide insights into topic-specific perspectives of each individual and are oftentimes capable of predicting actions of the physical / social object. </p>
+                <p className="mt-6 font-bold" style={{textAlign: 'right', marginLeft:'65%',marginRight:'5%'}}>ask. explore. interact. predict. improve. </p>
+                <p className="mt-6" style={{textAlign: 'right', marginLeft:'65%',marginRight:'5%'}}>coming soon. </p>
+
             </div>
-            <div className="text-2xl text-blue-4 italic mt-4">
-                <center> <p> principled statistics, next-gen applications </p> </center>
+            <div className="flex flex-row items-center justify-center"style={{marginTop: '6rem'}}>
+                <img src="/digital_twin_gif_3_seconds.gif" alt="digital-twin-cycle"  width="65%"/>
             </div>
-            <div className="mt-4 text-xl text-blue-4 text-center">
-             <p> In collaboration with </p>
+            <div className="font-deja-vu text-4xl text-blue-1 text-center" style={{marginTop: '3rem'}}> 
+                <p> In collaboration with </p>
             </div>
-            <div className="mt-2 flex flex-row items-center justify-center gap-50">
-                <img src={"/msr_logo.png"} width='225px'/>
-                <img src={"/nomic_dark_logo.png"} width='120px'/>
-                <img src={"/jhu-logo.png"} width='425px'/>
-                <img src={"/Palate_Logo.png"} width='200px'/>
+            <div className="background-blue-1 mt-2 flex flex-row items-center justify-center gap-50">
+                <img src={"/msr_logo.png"} width='20%'/>
+                <img src={"/nomic_dark_logo.png"} width='20%'/>
+                <img src={"/jhu-logo.png"} width='20%'/>
             </div>
         </div>
     )

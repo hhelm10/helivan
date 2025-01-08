@@ -1,21 +1,30 @@
 export default async function About() {
     return (
     <div>
-        <div className="static-header">
-            <p className='text-blue-1 text-bold text-4xl font-arial-black'> <a href="/"> HLVN// </a>
-            <span className="float-right word-spacing-20pt font-latin">
-                {/* <a href="/about"> 
-                <span className="text-xl text-blue-1 text-bold"> About</span>
-                </a> */}
-                <a href="/projects"> 
-                <span className="text-xl text-blue-1 text-bold"> Projects</span>
-                </a>
-                <a href="/contact"> 
-                <span className="text-xl text-blue-1 text-bold"> Contact</span>
-                </a>
-            </span>
-            </p>
+       <div className="static-header">
+        <div> 
+            <a href="/"> <img src={"/favicon.png"} width='3.4%'/> </a>
         </div>
+        <div className="text-blue-4 text-2xl float-right word-spacing-20pt font-impact center-vertical">
+            <a href="/claros"> 
+                <span> claros</span>
+            </a>
+            <a href="/explore"> 
+                <span> explore</span>
+            </a>
+            <a href="/research"> 
+                <span> research</span>
+            </a>
+            <a href="/about"> 
+                <span className="text-4xl"> about</span>
+            </a>
+        </div>
+      </div>
+        <div className="text-xl text-blue-1 text-center margin-top-30 text-deja-vu">
+            <p className="text-4xl text-bold"> Contact Us //</p>
+            <p> for questions & comments on projects, collaboration opportunities, and general inquiries</p>
+            <p> email us: info@helivan.io.</p>
+    </div>
     </div>
     );
 }

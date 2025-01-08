@@ -10,8 +10,6 @@
   }
 } */
 
-
-
 @layer utilities {
   .euclid-blue {
     color: #006895;
@@ -30,7 +28,7 @@ html {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: #fdf6e8;
+  background: #342810;
 }
 
 /**************************************************
@@ -1078,7 +1076,7 @@ html {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: #E0EDFF;
+  background: #213C66;
 }
 
 /**************************************************
@@ -1260,12 +1258,18 @@ body {
   color: #0A2245;
 }
 
+.background-blue-1 {
+  background-color: #E0EDFF;
+}
+
 .static-header {
   position: sticky;
   top:0;
-  padding:20px;
-  background: #213C66;
-  width: 100wh;
+  padding:0.75%;
+  background: #E0EDFF;
+  width: 100%;
+  display: inline-block;
+  white-space:nowrap
 }
 
 .text-left {
@@ -1280,6 +1284,12 @@ body {
   float: right;
 }
 
+.center-vertical {
+  position: absolute;
+  top:40%;
+  right: 2%
+}
+
 .word-spacing-20pt {
   word-spacing:20pt;
 }
@@ -1289,12 +1299,12 @@ body {
 }
 
 .section::-webkit-scrollbar-track {
-  background-color: #9ca3af;
+  background-color: #0A2245;
   border-radius: 100px;
 }
 
 .section::-webkit-scrollbar-thumb {
-  background-color: #213C66;
+  background-color: #93AACC;
   border-radius: 100px;
 }
 
@@ -1312,4 +1322,16 @@ body {
 
 .font-latin {
   font-family: 'latin'
+}
+
+.font-impact {
+  font-family: 'impact'
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.font-deja-vu {
+  font-family: 'DejaVu Sans Mono'
 }
