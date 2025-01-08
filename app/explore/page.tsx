@@ -177,8 +177,7 @@ export default async function Projects() {
     return (
     <div>
       <div className="static-header">
-        <div 
-            className='text-blue-1 text-bold text-4xl font-arial-black'> <a href="/"> <img src={"/favicon.png"} width='3.4%'/> </a>
+        <div> <a href="/"> <img src={"/favicon.png"} width='85rem'/> </a>
         </div>
         <div className="text-blue-4 text-2xl float-right word-spacing-20pt font-impact center-vertical">
             <a href="/claros"> 

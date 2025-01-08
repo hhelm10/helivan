@@ -6,7 +6,7 @@ export default function Landing() {
     return (
     <div>
         <div className="static-header">
-            <div> <a href="/"> <img src={"/logo-v2.png"} width='11%'/> </a> </div>
+            <div> <a href="/"> <img src={"/logo-v2.png"} width='250rem'/> </a> </div>
                 <div className="text-2xl text-blue-4 float-right word-spacing-20pt font-impact center-vertical">
                     <a href="/claros"> 
                         <span> claros</span>

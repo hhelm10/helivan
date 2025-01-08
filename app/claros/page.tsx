@@ -3,10 +3,10 @@
 export default async function Claros() {
     return (
     <div>
-      <div className="static-header text-blue-4 text-2xl">
-        <div> <a href="/"> <img src={"/favicon.png"} width='3.4%'/> </a>
+      <div className="static-header text-blue-4">
+        <div> <a href="/"> <img src={"/favicon.png"} width='85rem'/> </a>
         </div>
-        <div className="float-right word-spacing-20pt font-impact center-vertical">
+        <div className="text-2xl float-right word-spacing-20pt font-impact center-vertical">
             <a href="/claros"> 
                 <span className="text-4xl"> claros</span>
             </a>
