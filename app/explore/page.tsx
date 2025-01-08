@@ -177,21 +177,21 @@ export default async function Projects() {
     return (
     <div>
       <div className="static-header">
-        <div> <a href="/"> <img src={"/favicon.png"} width='85rem'/> </a>
+        <div> <a href="/"> <img src={"/favicon.png"} width='67rem'/> </a>
         </div>
         <div className="text-blue-4 text-2xl float-right word-spacing-20pt font-impact center-vertical">
             <a href="/claros"> 
                 <span> claros</span>
             </a>
             <a href="/explore"> 
-                <span className="text-4xl"> explore</span>
+                <span style={{fontSize:'2rem'}}> explore</span>
             </a>
             <a href="/research"> 
                 <span> research</span>
             </a>
-            <a href="/about"> 
+            {/* <a href="/about"> 
                 <span> about</span>
-            </a>
+            </a> */}
         </div>
       </div>
       <div className="text-xl text-blue-1 text-center margin-top-30 font-deja-vu">

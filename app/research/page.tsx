@@ -1,10 +1,58 @@
 'use client'
 import { useState, useRef, useEffect } from "react";
 
-const meta0 = 
+const meta10 = 
 {
-    title: 'Towards a digital twin for society //',
-    arxiv: 'https://arxiv.org/abs/2406.11938',
+    title: 'A collection of language models is a digital twin of a social system //',
+    arxiv: '',
+    arxiv_title: 'coming soon',
+    snippet: `A digital twin of complex social systems will enable detailed analysis and valuable inferences related to the behaviors, opinions, and dynamics of the individuals and sub-
+              systems therein. In this paper we demonstrate that modern language models and currently available data streams are sufficient for constructing a digital twin of U.S. congresspersons. The digital twin
+              of U.S. congresspersons can be used to predict roll-call voting behavior and to quantify the likelihood of a congressperson to cross party lines. Our work is the first to demonstrate that a collection of language models can go beyond generic human-like
+              behavior and reasonably satisfy the definition of a digital twin.`,
+    tldr: `A collection of language models can reasonably satisfy the National Academy's defintion of a digital twin.`,
+    image: 'digital_twin_diagram.png'
+};
+
+const meta9 = 
+{
+    title: 'Simulating social mirroring with generative models //',
+    arxiv: 'https://arxiv.org/abs/2412.06834',
+    arxiv_title: 'Investigating social alignment via mirroring in a system of interacting language models',
+    snippet: `Studying how groups form and evolve is a critical component of sociology. Historically, experiments investigating social dynamics have been difficult to conduct repeatedly and at scale.
+This is especially true when attempting to study the effect of a particular social mechanism.
+We present a simple framework of interacting agents that isolates the effect of social mirroring on alignment -- an important topic given the recent growth of self-censorship and polarization.
+Our findings demonstrate that mirroring, despite being a crucial component of human socialization, can significantly impede a population's capacity to reach consensus.
+Further, the similarity of our observations and known social dynamics supports the use of systems of generative agents for understanding group formation and dynamics.`,
+    tldr: 'A system of interacting language models can readily demonstrate social behaviors previously observed in human populations.',
+    image: 'pnas_plot.png'
+};
+
+const meta8 = 
+{
+    title: 'Classification and regression of black-box generative models //',
+    arxiv: 'https://arxiv.org/abs/2410.01106',
+    arxiv_title: 'Embedding-based statistical inference on generative models',
+    snippet: ``,
+    tldr: 'The data kernel perspective space principled and effective representations of generative models for model-level inference.',
+    image: 'classification.png'
+};
+
+const meta7 = 
+{
+    title: 'Establishing the consistency of vector representations of black-box generative models //',
+    arxiv: 'https://arxiv.org/abs/2409.17308',
+    arxiv_title: 'Consistent estimation of generative model representations in the data kernel perspective space',
+    snippet: ``,
+    tldr: 'The data kernel perspective space is consistent for its population counterpart in regimes with growing number of replicates, queries, and models.',
+    image: 'consistency.png'
+};
+
+
+const meta6 = 
+{
+    title: 'Quantitatively tracking model interactions and dynamics //',
+    arxiv: 'https://aclanthology.org/2024.emnlp-main.90',
     arxiv_title: 'Tracking the perspectives of interacting language models',
     snippet: `Insofar as a single generative AI model is an appropriate proxy for a single human, a collection of genAI models can be considered a proxy for a community.
     While there are necessary precautions to take before claiming any particular simulation result on a collection of models generalizes to human society, in this work we develop a framework and complementary tool to systematically study the effect of interventions and community structure on the evolution of individuals and the entire system.
@@ -13,7 +61,7 @@ const meta0 =
     image: 'general.svg'
 };
 
-const meta1 =
+const meta5 =
 {
     title: 'Comparing GenAI to Humans //',
     arxiv: 'https://arxiv.org/abs/2309.08913',
@@ -27,7 +75,7 @@ const meta1 =
     image: 'empirical-risks-and-tau-undetectability.png'
 };
 
-const meta2 =
+const meta4 =
 {
     title: 'Testing the robustness of GenAI //',
     arxiv: 'https://arxiv.org/abs/2406.06573',
@@ -55,7 +103,7 @@ const meta3 =
 
   }
 
-  const meta4 =
+  const meta2 =
   {
     title: 'Reducing calibration time for wearables //',
     arxiv: 'https://www.mdpi.com/2227-7390/12/5/746',
@@ -69,7 +117,7 @@ const meta3 =
     image: `/illustrative-figure-tfld-3d-no-axes.PNG`
   };
 
-  const meta5 =
+  const meta1 =
   {
     title: 'Signal processing meets statistical network analysis for BCI //',
     arxiv: 'https://www.frontiersin.org/articles/10.3389/fnhum.2022.930291/full',
@@ -82,7 +130,7 @@ const meta3 =
     image: '/Hayden_BCI_Flow_1920px_1080px_nobg_v2_4x.png'
   };
 
-  const meta6 =
+  const meta0 =
   {
     title: 'Finding the right number of participants //',
     arxiv: 'N/A',
@@ -95,7 +143,7 @@ const meta3 =
     image: '/sample-size-calculator.jpg'
   };
 
-const slides = [meta0, meta1, meta2, meta3, meta4, meta5, meta6];
+const slides = [meta10, meta9, meta8, meta7, meta6, meta5, meta4, meta3];
 const delay = 10000;
 
 export function getHTML(index, slideIndex) {
@@ -110,7 +158,7 @@ export function getHTML(index, slideIndex) {
         key={index} 
         className={`slide ${index === slideIndex ? 'active' : ''} overflow-auto section background-blue-1 text-blue-4 font-deja-vu`}
         > 
-            <div className="text-4xl italic">
+            <div className="text-4xl mt-4">
               <p><b> {title} </b></p>
             </div>
             <div className="text-2xl mt-2 flex inline">
@@ -177,7 +225,7 @@ export default async function Projects() {
     return (
     <div>
       <div className="static-header">
-        <div> <a href="/"> <img src={"/favicon.png"} width='85rem'/> </a> </div>
+        <div> <a href="/"> <img src={"/favicon.png"} width='67rem'/> </a> </div>
         <div className="text-blue-4 text-2xl float-right word-spacing-20pt font-impact center-vertical">
             <a href="/claros"> 
                 <span> claros</span>
@@ -186,12 +234,20 @@ export default async function Projects() {
                 <span> explore</span>
             </a>
             <a href="/research"> 
-                <span className="text-4xl"> research</span>
+                <span style={{fontSize:'2rem'}}> research</span>
             </a>
-            <a href="/about"> 
+            {/* <a href="/about"> 
                 <span> about</span>
-            </a>
+            </a> */}
         </div>
+      </div>
+      <div className="text-xl text-blue-1 font-deja-vu" style={{textAlign: 'left', marginLeft:'12.5%',marginRight:'35%'}}>
+      <p className=" text-2xl mt-2"><u> Broad vision. </u></p>
+        <p> At Helivan we believe that collections of generative models -- not just a single generative model -- will pervade everyone's social, domestic, and professional lives. 
+          These models will be embedded on a user's devices and have access to sensitive information. In some cases, these models will act as an extension of the user and will be able to sufficiently approximate their actions in a given context.
+        </p>
+        <p className="mt-6">As such, our research is focused on developing statistical methods and data analysis tools for comparing generative models in different accessibility regimes in the absence of an explicit task, for tracking the dynamics of models as they interact with each other and their environments, for understanding the relationship between machine-generated content and human-generated content, and for evaluating and addressing model robustness.</p>          
+        <p className="mt-6">Our research has allowed us to be the first to provide statistical evidence that a collection of appropriately defined language models is a "digital twin" for a social system. </p>
       </div>
       <div className="mt-8"><Slideshow/></div>
     </div>

@@ -15,9 +15,9 @@ export default async function About() {
             <a href="/research"> 
                 <span> research</span>
             </a>
-            <a href="/about"> 
-                <span className="text-4xl"> about</span>
-            </a>
+            {/* <a href="/about"> 
+                <span style={{fontSize:'2rem'}}> about</span>
+            </a> */}
         </div>
       </div>
         <div className="text-xl text-blue-1 text-center margin-top-30 text-deja-vu">
