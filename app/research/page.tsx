@@ -242,14 +242,22 @@ export default async function Projects() {
         </div>
       </div>
       <div className="text-xl text-blue-1 font-deja-vu" style={{textAlign: 'left', marginLeft:'12.5%',marginRight:'35%'}}>
-      <p className=" text-2xl mt-2"><u> Broad vision. </u></p>
-        <p> At Helivan we believe that collections of generative models -- not just a single generative model -- will pervade everyone's social, domestic, and professional lives. 
+      <p className=" text-4xl mt-2"><u> Broad vision. </u></p>
+        <p className="mt-2"> At Helivan we believe that collections of generative models -- not just a single generative model -- will pervade everyone's social, domestic, and professional lives. 
           These models will be embedded on a user's devices and have access to sensitive information. In some cases, these models will act as an extension of the user and will be able to sufficiently approximate their actions in a given context.
         </p>
         <p className="mt-6">As such, our research is focused on developing statistical methods and data analysis tools for comparing generative models in different accessibility regimes in the absence of an explicit task, for tracking the dynamics of models as they interact with each other and their environments, for understanding the relationship between machine-generated content and human-generated content, and for evaluating and addressing model robustness.</p>          
         <p className="mt-6">Our research has allowed us to be the first to provide statistical evidence that a collection of appropriately defined language models is a "digital twin" for a social system. </p>
       </div>
       <div className="mt-8"><Slideshow/></div>
+      <div className="font-deja-vu text-4xl text-blue-1 text-center" style={{marginTop: '3rem'}}> 
+                <p> In collaboration with </p>
+            </div>
+            <div className="background-blue-1 mt-2 flex flex-row items-center justify-center gap-50">
+                <img src={"/msr_logo.png"} width='20%'/>
+                <img src={"/nomic_dark_logo.png"} width='20%'/>
+                <img src={"/jhu-logo.png"} width='20%'/>
+            </div>
     </div>
     );
 }
