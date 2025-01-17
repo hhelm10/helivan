@@ -225,16 +225,16 @@ export default async function Projects() {
     return (
     <div>
       <div className="static-header">
-        <div> <a href="/"> <img src={"/favicon.png"} width='67rem'/> </a> </div>
+        <div> <a href="/"> <img src={"/favicon.svg"} width='67rem'/> </a> </div>
         <div className="text-blue-4 text-2xl float-right word-spacing-20pt font-impact center-vertical">
-            <a href="/claros"> 
+            {/* <a href="/claros"> 
                 <span> claros</span>
             </a>
             <a href="/explore"> 
                 <span> explore</span>
-            </a>
+            </a> */}
             <a href="/research"> 
-                <span style={{fontSize:'2rem'}}> research</span>
+                <span> research</span>
             </a>
             {/* <a href="/about"> 
                 <span> about</span>
@@ -242,7 +242,7 @@ export default async function Projects() {
         </div>
       </div>
       <div className="text-xl text-blue-1 font-deja-vu" style={{textAlign: 'left', marginLeft:'12.5%',marginRight:'35%'}}>
-      <p className=" text-4xl mt-2"><u> Broad vision. </u></p>
+      <p className=" text-2xl mt-2"><u> Broad vision. </u></p>
         <p className="mt-2"> At Helivan we believe that collections of generative models -- not just a single generative model -- will pervade everyone's social, domestic, and professional lives. 
           These models will be embedded on a user's devices and have access to sensitive information. In some cases, these models will act as an extension of the user and will be able to sufficiently approximate their actions in a given context.
         </p>
