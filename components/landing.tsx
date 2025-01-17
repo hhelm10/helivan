@@ -22,7 +22,7 @@ export default function Landing() {
                 </a> */}
             </div>
         </div>
-            <div className="font-deja-vu text-2xl text-blue-1" style={{marginTop:'3rem', marginRight:'15%',marginLeft:'15%'}}>
+            <div className="font-deja-vu text-2xl text-blue-1" style={{marginTop:'3rem', marginRight:'5%',marginLeft:'5%'}}>
                 {/* <p style={{marginLeft:'5%', marginRight:'5%'}}> A digital twin is a virtual construct of a physical or social object that sufficiently captures the behavior of the physical / social object.</p>
                 <p className="mt-6" style={{marginLeft:'25%',marginRight:'5%'}}> At Helivan, we combine the capabilities of modern language models and dynamic data streams to develop and study digital twins of groups of individuals – such as U.S. Congress. </p>
                 <p className="mt-6" style={{marginLeft:'45%',marginRight:'5%'}}>While only approximations of the groups of individuals, our digital twins provide insights into topic-specific perspectives of each individual and are oftentimes capable of predicting actions of the physical / social object. </p>
@@ -42,7 +42,7 @@ export default function Landing() {
             <div className="flex flex-row items-center justify-center circle" style={{padding: '1rem', marginTop: '4rem'}}>
                 <img className="" src="/favicon.svg" alt="favicon"  width="10%"/>
             </div>
-            <div className="flex flex-row items-center justify-center"style={{marginTop: '6rem', marginBottom: '3rem'}}>
+            <div className="flex flex-row items-center justify-center circle"style={{marginTop: '0rem', paddingBottom: '3rem'}}>
                 <img src="/digital_twin_gif_3_seconds.gif" alt="digital-twin-cycle"  width="65%"/>
             </div>
         </div>
