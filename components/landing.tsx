@@ -4,47 +4,54 @@ import Link from "next/link";
 
 export default function Landing() {    
     return (
-    <div>
-        <div className="static-header">
-            <div> <a href="/"> <img src={"/logo-v2.png"} width='202rem'/> </a> </div>
-            <div className="text-2xl text-blue-4 float-right word-spacing-20pt font-impact center-vertical">
-                {/* <a href="/claros"> 
-                    <span> claros</span>
-                </a>
-                <a href="/explore"> 
-                    <span> explore</span>
-                </a> */}
-                <a href="/research"> 
-                    <span> research</span>
-                </a>
-                {/* <a href="/about"> 
-                    <span> about</span>
-                </a> */}
+    <div className="min-h-[200vh] w-[100vw]" style={{backgroundColor: '#e0edff'}}>
+        <div className="flex flex-col items-center justify-start pt-[25vh]">
+            <div>
+                 <a href="/"> <img src={"/logo-v2.png"} className="w-[300px] sm:w-[400px]"/> </a> 
+            </div>
+            <div className="mt-8">
+                <h2 className="text-xl text-blue-4 text-center italic">Digital Twins for Social Systems</h2>
+            </div>
+            <div className="mt-4">
+                <h2 className="text-l text-blue-4 text-center">info@helivan.io</h2>
+            </div>
+
+        </div>
+
+        <div className="w-full max-w-6xl mx-auto px-4 py-16 flex items-center justify-center">
+            <div className="flex flex-col sm:flex-row overflow-x-auto gap-6 pb-4 snap-x snap-mandatory">
+                <div className="flex-shrink-0 w-80 snap-center">
+                    <Link href="https://arxiv.org/abs/2412.06834">
+                        <div className="bg-white p-6 rounded-lg shadow-lg h-full hover:shadow-[rgb(33,60,102)] transition-shadow">
+                            <h3 className="font-semibold text-lg mb-2">Investigating Social Alignment in Interacting Language Models</h3>
+                            <p className="text-gray-600 text-sm"></p>
+                            <div className="mt-4 text-sm text-blue-4">Read More →</div>
+                        </div>
+                    </Link>
+                </div>
+
+                <div className="flex-shrink-0 w-80 snap-center">
+                    <Link href="https://aclanthology.org/2024.emnlp-main.90/">
+                        <div className="bg-white p-6 rounded-lg shadow-lg h-full hover:shadow-[rgb(33,60,102)] transition-shadow">
+                            <h3 className="font-semibold text-lg mb-2">Tracking the Perspectives of Interacting Language Models</h3>
+                            <p className="text-gray-600 text-sm"></p>
+                            <div className="mt-4 text-sm text-blue-4">Read More →</div>
+                        </div>
+                    </Link>
+                </div>
+
+                <div className="flex-shrink-0 w-80 snap-center">
+                    <Link href="https://arxiv.org/abs/2309.08913">
+                        <div className="bg-white p-6 rounded-lg shadow-lg h-full hover:shadow-[rgb(33,60,102)] transition-shadow">
+                            <h3 className="font-semibold text-lg mb-2">A Statistical Turing Test for Generative Models</h3>
+                            <p className="text-gray-600 text-sm"></p>
+                            <div className="mt-4 text-sm text-blue-4">Read More →</div>
+                        </div>
+                    </Link>
+                </div>
             </div>
         </div>
-            <div className="font-deja-vu text-2xl text-blue-1" style={{marginTop:'3rem', marginRight:'5%',marginLeft:'5%'}}>
-                {/* <p style={{marginLeft:'5%', marginRight:'5%'}}> A digital twin is a virtual construct of a physical or social object that sufficiently captures the behavior of the physical / social object.</p>
-                <p className="mt-6" style={{marginLeft:'25%',marginRight:'5%'}}> At Helivan, we combine the capabilities of modern language models and dynamic data streams to develop and study digital twins of groups of individuals – such as U.S. Congress. </p>
-                <p className="mt-6" style={{marginLeft:'45%',marginRight:'5%'}}>While only approximations of the groups of individuals, our digital twins provide insights into topic-specific perspectives of each individual and are oftentimes capable of predicting actions of the physical / social object. </p>
-                <p className="mt-6 font-bold" style={{textAlign: 'right', marginLeft:'65%',marginRight:'5%'}}>ask. explore. interact. predict. improve. </p>
-                <p className="mt-6" style={{textAlign: 'right', marginLeft:'65%',marginRight:'5%'}}>coming soon. </p> */}
-                <p className="text-4xl" style={{textAlign:'center'}}><b> {">>"} we are building a digital twin of social systems w LLMs. {"<<"}
-                </b></p>
-                <p style={{textAlign:'left', marginTop:'0rem'}}><b>ask</b> relevant questions.</p>
-                <p style={{textAlign:'right'}}><b>explore</b> the geometry of opinions.</p>
-                <p style={{textAlign:'left'}}><b>interact</b> with impactful individuals.</p>
-                <p style={{textAlign:'right'}}><b>predict</b> individual and aggregate behavior.</p>
-                <p style={{textAlign:'left'}}><b>improve</b> resource allocation for real-network interventions.</p>
-                <p className="mt-6" style={{textAlign:'right'}}> coming soon.</p>
-                <p style={{textAlign:'right', marginTop:'-1.25rem'}}> email us: info@helivan.io.</p>
-            </div>
-            
-            <div className="flex flex-row items-center justify-center circle" style={{padding: '1rem', marginTop: '4rem'}}>
-                <img className="" src="/favicon.svg" alt="favicon"  width="10%"/>
-            </div>
-            <div className="flex flex-row items-center justify-center circle"style={{marginTop: '0rem', paddingBottom: '3rem'}}>
-                <img src="/digital_twin_gif_3_seconds.gif" alt="digital-twin-cycle"  width="65%"/>
-            </div>
-        </div>
+
+    </div>
     )
 }
