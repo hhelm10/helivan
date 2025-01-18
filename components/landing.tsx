@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Landing() {    
     return (
-    <div className="min-h-[200vh] w-[100vw]" style={{backgroundColor: '#e0edff'}}>
+    <div className="min-h-[100vh] w-[100vw]" style={{backgroundColor: '#e0edff'}}>
         <div className="flex flex-col items-center justify-start pt-[25vh]">
             <div>
                  <a href="/"> <img src={"/logo-v2.png"} className="w-[300px] sm:w-[400px]"/> </a> 
