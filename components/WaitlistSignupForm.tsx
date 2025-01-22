@@ -42,7 +42,12 @@ export const WaitlistSignupForm = ({ onCancel }: { onCancel: () => void }) => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            style={{ height: "34px", width: "300px", borderRadius: "4px" }}
+            style={{
+              height: "34px",
+              width: "300px",
+              borderRadius: "4px",
+              paddingLeft: "8px",
+            }}
             required
           />
         </div>
@@ -51,7 +56,12 @@ export const WaitlistSignupForm = ({ onCancel }: { onCancel: () => void }) => {
           <input
             value={organizationName}
             onChange={(e) => setOrganizationName(e.target.value)}
-            style={{ height: "34px", width: "300px", borderRadius: "4px" }}
+            style={{
+              height: "34px",
+              width: "300px",
+              borderRadius: "4px",
+              paddingLeft: "8px",
+            }}
             required
           />
         </div>
