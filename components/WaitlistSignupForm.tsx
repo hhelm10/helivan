@@ -1,6 +1,9 @@
+"use client";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export const WaitlistSignupForm = ({ onCancel }: { onCancel: () => void }) => {
+export const WaitlistSignupForm = () => {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [organizationName, setOrganizationName] = useState("");
   const [status, setStatus] = useState<
@@ -35,9 +38,28 @@ export const WaitlistSignupForm = ({ onCancel }: { onCancel: () => void }) => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <div
+        style={{
+          justifyContent: "center",
+          display: "flex",
+          width: "100%",
+          fontSize: "20px",
+          marginBottom: "12px",
+          color: "white",
+        }}
+      >
+        join waitlist
+      </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-          <p>Email</p>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "4px",
+            color: "white",
+          }}
+        >
+          <p>email</p>
           <input
             type="email"
             value={email}
@@ -47,12 +69,20 @@ export const WaitlistSignupForm = ({ onCancel }: { onCancel: () => void }) => {
               width: "300px",
               borderRadius: "4px",
               paddingLeft: "8px",
+              color: "black",
             }}
             required
           />
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-          <p>Organization name</p>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "4px",
+            color: "white",
+          }}
+        >
+          <p>org/affiliation</p>
           <input
             value={organizationName}
             onChange={(e) => setOrganizationName(e.target.value)}
@@ -61,6 +91,7 @@ export const WaitlistSignupForm = ({ onCancel }: { onCancel: () => void }) => {
               width: "300px",
               borderRadius: "4px",
               paddingLeft: "8px",
+              color: "black",
             }}
             required
           />
@@ -76,30 +107,31 @@ export const WaitlistSignupForm = ({ onCancel }: { onCancel: () => void }) => {
           <button
             style={{
               padding: "6px",
-              color: "#213C66",
               borderRadius: "4px",
+              color: "white",
             }}
-            type="submit"
             disabled={status === "loading"}
-            onClick={onCancel}
+            onClick={() => router.push("/")}
           >
-            Cancel
+            back
           </button>
           <button
             style={{
               padding: "6px",
-              color: "white",
               borderRadius: "4px",
-              backgroundColor: "#213C66",
+              color: "#213C66",
+              backgroundColor: "white",
             }}
             type="submit"
             disabled={status === "loading"}
           >
-            {status === "loading" ? "Signing up..." : "Sign up"}
+            {status === "loading" ? "joining..." : "join"}
           </button>
         </div>
-        {status === "success" && <p>You are on the waitlist!</p>}
-        {status === "error" && <p>Something went wrong. Please try again.</p>}
+        {status === "success" && (
+          <p style={{ color: "white" }}>you are on the waitlist! 🤙</p>
+        )}
+        {status === "error" && <p>something went wrong. please try again.</p>}
       </div>
     </form>
   );

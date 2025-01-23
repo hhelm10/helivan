@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { useState } from "react";
 import { WaitlistSignupForm } from "./WaitlistSignupForm";
+import { useRouter } from "next/navigation";
 
 export default function Landing() {
-  const [showWaitlistForm, setShowWaitlistForm] = useState<boolean>(false);
+  const router = useRouter();
 
   return (
     <div
@@ -33,13 +34,10 @@ export default function Landing() {
             borderRadius: "4px",
             backgroundColor: "#213C66",
           }}
-          onClick={() => setShowWaitlistForm(true)}
+          onClick={() => router.push("/waitlist")}
         >
           Join waitlist
         </button>
-        {showWaitlistForm && (
-          <WaitlistSignupForm onCancel={() => setShowWaitlistForm(false)} />
-        )}
       </div>
 
       <div className="w-full max-w-6xl mx-auto px-4 py-16 flex items-center justify-center">
