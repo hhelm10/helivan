@@ -9,7 +9,7 @@ export default function Header() {
       >
         // HELIVAN
       </Link>
-      Link
+
       <div className="flex flex-row items-center space-x-6">
         <Link
           href="/research"

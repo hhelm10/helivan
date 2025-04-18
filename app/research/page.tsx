@@ -3,6 +3,158 @@ import { Footer } from "@/components/footer";
 import Header from "@/components/header";
 import { FadeIn } from "@/components/NewLanding";
 
+export default async function Research() {
+  const articles = [
+    {
+      url: "https://arxiv.org/abs/2410.01106",
+      title:
+        "Statistical inference on black-box generative models in the data kernel perspective space",
+      num: "01",
+      subtitle:
+        "We provide theoretical and empirical support for predicting the behavior of generative models using vector representations of population of models.",
+    },
+    {
+      url: "https://arxiv.org/abs/2412.06834",
+      title:
+        "Investigating social alignment via mirroring in a system of interacting language models",
+      num: "02",
+      subtitle:
+        'We investigate the effect of a simple "mirroring" mechanism on the dynamics of a system of interacting language models.',
+    },
+    {
+      url: "https://arxiv.org/abs/2409.17308",
+      title:
+        "Consistent estimation of generative model representations in the data kernel perspective space",
+
+      num: "03",
+      subtitle:
+        "We provide theoretical support for using vector representations of populations of generative model.",
+    },
+  ];
+  return (
+    <div className="flex w-full min-h-screen bg-[#090F20] flex-col">
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Three beams with exact specified properties but different heights and positions */}
+        <div className="flex flex-col items-center gap-1">
+          <Squiggles />
+        </div>
+      </div>
+
+      {/* Main content - this will be on top of the beams */}
+      <div className="relative z-10">
+        <Header />
+        <div className="flex flex-col w-full h-full justify-center align-center text-center">
+          <FadeIn>
+            <div className="text-white pt-44 w-full text-8xl text-center font-light">
+              RESEARCH
+            </div>
+            <div className="text-2xl text-white pt-[67px] w-full flex justify-center text-center">
+              Our research has allowed us to be the first to provide statistical
+              evidence that ...
+            </div>
+          </FadeIn>
+        </div>
+        <div className="pt-24 flex flex-col w-full h-full items-center align-center">
+          <FadeIn>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="41"
+              viewBox="0 0 30 41"
+              fill="none"
+            >
+              <path
+                d="M17 2C17 0.89543 16.1046 -4.82823e-08 15 0C13.8954 4.82823e-08 13 0.895431 13 2L17 2ZM13.5858 40.4142C14.3668 41.1953 15.6332 41.1953 16.4142 40.4142L29.1421 27.6863C29.9232 26.9052 29.9232 25.6389 29.1421 24.8579C28.3611 24.0768 27.0948 24.0768 26.3137 24.8579L15 36.1716L3.68629 24.8579C2.90524 24.0768 1.63891 24.0768 0.857865 24.8579C0.0768166 25.6389 0.0768167 26.9052 0.857866 27.6863L13.5858 40.4142ZM13 2L13 39L17 39L17 2L13 2Z"
+                fill="white"
+              />
+            </svg>
+          </FadeIn>
+        </div>
+        <div className="flex flex-col items-center justify-center min-h-screen">
+          <div className="relative flex justify-center items-center">
+            {/* Container for all three boxes */}
+            <div className="relative flex">
+              {articles.map((article, idx) => {
+                return <ResearchBox key={idx} index={idx} {...article} />;
+              })}
+            </div>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    </div>
+  );
+}
+
+const ResearchBox = ({
+  num,
+  title,
+  subtitle,
+  url,
+  index,
+}: {
+  num: string;
+  title: string;
+  subtitle: string;
+  url: string;
+  index: number;
+}) => {
+  // Calculate z-index: first item (index 0) should have highest z-index
+  // We calculate 20 - (index * 10) so first item has z-20, second z-10, third z-0
+  const baseZIndex = 20 - index * 10;
+
+  // First item shouldn't have negative margin
+  const marginClass = index > 0 ? "-ml-10" : "";
+
+  return (
+    <div
+      className={`relative rounded-3xl bg-gray-900 ${marginClass} transition-all duration-300 p-[40px] flex flex-col gap-[27px]`}
+      style={{
+        boxShadow: "0px 0px 74px 0px rgba(0, 123, 255, 0.30)",
+        width: "400px",
+        height: "400px",
+        backgroundColor: "#090F20",
+        transition: "0.2s",
+        cursor: "pointer",
+        zIndex: baseZIndex,
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.zIndex = "30";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.zIndex = baseZIndex.toString();
+      }}
+      onClick={() => {
+        window.open(url, "_blank");
+      }}
+    >
+      <div className="flex flex-row w-full justify-between align-center">
+        <div className="text-white text-4xl">{num}</div>
+        <Arrow />
+      </div>
+      <div className="text-xl text-white h-[107px]">{title}</div>
+      <div className="text-md font-light text-white h-[107px]">{subtitle}</div>
+    </div>
+  );
+};
+
+const Arrow = () => {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0.93934 17.0106C0.353553 17.5964 0.353553 18.5461 0.93934 19.1319C1.52513 19.7177 2.47487 19.7177 3.06066 19.1319L0.93934 17.0106ZM19.5712 1.99998C19.5712 1.17155 18.8997 0.499981 18.0712 0.499981L4.57125 0.499981C3.74282 0.499981 3.07125 1.17155 3.07125 1.99998C3.07125 2.82841 3.74282 3.49998 4.57125 3.49998H16.5712V15.5C16.5712 16.3284 17.2428 17 18.0712 17C18.8997 17 19.5712 16.3284 19.5712 15.5L19.5712 1.99998ZM3.06066 19.1319L19.1319 3.06064L17.0106 0.939321L0.93934 17.0106L3.06066 19.1319Z"
+        fill="white"
+      />
+    </svg>
+  );
+};
+
 const Squiggles = () => {
   return (
     <svg
@@ -529,59 +681,3 @@ const Squiggles = () => {
     </svg>
   );
 };
-
-export default async function Research() {
-  return (
-    <div className="flex w-full min-h-screen bg-[#090F20] flex-col">
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Three beams with exact specified properties but different heights and positions */}
-        <div className="flex flex-col items-center gap-1">
-          <Squiggles />
-        </div>
-      </div>
-
-      {/* Main content - this will be on top of the beams */}
-      <div className="relative z-10">
-        <Header />
-        <div className="flex flex-col w-full h-full justify-center align-center text-center">
-          <FadeIn>
-            <div className="text-white pt-44 w-full text-8xl text-center font-light">
-              RESEARCH
-            </div>
-            <div className="text-2xl text-white pt-[67px] w-full flex justify-center text-center">
-              Our research has allowed us to be the first to provide statistical
-              evidence that ...
-            </div>
-          </FadeIn>
-        </div>
-        <div className="pt-24 flex flex-col w-full h-full items-center align-center">
-          <FadeIn>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="30"
-              height="41"
-              viewBox="0 0 30 41"
-              fill="none"
-            >
-              <path
-                d="M17 2C17 0.89543 16.1046 -4.82823e-08 15 0C13.8954 4.82823e-08 13 0.895431 13 2L17 2ZM13.5858 40.4142C14.3668 41.1953 15.6332 41.1953 16.4142 40.4142L29.1421 27.6863C29.9232 26.9052 29.9232 25.6389 29.1421 24.8579C28.3611 24.0768 27.0948 24.0768 26.3137 24.8579L15 36.1716L3.68629 24.8579C2.90524 24.0768 1.63891 24.0768 0.857865 24.8579C0.0768166 25.6389 0.0768167 26.9052 0.857866 27.6863L13.5858 40.4142ZM13 2L13 39L17 39L17 2L13 2Z"
-                fill="white"
-              />
-            </svg>
-          </FadeIn>
-        </div>
-        <div className="pt-36 flex flex-col w-full h-full items-center gap-24 mb-10">
-          <div className="flex flex-row gap-16">
-            <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] w-[400px] h-[400px]" />
-            <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] w-[400px] h-[400px]" />
-          </div>
-          <div className="flex flex-row gap-16">
-            <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] w-[400px] h-[400px]" />
-            <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] w-[400px] h-[400px]" />
-          </div>
-        </div>
-        <Footer />
-      </div>
-    </div>
-  );
-}
