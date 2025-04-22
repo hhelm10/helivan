@@ -97,10 +97,10 @@ export const NewLanding = () => {
         <Header />
         <div className="flex flex-col w-full h-full justify-center align-center text-center">
           <FadeIn>
-            <div className="text-white pt-44 w-full text-[70px] text-center font-light">
+            <div className="text-white pt-44 w-full text-7xl text-center font-light">
               GENERATING OPINIONS THAT MATTER.
             </div>
-            <div className="text-white  pt-0 w-full text-7xl text-center font-semibold font-light">
+            <div className="text-white  pt-6 w-full text-6xl text-center font-light">
               TO YOU.
             </div>
             <div className="text-2xl text-white pt-10 w-full flex justify-center text-center">
@@ -177,32 +177,24 @@ export const NewLanding = () => {
               </div>
               <div className="flex justify-between w-full items-center mt-10">
                 <div className=" flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="text-white text-xl font-alexandria">Role</div>
+                  <div className="text-white text-xl font-alexandria">
+                    Choose
+                  </div>
                 </div>
                 <div className="text-white text-base font-alexandria w-[300px] justify-self-start">
-                  Discover topics you care about
+                  amongst our library of personas from VCs, Politicians,
+                  Podcasters, and more
                 </div>
               </div>
               <div className="mt-5 h-[1px] w-full flex bg-white" />
               <div className="flex justify-between w-full items-center mt-10">
                 <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
                   <div className="text-white text-xl font-alexandria">
-                    Benefit
+                    Request
                   </div>
                 </div>
                 <div className="text-white text-base font-alexandria w-[300px] justify-self-start">
-                  Easily accessible synthesis of political opinions
-                </div>
-              </div>
-              <div className="mt-5 h-[1px] w-full flex bg-white" />
-              <div className="flex justify-between w-full items-center mt-10">
-                <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="text-white text-xl font-alexandria">
-                    Target
-                  </div>
-                </div>
-                <div className="text-white text-base font-alexandria w-[300px] justify-self-start">
-                  Voters, educational institutions
+                  personas tailored to your specific interests.
                 </div>
               </div>
               <div className="mt-5 h-[1px] w-full flex bg-white" />
@@ -221,32 +213,36 @@ export const NewLanding = () => {
               </div>
               <div className="flex justify-between w-full items-center mt-10">
                 <div className=" flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="text-white text-xl font-alexandria">Role</div>
+                  <div className="text-white text-xl font-alexandria">
+                    Browse
+                  </div>
                 </div>
                 <div className="text-white text-base font-alexandria w-[300px] justify-self-start">
-                  Discover topics you care about
+                  existing topics
                 </div>
               </div>
               <div className="mt-5 h-[1px] w-full flex bg-white" />
               <div className="flex justify-between w-full items-center mt-10">
                 <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
                   <div className="text-white text-xl font-alexandria">
-                    Benefit
+                    Engage
                   </div>
                 </div>
                 <div className="text-white text-base font-alexandria w-[300px] justify-self-start">
-                  Easily accessible synthesis of political opinions
+                  in natural conversations with any persona about topics that
+                  matter to you.
                 </div>
               </div>
               <div className="mt-5 h-[1px] w-full flex bg-white" />
               <div className="flex justify-between w-full items-center mt-10">
                 <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
                   <div className="text-white text-xl font-alexandria">
-                    Target
+                    Request
                   </div>
                 </div>
                 <div className="text-white text-base font-alexandria w-[300px] justify-self-start">
-                  Voters, educational institutions
+                  new explorables for topics that directly address your research
+                  needs.
                 </div>
               </div>
               <div className="mt-5 h-[1px] w-full flex bg-white" />
@@ -267,32 +263,34 @@ export const NewLanding = () => {
               </div>
               <div className="flex justify-between w-full items-center mt-10">
                 <div className=" flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="text-white text-xl font-alexandria">Role</div>
+                  <div className="text-white text-xl font-alexandria">
+                    Visualize
+                  </div>
                 </div>
                 <div className="text-white text-base font-alexandria w-[300px] justify-self-start">
-                  Discover topics you care about
+                  hundreds of personas on interactive opinion graphs.
                 </div>
               </div>
               <div className="mt-5 h-[1px] w-full flex bg-white" />
               <div className="flex justify-between w-full items-center mt-10">
                 <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
                   <div className="text-white text-xl font-alexandria">
-                    Benefit
+                    Comapre
                   </div>
                 </div>
                 <div className="text-white text-base font-alexandria w-[300px] justify-self-start">
-                  Easily accessible synthesis of political opinions
+                  different personas across topics, subtopics, and questions.
                 </div>
               </div>
               <div className="mt-5 h-[1px] w-full flex bg-white" />
               <div className="flex justify-between w-full items-center mt-10">
                 <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
                   <div className="text-white text-xl font-alexandria">
-                    Target
+                    Discover
                   </div>
                 </div>
                 <div className="text-white text-base font-alexandria w-[300px] justify-self-start">
-                  Voters, educational institutions
+                  trends and outliers in the population.
                 </div>
               </div>
               <div className="mt-5 h-[1px] w-full flex bg-white" />
@@ -312,78 +310,21 @@ export const NewLanding = () => {
               </div>
               <div className="flex justify-between w-full items-center mt-10">
                 <div className=" flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="text-white text-xl font-alexandria">Role</div>
+                  <div className="text-white text-xl font-alexandria">Chat</div>
                 </div>
                 <div className="text-white text-base font-alexandria w-[300px] justify-self-start">
-                  Discover topics you care about
+                  with individual Personas to better understand their position.
                 </div>
               </div>
               <div className="mt-5 h-[1px] w-full flex bg-white" />
               <div className="flex justify-between w-full items-center mt-10">
                 <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
                   <div className="text-white text-xl font-alexandria">
-                    Benefit
+                    Raise
                   </div>
                 </div>
                 <div className="text-white text-base font-alexandria w-[300px] justify-self-start">
-                  Easily accessible synthesis of political opinions
-                </div>
-              </div>
-              <div className="mt-5 h-[1px] w-full flex bg-white" />
-              <div className="flex justify-between w-full items-center mt-10">
-                <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="text-white text-xl font-alexandria">
-                    Target
-                  </div>
-                </div>
-                <div className="text-white text-base font-alexandria w-[300px] justify-self-start">
-                  Voters, educational institutions
-                </div>
-              </div>
-              <div className="mt-5 h-[1px] w-full flex bg-white" />
-            </FadeIn>
-
-            {/* Section 4 */}
-            <FadeIn>
-              <div className="font-bold text-5xl text-white font-raleway pt-[500px]">
-                Predict
-              </div>
-              <div className="font-bold text-3xl text-white font-raleway">
-                Persona Behavior
-              </div>
-              <div className="text-xl text-white pt-4 font-raleway">
-                The location of a Persona's opiiom relative to the rest of the
-                collection or subcollection is predictive of the Persona's
-                behavior with respect to this topic.
-              </div>
-              <div className="flex justify-between w-full items-center mt-10">
-                <div className=" flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="text-white text-xl font-alexandria">Role</div>
-                </div>
-                <div className="text-white text-base font-alexandria w-[300px] justify-self-start">
-                  Discover topics you care about
-                </div>
-              </div>
-              <div className="mt-5 h-[1px] w-full flex bg-white" />
-              <div className="flex justify-between w-full items-center mt-10">
-                <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="text-white text-xl font-alexandria">
-                    Benefit
-                  </div>
-                </div>
-                <div className="text-white text-base font-alexandria w-[300px] justify-self-start">
-                  Easily accessible synthesis of political opinions
-                </div>
-              </div>
-              <div className="mt-5 h-[1px] w-full flex bg-white" />
-              <div className="flex justify-between w-full items-center mt-10">
-                <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="text-white text-xl font-alexandria">
-                    Target
-                  </div>
-                </div>
-                <div className="text-white text-base font-alexandria w-[300px] justify-self-start">
-                  Voters, educational institutions
+                  questions to relevant panels.
                 </div>
               </div>
               <div className="mt-5 h-[1px] w-full flex bg-white" />
@@ -433,12 +374,6 @@ export const NewLanding = () => {
                 <span className="text-white text-3xl font-alexandria">4</span>
               </div>
             </FadeIn>
-            <div className="bg-[#BBCBFD] w-[3px] h-[900px]" />
-            <FadeIn threshold={0.5}>
-              <div className="flex items-center justify-center w-24 h-24 border-[3px] border-[#BBCBFD] rounded-full">
-                <span className="text-white text-3xl font-alexandria">5</span>
-              </div>
-            </FadeIn>
             <div className="bg-[#BBCBFD] w-[3px] h-[500px]" />
             <div>
               <svg
@@ -465,10 +400,7 @@ export const NewLanding = () => {
               <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] w-[500px] h-[520px]" />
             </FadeIn>
             <FadeIn delay={200}>
-              <div className="mt-[470px] shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] w-[500px] h-[520px]" />
-            </FadeIn>
-            <FadeIn delay={200}>
-              <div className="mt-[470px] shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] w-[500px] h-[520px]" />
+              <div className="mt-[380px] shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] w-[500px] h-[520px]" />
             </FadeIn>
             <FadeIn delay={200}>
               <div className="mt-[470px] shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] w-[500px] h-[520px]" />
