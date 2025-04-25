@@ -43,12 +43,12 @@ export default async function Research() {
       {/* Main content - this will be on top of the beams */}
       <div className="relative z-10">
         <Header />
-        <div className="flex flex-col w-full h-full justify-center align-center text-center">
+        <div className="font-light flex flex-col w-full h-full justify-center align-center text-center">
           <FadeIn>
             <div className="text-white pt-44 w-full text-8xl text-center font-light">
               RESEARCH
             </div>
-            <div className="text-2xl text-white pt-[67px] w-full flex justify-center text-center">
+            <div className="font-light text-2xl text-white pt-[67px] w-full flex justify-center text-center">
               Our research has allowed us to be the first to provide statistical
               evidence that ...
             </div>

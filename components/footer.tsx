@@ -4,21 +4,27 @@ export const Footer = () => {
       {/* I want this div to space items between horizontally */}
       <div className="flex flex-row w-full h-[300px] justify-between items-start h-[300px]  p-[50px] px-[70px]">
         <div className="flex flex-col gap-[28px]">
-          <div className="text-white text-2xl">// Helivan</div>
-          <div className="text-white text-med">founders@helivan.io</div>
+          <div className="text-white text-2xl font-normal">// HELIVAN</div>
+          <div className="text-white text-med font-normal">
+            founders@helivan.io
+          </div>
         </div>
         <div className="flex flex-col gap-[28px]">
-          <div className="text-white text-xl font-bold">
+          <div className="text-white text-xl font-normal">
             Research in collaboration with
           </div>
           <div className="flex flex-col gap-[20px]">
-            <div className="text-white text-xl">Johns Hopkins University</div>
-            <div className="text-white text-xl">Microsoft Research</div>
-            <div className="text-white text-xl">Nomic AI</div>
+            <div className="text-white text-xl font-light">
+              Johns Hopkins University
+            </div>
+            <div className="text-white text-xl font-light">
+              Microsoft Research
+            </div>
+            <div className="text-white text-xl font-light">Nomic AI</div>
           </div>
         </div>
         <div className="flex flex-col gap-[24px]">
-          <div className="text-white text-l">Backed by</div>
+          <div className="text-white text-l font-light">Backed by</div>
           <div className="flex flex-row gap-4">
             <div
               onClick={() => {
@@ -41,7 +47,7 @@ export const Footer = () => {
       </div>
       <div className="flex w-full h-[1px] bg-[#B5B7BC]" />
       <div className="flex w-full justify-between items-center h-full px-[70px]">
-        <div className="text-white text-med">
+        <div className="text-white text-med font-light">
           © 2025 Helivan Corp. All rights reserved.
         </div>
         <div

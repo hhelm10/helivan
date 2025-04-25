@@ -103,7 +103,7 @@ export const NewLanding = () => {
             <div className="text-white  pt-6 w-full text-6xl text-center font-light">
               TO YOU.
             </div>
-            <div className="text-2xl text-white pt-10 w-full flex justify-center text-center">
+            <div className="text-2xl text-white pt-10 w-full flex justify-center text-center font-light">
               AI-generated opinion geometry and population analysis is here.
             </div>
           </FadeIn>
@@ -165,23 +165,21 @@ export const NewLanding = () => {
           {/* LHS */}
           <div className="pt-40 w-[500px] font-raleway">
             <FadeIn>
-              <div className="font-bold text-5xl text-white font-raleway">
+              <div className="font-lorin font-bold text-5xl text-white font-raleway">
                 Select
               </div>
-              <div className="font-bold text-3xl text-white font-raleway">
+              <div className="font-lorin font-bold text-3xl text-white font-raleway">
                 Personas of Interest
               </div>
-              <div className="text-xl text-white pt-4 font-raleway">
+              <div className="font-lorin text-xl text-white pt-4 font-raleway">
                 Choose the collection or subcollection most relevant to your
                 interests or request a new collection or Persona.
               </div>
               <div className="flex justify-between w-full items-center mt-10">
                 <div className=" flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="text-white text-xl font-alexandria">
-                    Choose
-                  </div>
+                  <div className="font-lorin text-white text-xl ">Choose</div>
                 </div>
-                <div className="text-white text-base font-alexandria w-[300px] justify-self-start">
+                <div className="font-lorin text-white text-base  w-[300px] justify-self-start">
                   amongst our library of personas from VCs, Politicians,
                   Podcasters, and more
                 </div>
@@ -189,11 +187,9 @@ export const NewLanding = () => {
               <div className="mt-5 h-[1px] w-full flex bg-white" />
               <div className="flex justify-between w-full items-center mt-10">
                 <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="text-white text-xl font-alexandria">
-                    Request
-                  </div>
+                  <div className="font-lorin text-white text-xl ">Request</div>
                 </div>
-                <div className="text-white text-base font-alexandria w-[300px] justify-self-start">
+                <div className="font-lorin text-white text-base  w-[300px] justify-self-start">
                   personas tailored to your specific interests.
                 </div>
               </div>
@@ -201,34 +197,30 @@ export const NewLanding = () => {
             </FadeIn>
             {/* Section 1 */}
             <FadeIn>
-              <div className="font-bold text-5xl text-white font-raleway pt-[500px]">
+              <div className="font-lorin font-bold text-5xl text-white font-raleway pt-[500px]">
                 Ask
               </div>
-              <div className="font-bold text-3xl text-white font-raleway">
+              <div className="font-lorin font-bold text-3xl text-white font-raleway">
                 Relevant Questions
               </div>
-              <div className="text-xl text-white pt-4 font-raleway">
+              <div className="font-lorin text-xl text-white pt-4 font-raleway">
                 Request a topic for your selected Personas of interest to
                 answer.
               </div>
               <div className="flex justify-between w-full items-center mt-10">
                 <div className=" flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="text-white text-xl font-alexandria">
-                    Browse
-                  </div>
+                  <div className="font-lorin text-white text-xl ">Browse</div>
                 </div>
-                <div className="text-white text-base font-alexandria w-[300px] justify-self-start">
+                <div className="font-lorin text-white text-base  w-[300px] justify-self-start">
                   existing topics
                 </div>
               </div>
               <div className="mt-5 h-[1px] w-full flex bg-white" />
               <div className="flex justify-between w-full items-center mt-10">
                 <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="text-white text-xl font-alexandria">
-                    Engage
-                  </div>
+                  <div className="font-lorin text-white text-xl ">Engage</div>
                 </div>
-                <div className="text-white text-base font-alexandria w-[300px] justify-self-start">
+                <div className="font-lorin text-white text-base  w-[300px] justify-self-start">
                   in natural conversations with any persona about topics that
                   matter to you.
                 </div>
@@ -236,11 +228,9 @@ export const NewLanding = () => {
               <div className="mt-5 h-[1px] w-full flex bg-white" />
               <div className="flex justify-between w-full items-center mt-10">
                 <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="text-white text-xl font-alexandria">
-                    Request
-                  </div>
+                  <div className="font-lorin text-white text-xl ">Request</div>
                 </div>
-                <div className="text-white text-base font-alexandria w-[300px] justify-self-start">
+                <div className="font-lorin text-white text-base  w-[300px] justify-self-start">
                   new explorables for topics that directly address your research
                   needs.
                 </div>
@@ -250,46 +240,40 @@ export const NewLanding = () => {
 
             {/* Section 2 */}
             <FadeIn>
-              <div className="font-bold text-5xl text-white font-raleway pt-[500px]">
+              <div className="font-lorin font-bold text-5xl text-white font-raleway pt-[500px]">
                 Explore
               </div>
-              <div className="font-bold text-3xl text-white font-raleway">
+              <div className="font-lorin font-bold text-3xl text-white font-raleway">
                 Generated Opionion Geometry
               </div>
-              <div className="text-xl text-white pt-4 font-raleway">
+              <div className="font-lorin text-xl text-white pt-4 font-raleway">
                 View a map and population analysis of Persona opinions across
                 the topic and relevant subtopics. Dive deep into a Persona's
                 responses to particular questions.
               </div>
-              <div className="flex justify-between w-full items-center mt-10">
+              <div className="font-lorin flex justify-between w-full items-center mt-10">
                 <div className=" flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="text-white text-xl font-alexandria">
-                    Visualize
-                  </div>
+                  <div className="text-white text-xl ">Visualize</div>
                 </div>
-                <div className="text-white text-base font-alexandria w-[300px] justify-self-start">
+                <div className="font-lorin text-white text-base  w-[300px] justify-self-start">
                   hundreds of personas on interactive opinion graphs.
                 </div>
               </div>
               <div className="mt-5 h-[1px] w-full flex bg-white" />
               <div className="flex justify-between w-full items-center mt-10">
                 <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="text-white text-xl font-alexandria">
-                    Comapre
-                  </div>
+                  <div className="font-lorin text-white text-xl ">Comapre</div>
                 </div>
-                <div className="text-white text-base font-alexandria w-[300px] justify-self-start">
+                <div className="font-lorin text-white text-base  w-[300px] justify-self-start">
                   different personas across topics, subtopics, and questions.
                 </div>
               </div>
               <div className="mt-5 h-[1px] w-full flex bg-white" />
               <div className="flex justify-between w-full items-center mt-10">
                 <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="text-white text-xl font-alexandria">
-                    Discover
-                  </div>
+                  <div className="font-lorin text-white text-xl ">Discover</div>
                 </div>
-                <div className="text-white text-base font-alexandria w-[300px] justify-self-start">
+                <div className="font-lorin text-white text-base  w-[300px] justify-self-start">
                   trends and outliers in the population.
                 </div>
               </div>
@@ -298,32 +282,30 @@ export const NewLanding = () => {
 
             {/* Section 3 */}
             <FadeIn>
-              <div className="font-bold text-5xl text-white font-raleway pt-[500px]">
+              <div className="font-lorin font-bold text-5xl text-white font-raleway pt-[500px]">
                 Interact
               </div>
-              <div className="font-bold text-3xl text-white font-raleway">
+              <div className="font-lorin font-bold text-3xl text-white font-raleway">
                 With Key Stakeholders
               </div>
-              <div className="text-xl text-white pt-4 font-raleway">
+              <div className="font-lorin text-xl text-white pt-4 font-raleway">
                 Chat with key stakeholders to better understand the nuances of
                 their position.
               </div>
               <div className="flex justify-between w-full items-center mt-10">
                 <div className=" flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="text-white text-xl font-alexandria">Chat</div>
+                  <div className="font-lorin text-white text-xl">Chat</div>
                 </div>
-                <div className="text-white text-base font-alexandria w-[300px] justify-self-start">
+                <div className="font-lorin text-white text-base  w-[300px] justify-self-start">
                   with individual Personas to better understand their position.
                 </div>
               </div>
               <div className="mt-5 h-[1px] w-full flex bg-white" />
               <div className="flex justify-between w-full items-center mt-10">
                 <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="text-white text-xl font-alexandria">
-                    Raise
-                  </div>
+                  <div className="font-lorin text-white text-xl ">Raise</div>
                 </div>
-                <div className="text-white text-base font-alexandria w-[300px] justify-self-start">
+                <div className="font-lorin text-white text-base  w-[300px] justify-self-start">
                   questions to relevant panels.
                 </div>
               </div>
@@ -353,25 +335,25 @@ export const NewLanding = () => {
             <div className="bg-[#BBCBFD] w-[3px] h-80" />
             <FadeIn threshold={0.5}>
               <div className="flex items-center justify-center w-24 h-24 border-[3px] border-[#BBCBFD] rounded-full">
-                <span className="text-white text-3xl font-alexandria">1</span>
+                <span className="font-lorin text-white text-3xl ">1</span>
               </div>
             </FadeIn>
             <div className="bg-[#BBCBFD] w-[3px] h-[900px]" />
             <FadeIn threshold={0.5}>
               <div className="flex items-center justify-center w-24 h-24 border-[3px] border-[#BBCBFD] rounded-full">
-                <span className="text-white text-3xl font-alexandria">2</span>
+                <span className="font-lorin text-white text-3xl ">2</span>
               </div>
             </FadeIn>
             <div className="bg-[#BBCBFD] w-[3px] h-[900px]" />
             <FadeIn threshold={0.5}>
               <div className="flex items-center justify-center w-24 h-24 border-[3px] border-[#BBCBFD] rounded-full">
-                <span className="text-white text-3xl font-alexandria">3</span>
+                <span className="font-lorin text-white text-3xl ">3</span>
               </div>
             </FadeIn>
             <div className="bg-[#BBCBFD] w-[3px] h-[900px]" />
             <FadeIn threshold={0.5}>
               <div className="flex items-center justify-center w-24 h-24 border-[3px] border-[#BBCBFD] rounded-full">
-                <span className="text-white text-3xl font-alexandria">4</span>
+                <span className="font-lorin text-white text-3xl ">4</span>
               </div>
             </FadeIn>
             <div className="bg-[#BBCBFD] w-[3px] h-[500px]" />
@@ -400,13 +382,13 @@ export const NewLanding = () => {
               <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] w-[500px] h-[520px]" />
             </FadeIn>
             <FadeIn delay={200}>
-              <div className="mt-[380px] shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] w-[500px] h-[520px]" />
+              <div className="mt-[410px] shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] w-[500px] h-[520px]" />
             </FadeIn>
             <FadeIn delay={200}>
-              <div className="mt-[470px] shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] w-[500px] h-[520px]" />
+              <div className="mt-[520px] shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] w-[500px] h-[520px]" />
             </FadeIn>
             <FadeIn delay={200}>
-              <div className="mt-[470px] shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] w-[500px] h-[520px]" />
+              <div className="mt-[520px] shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] w-[500px] h-[520px]" />
             </FadeIn>
           </div>
         </div>

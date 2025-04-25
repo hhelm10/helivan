@@ -25,10 +25,10 @@ module.exports = {
         "2xl": "1400px",
       },
     },
-    // Override the default sans font to use Alexandria first
     fontFamily: {
+      sans: ["Alexandria", "sans-serif"], // Make Alexandria the default sans font
       alexandria: ["Alexandria", "sans-serif"],
-      raleway: ["Raleway", "Helvetica", "Arial", "sans-serif"],
+      lorin: ["Lorin", "serif"],
     },
     extend: {
       colors: {

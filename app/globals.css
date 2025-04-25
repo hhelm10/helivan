@@ -10,45 +10,6 @@
   }
 } */
 
-@import url("https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap");
-
-@layer base {
-  html,
-  body,
-  #__next,
-  #root {
-    font-family: "Alexandria", sans-serif !important;
-  }
-
-  /* Make sure all text elements inherit the font */
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  span,
-  div,
-  a,
-  button,
-  input,
-  textarea,
-  select {
-    font-family: inherit;
-  }
-
-  .font-raleway,
-  .font-raleway * {
-    font-family: "Raleway", "Helvetica", "Arial", sans-serif !important;
-  }
-
-  .font-alexandria,
-  .font-alexandria * {
-    font-family: "Alexandria", sans-serif !important;
-  }
-}
 @layer utilities {
   .euclid-blue {
     color: #006895;
@@ -59,10 +20,6 @@
   .euclid-yellow {
     color: #ffba00;
   }
-}
-
-html {
-  font-family: "Alexandria", sans-serif;
 }
 
 body {
@@ -308,6 +265,61 @@ body {
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[2].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[13].oneOf[2].use[2]!./node_modules/next/font/google/target.css?{"path":"app/layout.tsx","import":"Lora","arguments":[{"subsets":["latin"]}],"variableName":"font"} ***!
   \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /* cyrillic-ext */
+@font-face {
+  font-family: "Alexandria";
+  src: url("/fonts/alexandria/Alexandria-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+/*Static fallbacks*/
+@font-face {
+  font-family: "Alexandria";
+  src: url("/fonts/alexandria/static/Alexandria-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Alexandria";
+  src: url("/fonts/alexandria/static/Alexandria-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lorin";
+  src: url("/fonts/lorin/Lorin-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lorin";
+  src: url("/fonts/lorin/Lorin-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url("/fonts/lorin/Lorin-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@layer base {
+  html {
+    font-family: Alexandria, sans-serif;
+  }
+}
+
 @font-face {
   font-family: "__Lora_11742b";
   font-style: normal;
