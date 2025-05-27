@@ -171,10 +171,7 @@ export const NewLanding = () => {
               <div className="font-lorin font-bold text-3xl text-white font-raleway">
                 Personas of Interest
               </div>
-              <div className="font-lorin text-xl text-white pt-4 font-raleway">
-                Choose the collection or subcollection most relevant to your
-                interests or request a new collection or Persona.
-              </div>
+              
               <div className="flex justify-between w-full items-center mt-10">
                 <div className=" flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
                   <div className="font-lorin text-white text-xl ">Choose</div>
@@ -202,10 +199,6 @@ export const NewLanding = () => {
               </div>
               <div className="font-lorin font-bold text-3xl text-white font-raleway">
                 Relevant Questions
-              </div>
-              <div className="font-lorin text-xl text-white pt-4 font-raleway">
-                Request a topic for your selected Personas of interest to
-                answer.
               </div>
               <div className="flex justify-between w-full items-center mt-10">
                 <div className=" flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
@@ -246,11 +239,6 @@ export const NewLanding = () => {
               <div className="font-lorin font-bold text-3xl text-white font-raleway">
                 Generated Opionion Geometry
               </div>
-              <div className="font-lorin text-xl text-white pt-4 font-raleway">
-                View a map and population analysis of Persona opinions across
-                the topic and relevant subtopics. Dive deep into a Persona's
-                responses to particular questions.
-              </div>
               <div className="font-lorin flex justify-between w-full items-center mt-10">
                 <div className=" flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
                   <div className="text-white text-xl ">Visualize</div>
@@ -287,10 +275,6 @@ export const NewLanding = () => {
               </div>
               <div className="font-lorin font-bold text-3xl text-white font-raleway">
                 With Key Stakeholders
-              </div>
-              <div className="font-lorin text-xl text-white pt-4 font-raleway">
-                Chat with key stakeholders to better understand the nuances of
-                their position.
               </div>
               <div className="flex justify-between w-full items-center mt-10">
                 <div className=" flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
@@ -338,19 +322,19 @@ export const NewLanding = () => {
                 <span className="font-lorin text-white text-3xl ">1</span>
               </div>
             </FadeIn>
-            <div className="bg-[#BBCBFD] w-[3px] h-[900px]" />
+            <div className="bg-[#BBCBFD] w-[3px] h-[770px]" />
             <FadeIn threshold={0.5}>
               <div className="flex items-center justify-center w-24 h-24 border-[3px] border-[#BBCBFD] rounded-full">
                 <span className="font-lorin text-white text-3xl ">2</span>
               </div>
             </FadeIn>
-            <div className="bg-[#BBCBFD] w-[3px] h-[900px]" />
+            <div className="bg-[#BBCBFD] w-[3px] h-[860px]" />
             <FadeIn threshold={0.5}>
               <div className="flex items-center justify-center w-24 h-24 border-[3px] border-[#BBCBFD] rounded-full">
                 <span className="font-lorin text-white text-3xl ">3</span>
               </div>
             </FadeIn>
-            <div className="bg-[#BBCBFD] w-[3px] h-[900px]" />
+            <div className="bg-[#BBCBFD] w-[3px] h-[770px]" />
             <FadeIn threshold={0.5}>
               <div className="flex items-center justify-center w-24 h-24 border-[3px] border-[#BBCBFD] rounded-full">
                 <span className="font-lorin text-white text-3xl ">4</span>
@@ -378,18 +362,50 @@ export const NewLanding = () => {
 
           {/* RHS */}
           <div className="flex flex-col pt-40">
+          <FadeIn delay={200}>
+  <div className="flex justify-center">
+    <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
+      <img
+        src="/gifs/Select.GIF" // replace with your actual path
+        alt="Example GIF"
+        className="w-[600px] h-auto object-contain block"
+      />
+    </div>
+  </div>
+</FadeIn>
             <FadeIn delay={200}>
-              <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] w-[500px] h-[520px]" />
-            </FadeIn>
+  <div className="mt-[510px] flex justify-center">
+    <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
+      <img
+        src="/gifs/Ask.GIF" // replace with your actual path
+        alt="Example GIF"
+        className="w-[600px] h-auto object-contain block"
+      />
+    </div>
+  </div>
+</FadeIn>
             <FadeIn delay={200}>
-              <div className="mt-[410px] shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] w-[500px] h-[520px]" />
-            </FadeIn>
+  <div className="mt-[570px] flex justify-center">
+    <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
+      <img
+        src="/gifs/Explore.GIF" // replace with your actual path
+        alt="Example GIF"
+        className="w-[600px] h-auto object-contain block"
+      />
+    </div>
+  </div>
+</FadeIn>
             <FadeIn delay={200}>
-              <div className="mt-[520px] shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] w-[500px] h-[520px]" />
-            </FadeIn>
-            <FadeIn delay={200}>
-              <div className="mt-[520px] shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] w-[500px] h-[520px]" />
-            </FadeIn>
+  <div className="mt-[520px] flex justify-center">
+    <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
+      <img
+        src="/gifs/Interact.GIF" // replace with your actual path
+        alt="Example GIF"
+        className="w-[600px] h-auto object-contain block"
+      />
+    </div>
+  </div>
+</FadeIn>
           </div>
         </div>
         <Footer />

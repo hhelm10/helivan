@@ -14,7 +14,7 @@ export default function Header() {
         >
           Research
         </Link>
-        <Link href="https://facebook.com" target="_blank">
+        <Link href="https://app.helivan.io" target="_blank">
           <div className="bg-[#090F20] cursor-pointer shadow-[0px_0px_2px_1.5px_#6C8EFF] flex items-center align-center justify-center px-6 py-2  border-[1px] border-white rounded-[110px]">
             <div className="font-light text-white text-xl">Sign Up</div>
           </div>

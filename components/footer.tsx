@@ -6,7 +6,7 @@ export const Footer = () => {
         <div className="flex flex-col gap-[28px]">
           <div className="text-white text-2xl font-normal">// HELIVAN</div>
           <div className="text-white text-med font-normal">
-            founders@helivan.io
+            info@helivan.io
           </div>
         </div>
         <div className="flex flex-col gap-[28px]">
