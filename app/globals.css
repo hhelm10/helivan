@@ -12,7 +12,7 @@
 
 @layer utilities {
   .euclid-blue {
-    color: #006895;
+    color: #090F20;
   }
   .euclid-red {
     color: #f62516;
@@ -26,7 +26,6 @@ body {
   color: rgb(var(--foreground-rgb));
   background: #342810;
 }
-
 /**************************************************
 *
 *
@@ -1189,7 +1188,7 @@ video {
   animation-duration: 300ms;
 }
 .euclid-blue {
-  color: #006895;
+  color: #090F20;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -1202,7 +1201,7 @@ video {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: #213c66;
+  background: #090F20;
 }
 
 /**************************************************

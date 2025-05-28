@@ -161,7 +161,7 @@ export const NewLanding = () => {
             </defs>
           </svg>
         </div>
-        <div className="pt-48 w-full px-24 flex justify-between align-center">
+        <div className="pt-48 w-full px-24 flex justify-center xl:justify-between gap-8 align-center">
           {/* LHS */}
           <div className="pt-40 w-[500px] font-raleway">
             <FadeIn>
@@ -298,7 +298,7 @@ export const NewLanding = () => {
           </div>
 
           {/* Divider */}
-          <div className="flex flex-col items-center">
+          <div className="hidden xl:flex flex-col items-center">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -361,14 +361,14 @@ export const NewLanding = () => {
           </div>
 
           {/* RHS */}
-          <div className="flex flex-col pt-40">
+          <div className="hidden xl:flex flex-col pt-40">
           <FadeIn delay={200}>
   <div className="flex justify-center">
     <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
       <img
         src="/gifs/Select.GIF" // replace with your actual path
         alt="Example GIF"
-        className="w-[600px] h-auto object-contain block"
+        className="w-[600px] min-w-[600px] h-auto object-contain block"
       />
     </div>
   </div>
@@ -379,7 +379,7 @@ export const NewLanding = () => {
       <img
         src="/gifs/Ask.GIF" // replace with your actual path
         alt="Example GIF"
-        className="w-[600px] h-auto object-contain block"
+        className="w-[600px] min-w-[600px]  h-auto object-contain block"
       />
     </div>
   </div>
@@ -390,7 +390,7 @@ export const NewLanding = () => {
       <img
         src="/gifs/Explore.GIF" // replace with your actual path
         alt="Example GIF"
-        className="w-[600px] h-auto object-contain block"
+        className="w-[600px] min-w-[600px] h-auto object-contain block"
       />
     </div>
   </div>
@@ -401,7 +401,7 @@ export const NewLanding = () => {
       <img
         src="/gifs/Interact.GIF" // replace with your actual path
         alt="Example GIF"
-        className="w-[600px] h-auto object-contain block"
+        className="w-[600px] min-w-[600px] h-auto object-contain block"
       />
     </div>
   </div>
