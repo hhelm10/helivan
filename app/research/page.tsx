@@ -6,29 +6,37 @@ import { FadeIn } from "@/components/NewLanding";
 export default async function Research() {
   const articles = [
     {
+      url: "https://arxiv.org/pdf/2505.00006",
+      title:
+        "Toward a Digital Twin of U.S. Congress",
+      num: "01",
+      subtitle:
+        "Empirical evidence that a collection of language models parameterized by real people's data satisfies the definition of a digital twin.",
+    },
+    {
       url: "https://arxiv.org/abs/2410.01106",
       title:
         "Statistical inference on black-box generative models in the data kernel perspective space",
-      num: "01",
+      num: "02",
       subtitle:
-        "We provide theoretical and empirical support for predicting the behavior of generative models using vector representations of population of models.",
+        "Providing theoretical and empirical support for predicting the behavior of generative models using vector representations of population of models.",
     },
     {
       url: "https://arxiv.org/abs/2412.06834",
       title:
         "Investigating social alignment via mirroring in a system of interacting language models",
-      num: "02",
+      num: "03",
       subtitle:
-        'We investigate the effect of a simple "mirroring" mechanism on the dynamics of a system of interacting language models.',
+        'Investigating the effect of a simple "mirroring" mechanism on the dynamics of a system of interacting language models.',
     },
     {
       url: "https://arxiv.org/abs/2409.17308",
       title:
         "Consistent estimation of generative model representations in the data kernel perspective space",
 
-      num: "03",
+      num: "04",
       subtitle:
-        "We provide theoretical support for using vector representations of populations of generative model.",
+        "Providing theoretical support for using vector representations of populations of generative model.",
     },
   ];
   return (
@@ -73,7 +81,7 @@ export default async function Research() {
         <div className="flex flex-col items-center justify-center min-h-screen">
           <div className="relative flex justify-center items-center">
             {/* Container for all three boxes */}
-            <div className="relative flex">
+            <div className="relative flex flex-col lg:flex-row gap-6 lg:gap-0">
               {articles.map((article, idx) => {
                 return <ResearchBox key={idx} index={idx} {...article} />;
               })}
@@ -100,8 +108,8 @@ const ResearchBox = ({
   index: number;
 }) => {
   // Calculate z-index: first item (index 0) should have highest z-index
-  // We calculate 20 - (index * 10) so first item has z-20, second z-10, third z-0
-  const baseZIndex = 20 - index * 10;
+  // Start at 30 and decrease by 10 for each item, ensuring it never goes below 0
+  const baseZIndex = Math.max(0, 30 - index * 10);
 
   // First item shouldn't have negative margin
   const marginClass = index > 0 ? "-ml-10" : "";
@@ -111,7 +119,7 @@ const ResearchBox = ({
       className={`relative rounded-3xl bg-gray-900 ${marginClass} transition-all duration-300 p-[40px] flex flex-col gap-[27px]`}
       style={{
         boxShadow: "0px 0px 74px 0px rgba(0, 123, 255, 0.30)",
-        width: "400px",
+        width: "350px",
         height: "400px",
         backgroundColor: "#090F20",
         transition: "0.2s",
@@ -132,8 +140,8 @@ const ResearchBox = ({
         <div className="text-white text-4xl">{num}</div>
         <Arrow />
       </div>
-      <div className="text-xl text-white h-[107px]">{title}</div>
-      <div className="text-md font-light text-white h-[107px]">{subtitle}</div>
+      <div className="text-lg text-white h-[107px]">{title}</div>
+      <div className="text-sm font-light text-white h-[107px]">{subtitle}</div>
     </div>
   );
 };
