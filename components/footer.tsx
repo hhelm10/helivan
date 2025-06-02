@@ -1,3 +1,6 @@
+import { BetaworksLogo, DarpaLogo, FactorialLogo } from "./logos/backed-by";
+import { JohnsHopkins, MicrosoftLogo, NomicLogo } from "./logos/research";
+
 export const Footer = () => {
   return (
     <div className="flex flex-col gap-0 w-full h-[380px] mt-[20px] bg-[#090F20]">
@@ -10,37 +13,69 @@ export const Footer = () => {
           </div>
         </div>
         <div className="flex flex-col gap-[28px]">
-          <div className="text-white text-xl font-normal">
-            Research in collaboration with
+          
+          <div className="text-white text-xl font-light">
+            Research in collaboration with:
           </div>
-          <div className="flex flex-col gap-[20px]">
+          <div className="flex flex-col gap-[6px] ml-[-12px]">
+            <div className="flex flex-row gap-[12px] items-center justify-start">
+              <JohnsHopkins />
             <div className="text-white text-xl font-light">
               Johns Hopkins University
             </div>
-            <div className="text-white text-xl font-light">
-              Microsoft Research
             </div>
-            <div className="text-white text-xl font-light">Nomic AI</div>
+            <div className="flex flex-row gap-[12px] items-center justify-start">
+              <MicrosoftLogo />
+            <div className="text-white text-xl font-light">
+             Microsoft Research
+            </div>
+            </div>
+            <div className="flex flex-row gap-[24px] items-center pt-4 justify-start pl-3">
+              <NomicLogo />
+            <div className="text-white text-xl font-light">
+              Nomic AI
+            </div>
+            </div>
+            
+            
           </div>
         </div>
         <div className="flex flex-col gap-[24px]">
           <div className="text-white text-l font-light">Backed by</div>
+          <div className="flex flex-col gap-6">
           <div className="flex flex-row gap-4">
             <div
               onClick={() => {
                 window.open("https://www.betaworks.com/", "_blank");
               }}
-              className="cursor-pointer"
+              className="flex flex-row gap-[12px] cursor-pointer border-[#6C8EFF] py-[8px] px-[12px] border-[1px] rounded-[24px]"
+              
             >
-              <Betaworks />
+              <BetaworksLogo />
+              <div className='text-md text-white font-normal'>Betaworks</div>
             </div>
             <div
               onClick={() => {
                 window.open("https://www.factorialcap.com/", "_blank");
               }}
-              className="cursor-pointer"
+              className="flex flex-row gap-[12px] cursor-pointer border-[#6C8EFF] py-[8px] px-[12px] border-[1px] rounded-[24px]"
+              
             >
-              <Factorial />
+              <FactorialLogo />
+              <div className='text-md font-normal text-white'>Factorial</div>
+            </div>
+            
+            </div>
+            <div
+              onClick={() => {
+                window.open("https://www.darpa.mil/news/2024/AIQ-evaluations", "_blank");
+              }}
+              className="w-min flex flex-row gap-[12px] cursor-pointer border-[#6C8EFF] py-[8px] px-[12px] border-[1px] rounded-[24px]"
+              
+            >
+              <div className="flex justify-center items-center bg-white rounded-[4px] w-[24px] h-[24px]">
+              <DarpaLogo /></div>
+              <div className='text-md font-normal text-white'>DARPA</div>
             </div>
           </div>
         </div>
