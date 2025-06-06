@@ -51,25 +51,26 @@ export default async function Research() {
       {/* Main content - this will be on top of the beams */}
       <div className="relative z-10">
         <Header />
-        <div className="font-light flex flex-col w-full h-full justify-center align-center text-center">
+        <div className="font-light flex flex-col w-full h-full justify-center align-center text-center px-4 md:px-0">
           <FadeIn>
-            <div className="text-white pt-44 w-full text-8xl text-center font-light">
+            <div className="text-white pt-16 md:pt-20 lg:pt-44 w-full text-3xl lg:text-6xl text-center font-light">
               RESEARCH
             </div>
-            <div className="font-light text-2xl text-white pt-[67px] w-full flex justify-center text-center">
+            <div className="font-light text-base md:text-lg lg:text-2xl text-white pt-6 md:pt-8 lg:pt-[67px] w-full max-w-3xl mx-auto flex justify-center text-center px-4 md:px-6 lg:px-0">
               Our research has allowed us to be the first to provide statistical
               evidence that ...
             </div>
           </FadeIn>
         </div>
-        <div className="pt-24 flex flex-col w-full h-full items-center align-center">
+        <div className="pt-12 md:pt-16 lg:pt-24 flex flex-col w-full h-full items-center align-center">
           <FadeIn>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="30"
-              height="41"
+              width="24"
+              height="32"
               viewBox="0 0 30 41"
               fill="none"
+              className="md:w-[30px] md:h-[41px]"
             >
               <path
                 d="M17 2C17 0.89543 16.1046 -4.82823e-08 15 0C13.8954 4.82823e-08 13 0.895431 13 2L17 2ZM13.5858 40.4142C14.3668 41.1953 15.6332 41.1953 16.4142 40.4142L29.1421 27.6863C29.9232 26.9052 29.9232 25.6389 29.1421 24.8579C28.3611 24.0768 27.0948 24.0768 26.3137 24.8579L15 36.1716L3.68629 24.8579C2.90524 24.0768 1.63891 24.0768 0.857865 24.8579C0.0768166 25.6389 0.0768167 26.9052 0.857866 27.6863L13.5858 40.4142ZM13 2L13 39L17 39L17 2L13 2Z"
@@ -78,10 +79,10 @@ export default async function Research() {
             </svg>
           </FadeIn>
         </div>
-        <div className="flex flex-col items-center justify-center min-h-screen">
-          <div className="relative flex justify-center items-center">
-            {/* Container for all three boxes */}
-            <div className="relative flex flex-col lg:flex-row gap-6 lg:gap-0">
+        <div className="flex flex-col items-center justify-center min-h-screen px-4 md:px-8 lg:px-0">
+          <div className="relative flex justify-center items-center w-full">
+            {/* Container for all article boxes */}
+            <div className="relative flex flex-col items-center lg:flex-row gap-5 lg:gap-0 mt-8 md:mt-0 mx-auto">
               {articles.map((article, idx) => {
                 return <ResearchBox key={idx} index={idx} {...article} />;
               })}
@@ -111,16 +112,16 @@ const ResearchBox = ({
   // Start at 30 and decrease by 10 for each item, ensuring it never goes below 0
   const baseZIndex = Math.max(0, 30 - index * 10);
 
-  // First item shouldn't have negative margin
-  const marginClass = index > 0 ? "-ml-10" : "";
+  // First item shouldn't have negative margin on desktop
+  const marginClass = index > 0 ? "lg:-ml-10" : "";
 
   return (
     <div
-      className={`relative rounded-3xl bg-gray-900 ${marginClass} transition-all duration-300 p-[40px] flex flex-col gap-[27px]`}
+      className={`relative rounded-3xl bg-gray-900 ${marginClass} transition-all duration-300 p-4 md:p-[30px] lg:p-[40px] flex flex-col gap-3 md:gap-4 lg:gap-[27px] w-full md:max-w-[320px] lg:w-[350px] mx-auto lg:mx-0`}
       style={{
         boxShadow: "0px 0px 74px 0px rgba(0, 123, 255, 0.30)",
-        width: "350px",
-        height: "400px",
+        height: "auto",
+        minHeight: "280px",
         backgroundColor: "#090F20",
         transition: "0.2s",
         cursor: "pointer",
@@ -137,11 +138,11 @@ const ResearchBox = ({
       }}
     >
       <div className="flex flex-row w-full justify-between align-center">
-        <div className="text-white text-4xl">{num}</div>
+        <div className="text-white text-xl md:text-2xl lg:text-4xl">{num}</div>
         <Arrow />
       </div>
-      <div className="text-lg text-white h-[107px]">{title}</div>
-      <div className="text-sm font-light text-white h-[107px]">{subtitle}</div>
+      <div className="text-md md:text-lg lg:text-xl text-white h-auto">{title}</div>
+      <div className="text-sm md:text-md lg:text-lg font-light text-white h-auto">{subtitle}</div>
     </div>
   );
 };
@@ -149,11 +150,12 @@ const ResearchBox = ({
 const Arrow = () => {
   return (
     <svg
-      width="20"
-      height="20"
+      width="16"
+      height="16"
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="md:w-[18px] md:h-[18px] lg:w-[20px] lg:h-[20px]"
     >
       <path
         d="M0.93934 17.0106C0.353553 17.5964 0.353553 18.5461 0.93934 19.1319C1.52513 19.7177 2.47487 19.7177 3.06066 19.1319L0.93934 17.0106ZM19.5712 1.99998C19.5712 1.17155 18.8997 0.499981 18.0712 0.499981L4.57125 0.499981C3.74282 0.499981 3.07125 1.17155 3.07125 1.99998C3.07125 2.82841 3.74282 3.49998 4.57125 3.49998H16.5712V15.5C16.5712 16.3284 17.2428 17 18.0712 17C18.8997 17 19.5712 16.3284 19.5712 15.5L19.5712 1.99998ZM3.06066 19.1319L19.1319 3.06064L17.0106 0.939321L0.93934 17.0106L3.06066 19.1319Z"
