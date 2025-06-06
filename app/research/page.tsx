@@ -117,11 +117,9 @@ const ResearchBox = ({
 
   return (
     <div
-      className={`relative rounded-3xl bg-gray-900 ${marginClass} transition-all duration-300 p-4 md:p-[30px] lg:p-[40px] flex flex-col gap-3 md:gap-4 lg:gap-[27px] w-full md:max-w-[320px] lg:w-[350px] mx-auto lg:mx-0`}
+      className={`relative rounded-3xl bg-gray-900 ${marginClass} transition-all duration-300 p-4 md:p-[30px] lg:p-[40px] flex flex-col gap-3 md:gap-4 lg:gap-[27px] w-full md:max-w-[320px] lg:w-[350px] mx-auto lg:mx-0 h-[280px] md:h-[400px]`}
       style={{
         boxShadow: "0px 0px 74px 0px rgba(0, 123, 255, 0.30)",
-        height: "auto",
-        minHeight: "280px",
         backgroundColor: "#090F20",
         transition: "0.2s",
         cursor: "pointer",
@@ -141,8 +139,8 @@ const ResearchBox = ({
         <div className="text-white text-xl md:text-2xl lg:text-4xl">{num}</div>
         <Arrow />
       </div>
-      <div className="text-md md:text-lg lg:text-xl text-white h-auto">{title}</div>
-      <div className="text-sm md:text-md lg:text-lg font-light text-white h-auto">{subtitle}</div>
+      <div className="text-md md:text-lg lg:text-lg text-white h-auto">{title}</div>
+      <div className="text-sm md:text-md lg:text-md font-light text-white h-auto">{subtitle}</div>
     </div>
   );
 };
