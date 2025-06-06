@@ -87,8 +87,8 @@ export const NewLanding = () => {
       {/* Container for all the light beams */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Three beams with exact specified properties but different heights and positions */}
-        <DiagonalBeam top="-60%" left="25%" height="700px" />
-        <DiagonalBeam top="-45%" left="21%" height="900px" />
+        <DiagonalBeam top="-60%" left="0%" height="700px" />
+        <DiagonalBeam top="-45%" left="0%" height="900px" />
         <DiagonalBeam top="-35%" left="0%" height="700px" />
       </div>
 
@@ -97,13 +97,13 @@ export const NewLanding = () => {
         <Header />
         <div className="flex flex-col w-full h-full justify-center align-center text-center">
           <FadeIn>
-            <div className="text-white pt-44 w-full text-7xl text-center font-light">
+            <div className="text-white pt-44 w-full text-4xl md:text-5xl lg:text-7xl text-center font-light">
               GENERATING OPINIONS THAT MATTER.
             </div>
-            <div className="text-white  pt-6 w-full text-6xl text-center font-light">
+            <div className="text-white pt-6 w-full text-3xl md:text-4xl lg:text-6xl text-center font-light">
               TO YOU.
             </div>
-            <div className="text-2xl text-white pt-10 w-full flex justify-center text-center font-light">
+            <div className="text-lg md:text-xl lg:text-2xl text-white pt-10 w-full flex justify-center text-center font-light">
               AI-generated opinion geometry and population analysis is here.
             </div>
           </FadeIn>
@@ -161,143 +161,194 @@ export const NewLanding = () => {
             </defs>
           </svg>
         </div>
-        <div className="pt-48 w-full px-24 flex justify-center xl:justify-between gap-8 align-center">
+        <div className="pt-48 w-full px-4 md:px-8 lg:px-24 flex flex-col xl:flex-row justify-center xl:justify-between gap-8 align-center">
           {/* LHS */}
-          <div className="pt-40 w-[500px] font-raleway">
+          <div className="pt-10 xl:pt-40 w-full max-w-[500px] mx-auto xl:mx-0 font-raleway">
             <FadeIn>
-              <div className="font-lorin font-bold text-5xl text-white font-raleway">
+              <div className="font-lorin font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center xl:text-left font-raleway">
                 Select
               </div>
-              <div className="font-lorin font-bold text-3xl text-white font-raleway">
+              <div className="font-lorin font-bold text-xl md:text-2xl lg:text-3xl text-white text-center xl:text-left font-raleway">
                 Personas of Interest
               </div>
               
-              <div className="flex justify-between w-full items-center mt-10">
-                <div className=" flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="font-lorin text-white text-xl ">Choose</div>
+              <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4 md:gap-0">
+                <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px] mx-auto md:mx-0">
+                  <div className="font-lorin text-white text-lg md:text-xl">Choose</div>
                 </div>
-                <div className="font-lorin text-white text-base  w-[300px] justify-self-start">
+                <div className="font-lorin text-white text-sm md:text-base text-center md:text-left w-full md:w-[300px] justify-self-start">
                   amongst our library of personas from VCs, Politicians,
                   Podcasters, and more
                 </div>
               </div>
               <div className="mt-5 h-[1px] w-full flex bg-white" />
-              <div className="flex justify-between w-full items-center mt-10">
-                <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="font-lorin text-white text-xl ">Request</div>
+              <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4 md:gap-0">
+                <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px] mx-auto md:mx-0">
+                  <div className="font-lorin text-white text-lg md:text-xl">Request</div>
                 </div>
-                <div className="font-lorin text-white text-base  w-[300px] justify-self-start">
+                <div className="font-lorin text-white text-sm md:text-base text-center md:text-left w-full md:w-[300px] justify-self-start">
                   personas tailored to your specific interests.
                 </div>
               </div>
               <div className="mt-5 h-[1px] w-full flex bg-white" />
             </FadeIn>
+            
+            {/* Mobile GIF for Select section - hidden on xl screens */}
+            <div className="mt-8 flex justify-center xl:hidden">
+              <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
+                <img
+                  src="/gifs/Select.GIF"
+                  alt="Select GIF"
+                  className="w-full max-w-[600px] h-auto object-contain block"
+                />
+              </div>
+            </div>
+            
             {/* Section 1 */}
-            <FadeIn>
-              <div className="font-lorin font-bold text-5xl text-white font-raleway pt-[500px]">
-                Ask
+            <div className="mt-36 md:mt-0">
+              <FadeIn>
+                <div className="font-lorin font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center xl:text-left font-raleway pt-20 md:pt-[300px] xl:pt-[500px]">
+                  Ask
+                </div>
+                <div className="font-lorin font-bold text-xl md:text-2xl lg:text-3xl text-white text-center xl:text-left font-raleway">
+                  Relevant Questions
+                </div>
+                <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4 md:gap-0">
+                  <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px] mx-auto md:mx-0">
+                    <div className="font-lorin text-white text-lg md:text-xl">Browse</div>
+                  </div>
+                  <div className="font-lorin text-white text-sm md:text-base text-center md:text-left w-full md:w-[300px] justify-self-start">
+                    existing topics
+                  </div>
+                </div>
+                <div className="mt-5 h-[1px] w-full flex bg-white" />
+                <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4 md:gap-0">
+                  <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px] mx-auto md:mx-0">
+                    <div className="font-lorin text-white text-lg md:text-xl">Engage</div>
+                  </div>
+                  <div className="font-lorin text-white text-sm md:text-base text-center md:text-left w-full md:w-[300px] justify-self-start">
+                    in natural conversations with any persona about topics that
+                    matter to you.
+                  </div>
+                </div>
+                <div className="mt-5 h-[1px] w-full flex bg-white" />
+                <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4 md:gap-0">
+                  <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px] mx-auto md:mx-0">
+                    <div className="font-lorin text-white text-lg md:text-xl">Request</div>
+                  </div>
+                  <div className="font-lorin text-white text-sm md:text-base text-center md:text-left w-full md:w-[300px] justify-self-start">
+                    new explorables for topics that directly address your research
+                    needs.
+                  </div>
+                </div>
+                <div className="mt-5 h-[1px] w-full flex bg-white" />
+              </FadeIn>
+            </div>
+            
+            {/* Mobile GIF for Ask section - hidden on xl screens */}
+            <div className="mt-8 flex justify-center xl:hidden">
+              <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
+                <img
+                  src="/gifs/Ask.GIF"
+                  alt="Ask GIF"
+                  className="w-full max-w-[600px] h-auto object-contain block"
+                />
               </div>
-              <div className="font-lorin font-bold text-3xl text-white font-raleway">
-                Relevant Questions
-              </div>
-              <div className="flex justify-between w-full items-center mt-10">
-                <div className=" flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="font-lorin text-white text-xl ">Browse</div>
-                </div>
-                <div className="font-lorin text-white text-base  w-[300px] justify-self-start">
-                  existing topics
-                </div>
-              </div>
-              <div className="mt-5 h-[1px] w-full flex bg-white" />
-              <div className="flex justify-between w-full items-center mt-10">
-                <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="font-lorin text-white text-xl ">Engage</div>
-                </div>
-                <div className="font-lorin text-white text-base  w-[300px] justify-self-start">
-                  in natural conversations with any persona about topics that
-                  matter to you.
-                </div>
-              </div>
-              <div className="mt-5 h-[1px] w-full flex bg-white" />
-              <div className="flex justify-between w-full items-center mt-10">
-                <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="font-lorin text-white text-xl ">Request</div>
-                </div>
-                <div className="font-lorin text-white text-base  w-[300px] justify-self-start">
-                  new explorables for topics that directly address your research
-                  needs.
-                </div>
-              </div>
-              <div className="mt-5 h-[1px] w-full flex bg-white" />
-            </FadeIn>
+            </div>
 
             {/* Section 2 */}
-            <FadeIn>
-              <div className="font-lorin font-bold text-5xl text-white font-raleway pt-[500px]">
-                Explore
+            <div className="mt-36 md:mt-0">
+              <FadeIn>
+                <div className="font-lorin font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center xl:text-left font-raleway pt-20 md:pt-[300px] xl:pt-[500px]">
+                  Explore
+                </div>
+                <div className="font-lorin font-bold text-xl md:text-2xl lg:text-3xl text-white text-center xl:text-left font-raleway">
+                  Generated Opionion Geometry
+                </div>
+                <div className="font-lorin flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4 md:gap-0">
+                  <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px] mx-auto md:mx-0">
+                    <div className="text-white text-lg md:text-xl">Visualize</div>
+                  </div>
+                  <div className="font-lorin text-white text-sm md:text-base text-center md:text-left w-full md:w-[300px] justify-self-start">
+                    hundreds of personas on interactive opinion graphs.
+                  </div>
+                </div>
+                <div className="mt-5 h-[1px] w-full flex bg-white" />
+                <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4 md:gap-0">
+                  <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px] mx-auto md:mx-0">
+                    <div className="font-lorin text-white text-lg md:text-xl">Comapre</div>
+                  </div>
+                  <div className="font-lorin text-white text-sm md:text-base text-center md:text-left w-full md:w-[300px] justify-self-start">
+                    different personas across topics, subtopics, and questions.
+                  </div>
+                </div>
+                <div className="mt-5 h-[1px] w-full flex bg-white" />
+                <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4 md:gap-0">
+                  <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px] mx-auto md:mx-0">
+                    <div className="font-lorin text-white text-lg md:text-xl">Discover</div>
+                  </div>
+                  <div className="font-lorin text-white text-sm md:text-base text-center md:text-left w-full md:w-[300px] justify-self-start">
+                    trends and outliers in the population.
+                  </div>
+                </div>
+                <div className="mt-5 h-[1px] w-full flex bg-white" />
+              </FadeIn>
+            </div>
+            
+            {/* Mobile GIF for Explore section - hidden on xl screens */}
+            <div className="mt-8 flex justify-center xl:hidden">
+              <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
+                <img
+                  src="/gifs/Explore.GIF"
+                  alt="Explore GIF"
+                  className="w-full max-w-[600px] h-auto object-contain block"
+                />
               </div>
-              <div className="font-lorin font-bold text-3xl text-white font-raleway">
-                Generated Opionion Geometry
-              </div>
-              <div className="font-lorin flex justify-between w-full items-center mt-10">
-                <div className=" flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="text-white text-xl ">Visualize</div>
-                </div>
-                <div className="font-lorin text-white text-base  w-[300px] justify-self-start">
-                  hundreds of personas on interactive opinion graphs.
-                </div>
-              </div>
-              <div className="mt-5 h-[1px] w-full flex bg-white" />
-              <div className="flex justify-between w-full items-center mt-10">
-                <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="font-lorin text-white text-xl ">Comapre</div>
-                </div>
-                <div className="font-lorin text-white text-base  w-[300px] justify-self-start">
-                  different personas across topics, subtopics, and questions.
-                </div>
-              </div>
-              <div className="mt-5 h-[1px] w-full flex bg-white" />
-              <div className="flex justify-between w-full items-center mt-10">
-                <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="font-lorin text-white text-xl ">Discover</div>
-                </div>
-                <div className="font-lorin text-white text-base  w-[300px] justify-self-start">
-                  trends and outliers in the population.
-                </div>
-              </div>
-              <div className="mt-5 h-[1px] w-full flex bg-white" />
-            </FadeIn>
+            </div>
 
             {/* Section 3 */}
-            <FadeIn>
-              <div className="font-lorin font-bold text-5xl text-white font-raleway pt-[500px]">
-                Interact
-              </div>
-              <div className="font-lorin font-bold text-3xl text-white font-raleway">
-                With Key Stakeholders
-              </div>
-              <div className="flex justify-between w-full items-center mt-10">
-                <div className=" flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="font-lorin text-white text-xl">Chat</div>
+            <div className="mt-36 md:mt-0">
+              <FadeIn>
+                <div className="font-lorin font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center xl:text-left font-raleway pt-20 md:pt-[300px] xl:pt-[500px]">
+                  Interact
                 </div>
-                <div className="font-lorin text-white text-base  w-[300px] justify-self-start">
-                  with individual Personas to better understand their position.
+                <div className="font-lorin font-bold text-xl md:text-2xl lg:text-3xl text-white text-center xl:text-left font-raleway">
+                  With Key Stakeholders
                 </div>
+                <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4 md:gap-0">
+                  <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px] mx-auto md:mx-0">
+                    <div className="font-lorin text-white text-lg md:text-xl">Chat</div>
+                  </div>
+                  <div className="font-lorin text-white text-sm md:text-base text-center md:text-left w-full md:w-[300px] justify-self-start">
+                    with individual Personas to better understand their position.
+                  </div>
+                </div>
+                <div className="mt-5 h-[1px] w-full flex bg-white" />
+                <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4 md:gap-0">
+                  <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px] mx-auto md:mx-0">
+                    <div className="font-lorin text-white text-lg md:text-xl">Raise</div>
+                  </div>
+                  <div className="font-lorin text-white text-sm md:text-base text-center md:text-left w-full md:w-[300px] justify-self-start">
+                    questions to relevant panels.
+                  </div>
+                </div>
+                <div className="mt-5 h-[1px] w-full flex bg-white" />
+              </FadeIn>
+            </div>
+            
+            {/* Mobile GIF for Interact section - hidden on xl screens */}
+            <div className="mt-8 flex justify-center xl:hidden">
+              <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
+                <img
+                  src="/gifs/Interact.GIF"
+                  alt="Interact GIF"
+                  className="w-full max-w-[600px] h-auto object-contain block"
+                />
               </div>
-              <div className="mt-5 h-[1px] w-full flex bg-white" />
-              <div className="flex justify-between w-full items-center mt-10">
-                <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px]">
-                  <div className="font-lorin text-white text-xl ">Raise</div>
-                </div>
-                <div className="font-lorin text-white text-base  w-[300px] justify-self-start">
-                  questions to relevant panels.
-                </div>
-              </div>
-              <div className="mt-5 h-[1px] w-full flex bg-white" />
-            </FadeIn>
+            </div>
           </div>
 
-          {/* Divider */}
+          {/* Divider - Hide on mobile, show on xl */}
           <div className="hidden xl:flex flex-col items-center">
             <div>
               <svg
@@ -360,52 +411,52 @@ export const NewLanding = () => {
             </div>
           </div>
 
-          {/* RHS */}
+          {/* RHS - Only show on xl screens */}
           <div className="hidden xl:flex flex-col pt-40">
-          <FadeIn delay={200}>
-  <div className="flex justify-center">
-    <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
-      <img
-        src="/gifs/Select.GIF" // replace with your actual path
-        alt="Example GIF"
-        className="w-[600px] min-w-[600px] h-auto object-contain block"
-      />
-    </div>
-  </div>
-</FadeIn>
             <FadeIn delay={200}>
-  <div className="mt-[510px] flex justify-center">
-    <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
-      <img
-        src="/gifs/Ask.GIF" // replace with your actual path
-        alt="Example GIF"
-        className="w-[600px] min-w-[600px]  h-auto object-contain block"
-      />
-    </div>
-  </div>
-</FadeIn>
+              <div className="flex justify-center">
+                <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
+                  <img
+                    src="/gifs/Select.GIF"
+                    alt="Example GIF"
+                    className="w-[600px] min-w-[600px] h-auto object-contain block"
+                  />
+                </div>
+              </div>
+            </FadeIn>
             <FadeIn delay={200}>
-  <div className="mt-[570px] flex justify-center">
-    <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
-      <img
-        src="/gifs/Explore.GIF" // replace with your actual path
-        alt="Example GIF"
-        className="w-[600px] min-w-[600px] h-auto object-contain block"
-      />
-    </div>
-  </div>
-</FadeIn>
+              <div className="mt-[510px] flex justify-center">
+                <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
+                  <img
+                    src="/gifs/Ask.GIF"
+                    alt="Example GIF"
+                    className="w-[600px] min-w-[600px] h-auto object-contain block"
+                  />
+                </div>
+              </div>
+            </FadeIn>
             <FadeIn delay={200}>
-  <div className="mt-[520px] flex justify-center">
-    <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
-      <img
-        src="/gifs/Interact.GIF" // replace with your actual path
-        alt="Example GIF"
-        className="w-[600px] min-w-[600px] h-auto object-contain block"
-      />
-    </div>
-  </div>
-</FadeIn>
+              <div className="mt-[570px] flex justify-center">
+                <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
+                  <img
+                    src="/gifs/Explore.GIF"
+                    alt="Example GIF"
+                    className="w-[600px] min-w-[600px] h-auto object-contain block"
+                  />
+                </div>
+              </div>
+            </FadeIn>
+            <FadeIn delay={200}>
+              <div className="mt-[520px] flex justify-center">
+                <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
+                  <img
+                    src="/gifs/Interact.GIF"
+                    alt="Example GIF"
+                    className="w-[600px] min-w-[600px] h-auto object-contain block"
+                  />
+                </div>
+              </div>
+            </FadeIn>
           </div>
         </div>
         <Footer />
