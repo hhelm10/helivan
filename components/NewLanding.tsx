@@ -111,9 +111,11 @@ export const NewLanding = () => {
         <div className="pt-48">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="full"
-            height="243"
+            width="100%"
+            height="auto"
             viewBox="0 0 1728 243"
+            preserveAspectRatio="xMidYMid meet"
+            className="w-full h-auto max-h-[243px]"
             fill="none"
           >
             <g filter="url(#filter0_d_179_460)">
