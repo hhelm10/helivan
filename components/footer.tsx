@@ -13,7 +13,6 @@ export const Footer = () => {
           </div>
         </div>
         <div className="flex flex-col gap-[12px]">
-          
           <div className="text-white text-xl font-light">
             Research in collaboration with:
           </div>
