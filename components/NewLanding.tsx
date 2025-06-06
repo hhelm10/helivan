@@ -174,7 +174,7 @@ export const NewLanding = () => {
                 Personas of Interest
               </div>
               
-              <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4 md:gap-0">
+              <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4">
                 <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px] mx-auto md:mx-0">
                   <div className="font-lorin text-white text-lg md:text-xl">Choose</div>
                 </div>
@@ -184,7 +184,7 @@ export const NewLanding = () => {
                 </div>
               </div>
               <div className="mt-5 h-[1px] w-full flex bg-white" />
-              <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4 md:gap-0">
+              <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4">
                 <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px] mx-auto md:mx-0">
                   <div className="font-lorin text-white text-lg md:text-xl">Request</div>
                 </div>
@@ -215,7 +215,7 @@ export const NewLanding = () => {
                 <div className="font-lorin font-bold text-xl md:text-2xl lg:text-3xl text-white text-center xl:text-left font-raleway">
                   Relevant Questions
                 </div>
-                <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4 md:gap-0">
+                <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4">
                   <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px] mx-auto md:mx-0">
                     <div className="font-lorin text-white text-lg md:text-xl">Browse</div>
                   </div>
@@ -224,7 +224,7 @@ export const NewLanding = () => {
                   </div>
                 </div>
                 <div className="mt-5 h-[1px] w-full flex bg-white" />
-                <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4 md:gap-0">
+                <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4">
                   <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px] mx-auto md:mx-0">
                     <div className="font-lorin text-white text-lg md:text-xl">Engage</div>
                   </div>
@@ -234,7 +234,7 @@ export const NewLanding = () => {
                   </div>
                 </div>
                 <div className="mt-5 h-[1px] w-full flex bg-white" />
-                <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4 md:gap-0">
+                <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4">
                   <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px] mx-auto md:mx-0">
                     <div className="font-lorin text-white text-lg md:text-xl">Request</div>
                   </div>
@@ -267,7 +267,7 @@ export const NewLanding = () => {
                 <div className="font-lorin font-bold text-xl md:text-2xl lg:text-3xl text-white text-center xl:text-left font-raleway">
                   Generated Opionion Geometry
                 </div>
-                <div className="font-lorin flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4 md:gap-0">
+                <div className="font-lorin flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4">
                   <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px] mx-auto md:mx-0">
                     <div className="text-white text-lg md:text-xl">Visualize</div>
                   </div>
@@ -276,7 +276,7 @@ export const NewLanding = () => {
                   </div>
                 </div>
                 <div className="mt-5 h-[1px] w-full flex bg-white" />
-                <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4 md:gap-0">
+                <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4">
                   <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px] mx-auto md:mx-0">
                     <div className="font-lorin text-white text-lg md:text-xl">Comapre</div>
                   </div>
@@ -285,7 +285,7 @@ export const NewLanding = () => {
                   </div>
                 </div>
                 <div className="mt-5 h-[1px] w-full flex bg-white" />
-                <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4 md:gap-0">
+                <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4">
                   <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px] mx-auto md:mx-0">
                     <div className="font-lorin text-white text-lg md:text-xl">Discover</div>
                   </div>
@@ -317,7 +317,7 @@ export const NewLanding = () => {
                 <div className="font-lorin font-bold text-xl md:text-2xl lg:text-3xl text-white text-center xl:text-left font-raleway">
                   With Key Stakeholders
                 </div>
-                <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4 md:gap-0">
+                <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4">
                   <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px] mx-auto md:mx-0">
                     <div className="font-lorin text-white text-lg md:text-xl">Chat</div>
                   </div>
@@ -326,7 +326,7 @@ export const NewLanding = () => {
                   </div>
                 </div>
                 <div className="mt-5 h-[1px] w-full flex bg-white" />
-                <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4 md:gap-0">
+                <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4">
                   <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px] mx-auto md:mx-0">
                     <div className="font-lorin text-white text-lg md:text-xl">Raise</div>
                   </div>
