@@ -278,7 +278,7 @@ export const NewLanding = () => {
                 <div className="mt-5 h-[1px] w-full flex bg-white" />
                 <div className="flex flex-col md:flex-row justify-center xl:justify-between w-full items-center mt-10 gap-4">
                   <div className="flex items-center align-center justify-center px-8 w-min h-[50px] border-[1px] border-white rounded-[110px] mx-auto md:mx-0">
-                    <div className="font-lorin text-white text-lg md:text-xl">Comapre</div>
+                    <div className="font-lorin text-white text-lg md:text-xl">Compare</div>
                   </div>
                   <div className="font-lorin text-white text-sm md:text-base text-center md:text-left w-full md:w-[300px] justify-self-start">
                     different personas across topics, subtopics, and questions.
