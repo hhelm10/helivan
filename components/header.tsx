@@ -1,14 +1,24 @@
 import Link from "next/link";
 import { useState } from "react";
 import TypeformEmbed from "./TypeformEmbed";
+import Image from "next/image";
 
 export default function Header() {
   const [showTypeform, setShowTypeform] = useState(false);
   
   return (
-    <div className="w-full flex flex-col md:flex-row justify-center md:justify-between items-center pt-6 md:pt-12 px-4 md:px-8 lg:px-24">
-      <Link href="/" className="font-light text-white text-2xl md:text-3xl leading-normal mb-4 md:mb-0">
-        // HELIVAN
+    <div className="w-full flex flex-col md:flex-row justify-center md:justify-between items-center pt-6 md:pt-12 px-2 md:px-4 lg:px-12">
+      <Link href="/" className="flex items-center mb-4 md:mb-0">
+        <Image 
+          src="/helivan-logo-white.png" 
+          alt="HELIVAN" 
+          width={40} 
+          height={40}
+          className="h-8 md:h-10 w-auto"
+        />
+        <span className="font-light text-white text-2xl md:text-3xl leading-normal ml-3">
+          HELIVAN
+        </span>
       </Link>
 
       <div className="flex flex-row items-center space-x-4 md:space-x-6">
