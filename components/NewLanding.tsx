@@ -104,7 +104,7 @@ export const NewLanding = () => {
               TO YOU.
             </div>
             <div className="text-lg md:text-xl lg:text-2xl text-white pt-10 w-full flex justify-center text-center font-light">
-              AI-generated opinion geometry and population analysis is here.
+              Informed-opinion generation and population analysis is here.
             </div>
           </FadeIn>
         </div>
@@ -163,8 +163,8 @@ export const NewLanding = () => {
             </defs>
           </svg>
         </div>
-        <div className="pt-48 w-full px-4 md:px-8 lg:px-24 flex flex-col xl:flex-row justify-center xl:justify-between gap-8 align-center">
-          {/* LHS */}
+        {/* <div className="pt-48 w-full px-4 md:px-8 lg:px-24 flex flex-col xl:flex-row justify-center xl:justify-between gap-8 align-center">
+         // LHS
           <div className="pt-10 xl:pt-[300px] w-full max-w-[500px] mx-auto xl:mx-0 font-raleway">
             <FadeIn>
               <div className="font-lorin font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center font-raleway">
@@ -176,7 +176,7 @@ export const NewLanding = () => {
             
             </FadeIn>
             
-            {/* Mobile GIF for Select section - hidden on xl screens */}
+            // Mobile GIF for Select section - hidden on xl screens
             <div className="mt-8 flex justify-center xl:hidden">
               <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
                 <img
@@ -187,7 +187,7 @@ export const NewLanding = () => {
               </div>
             </div>
             
-            {/* Section 1 */}
+            // Section 1
             <div className="mt-36 md:mt-0">
               <FadeIn>
               <div className="font-lorin font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center font-raleway md:pt-[300px] xl:pt-[750px]">
@@ -201,7 +201,7 @@ export const NewLanding = () => {
               </FadeIn>
             </div>
             
-            {/* Mobile GIF for Ask section - hidden on xl screens */}
+            // Mobile GIF for Ask section - hidden on xl screens
             <div className="mt-8 flex justify-center xl:hidden">
               <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
                 <img
@@ -212,7 +212,7 @@ export const NewLanding = () => {
               </div>
             </div>
 
-            {/* Section 2 */}
+            // Section 2 
             <div className="mt-36 md:mt-0">
               <FadeIn>
                 
@@ -226,7 +226,7 @@ export const NewLanding = () => {
               </FadeIn>
             </div>
             
-            {/* Mobile GIF for Explore section - hidden on xl screens */}
+            // Mobile GIF for Explore section - hidden on xl screens
             <div className="mt-8 flex justify-center xl:hidden">
               <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
                 <img
@@ -237,7 +237,7 @@ export const NewLanding = () => {
               </div>
             </div>
 
-            {/* Section 3 */}
+            // Section 3 
             <div className="mt-36 md:mt-0">
               <FadeIn>
                 <div className="font-lorin font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center font-raleway md:pt-[300px] xl:pt-[700px]">
@@ -250,7 +250,7 @@ export const NewLanding = () => {
               </FadeIn>
             </div>
             
-            {/* Mobile GIF for Interact section - hidden on xl screens */}
+            // Mobile GIF for Interact section - hidden on xl screens 
             <div className="mt-8 flex justify-center xl:hidden">
               <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
                 <img
@@ -262,7 +262,7 @@ export const NewLanding = () => {
             </div>
           </div>
 
-          {/* Divider - Hide on mobile, show on xl */}
+         // Divider - Hide on mobile, show on xl 
           <div className="hidden xl:flex flex-col items-center">
             <div>
               <svg
@@ -325,7 +325,7 @@ export const NewLanding = () => {
             </div>
           </div>
 
-          {/* RHS - Only show on xl screens */}
+          // RHS - Only show on xl screens
           <div className="hidden xl:flex flex-col pt-[220px]">
             <FadeIn delay={200}>
               <div className="flex justify-center">
@@ -372,7 +372,7 @@ export const NewLanding = () => {
               </div>
             </FadeIn>
           </div>
-        </div>
+        </div> */}
         <Footer />
       </div>
     </div>
