@@ -1,56 +1,45 @@
 import Link from "next/link";
 import { useState } from "react";
-import TypeformEmbed from "./TypeformEmbed";
 import Image from "next/image";
 
 export default function Header() {
-  const [showTypeform, setShowTypeform] = useState(false);
-  
+  const [activeTab, setActiveTab] = useState<string | null>(null);
+
   return (
-    <div className="w-full flex flex-col md:flex-row justify-center md:justify-between items-center pt-6 md:pt-12 px-2 md:px-4 lg:px-12">
+    <div className="w-full flex flex-col md:flex-row justify-center md:justify-between items-center py-4 px-4 md:px-8 lg:px-16 bg-white border-b border-[#AFBEC6]">
       <Link href="/" className="flex items-center mb-4 md:mb-0">
-        <Image 
-          src="/helivan-logo-white.png" 
-          alt="HELIVAN" 
-          width={40} 
+        <Image
+          src="/favicon.png"
+          alt="HELIVAN"
+          width={40}
           height={40}
           className="h-8 md:h-10 w-auto"
         />
-        <span className="font-light text-white text-2xl md:text-3xl leading-normal ml-3">
+        <span className="font-medium text-[#212C5C] text-xl md:text-2xl leading-normal ml-3">
           HELIVAN
         </span>
       </Link>
 
-      <div className="flex flex-row items-center space-x-4 md:space-x-6">
+      <nav className="flex flex-row items-center space-x-2 md:space-x-8">
         <Link
           href="/research"
-          className="font-light text-white font-light text-lg md:text-xl leading-9 hover:text-blue-300 transition-colors md:bg-transparent md:border-0 bg-[#090F20] px-4 py-2 border-[1px] border-white rounded-[110px] flex items-center justify-center"
+          className={`font-medium text-[#486884] text-base md:text-lg px-4 py-2 rounded-lg transition-colors hover:bg-[#F6F7F9] hover:text-[#114471] ${
+            activeTab === 'research' ? 'bg-[#F6F7F9] text-[#114471]' : ''
+          }`}
+          onClick={() => setActiveTab('research')}
         >
           Research
         </Link>
-        <div 
-          onClick={() => setShowTypeform(true)} 
-          className="bg-[#090F20] cursor-pointer shadow-[0px_0px_2px_1.5px_#6C8EFF] flex items-center align-center justify-center px-4 md:px-6 py-2 border-[1px] border-white rounded-[110px]"
+        <Link
+          href="/apps"
+          className={`font-medium text-[#486884] text-base md:text-lg px-4 py-2 rounded-lg transition-colors hover:bg-[#F6F7F9] hover:text-[#114471] ${
+            activeTab === 'apps' ? 'bg-[#F6F7F9] text-[#114471]' : ''
+          }`}
+          onClick={() => setActiveTab('apps')}
         >
-          <div className="font-light text-white text-lg md:text-xl">Join Waitlist</div>
-        </div>
-        
-        {showTypeform && (
-          <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4">
-            <div className="bg-[#090F20] p-6 rounded-lg w-[90%] max-w-4xl relative">
-              <button 
-                onClick={() => setShowTypeform(false)}
-                className="absolute top-4 right-4 text-white text-2xl font-light hover:text-blue-300 transition-colors z-10"
-              >
-                ×
-              </button>
-              <div className="w-full h-full bg-transparent">
-                <TypeformEmbed />
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
+          Apps
+        </Link>
+      </nav>
     </div>
   );
 }

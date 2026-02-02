@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Footer } from "./footer";
 import Header from "./header";
+import Link from "next/link";
 
 // FadeIn component to wrap around elements we want to animate
 export const FadeIn = ({
@@ -43,8 +44,8 @@ export const FadeIn = ({
   return (
     <div
       ref={domRef}
-      className={`transition-opacity duration-1000 ease-in-out ${
-        isVisible ? "opacity-100" : "opacity-0"
+      className={`transition-all duration-1000 ease-out ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
       }`}
       style={{ transitionDelay: `${delay}ms` }}
     >
@@ -53,328 +54,261 @@ export const FadeIn = ({
   );
 };
 
-// Beam component with exact properties specified
-export const DiagonalBeam = ({
-  top,
-  left,
-  height,
+// Floating orb component for background decoration
+const FloatingOrb = ({
+  className,
+  size = "400px",
+  color = "rgba(0, 71, 125, 0.08)",
+  delay = 0,
 }: {
-  top: string;
-  left: string;
-  height: string;
+  className?: string;
+  size?: string;
+  color?: string;
+  delay?: number;
+}) => (
+  <div
+    className={`absolute rounded-full blur-3xl pointer-events-none animate-pulse ${className}`}
+    style={{
+      width: size,
+      height: size,
+      background: `radial-gradient(circle, ${color} 0%, transparent 70%)`,
+      animationDelay: `${delay}ms`,
+      animationDuration: "4s",
+    }}
+  />
+);
+
+// Grid pattern background
+const GridPattern = () => (
+  <div
+    className="absolute inset-0 pointer-events-none opacity-[0.03]"
+    style={{
+      backgroundImage: `
+        linear-gradient(to right, #114471 1px, transparent 1px),
+        linear-gradient(to bottom, #114471 1px, transparent 1px)
+      `,
+      backgroundSize: "60px 60px",
+    }}
+  />
+);
+
+// Feature card component
+const FeatureCard = ({
+  icon,
+  title,
+  description,
+  delay = 0,
+  status,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  delay?: number;
+  status?: "live" | "beta" | "coming-soon";
 }) => {
+  const statusColors = {
+    live: "bg-green-500",
+    beta: "bg-yellow-500",
+    "coming-soon": "bg-[#486884]",
+  };
+
+  const statusText = {
+    live: "Live",
+    beta: "Beta",
+    "coming-soon": "Coming Soon",
+  };
+
   return (
-    <div
-      className="absolute pointer-events-none"
-      style={{
-        top,
-        left,
-        width: "91.452px",
-        height,
-        background:
-          "radial-gradient(1458.4% 281.38% at 50.04% 49.98%, #6C8EFF 0%, rgba(108, 142, 255, 0.00) 100%)",
-        transform: "rotate(-45.534deg)",
-        filter: "blur(77px)",
-        flexShrink: 0,
-      }}
-    ></div>
+    <FadeIn delay={delay}>
+      <div className="group relative h-full p-6 bg-white/80 backdrop-blur-sm border border-[#AFBEC6]/50 rounded-2xl hover:border-[#114471]/30 hover:shadow-xl hover:shadow-[#114471]/5 transition-all duration-300">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#114471]/5 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300" />
+        <div className="relative flex flex-col h-full">
+          <div className="flex items-start justify-between mb-4">
+            <div className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-[#114471] to-[#00477D] rounded-xl text-white group-hover:scale-110 transition-transform duration-300">
+              {icon}
+            </div>
+            {status && (
+              <div className="flex items-center gap-2">
+                <span
+                  className={`w-2 h-2 rounded-full ${statusColors[status]} ${status === "live" ? "animate-pulse" : ""}`}
+                />
+                <span className="text-xs text-[#486884] font-medium uppercase tracking-wider">
+                  {statusText[status]}
+                </span>
+              </div>
+            )}
+          </div>
+          <h3 className="text-lg font-semibold text-[#114471] mb-2">{title}</h3>
+          <p className="text-[#486884] text-sm leading-relaxed flex-grow">{description}</p>
+        </div>
+      </div>
+    </FadeIn>
   );
 };
 
 export const NewLanding = () => {
   return (
-    <div className="flex w-full min-h-screen bg-[#090F20] flex-col">
-      {/* Container for all the light beams */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Three beams with exact specified properties but different heights and positions */}
-        <DiagonalBeam top="-60%" left="0%" height="700px" />
-        <DiagonalBeam top="-45%" left="0%" height="900px" />
-        <DiagonalBeam top="-35%" left="0%" height="700px" />
-      </div>
+    <div className="flex w-full min-h-screen bg-white flex-col overflow-hidden">
+      <Header />
 
-      {/* Main content - this will be on top of the beams */}
-      <div className="relative z-10">
-        <Header />
-        <div className="flex flex-col w-full h-full justify-center align-center text-center">
+      {/* Hero Section */}
+      <section className="relative flex flex-col w-full min-h-[85vh] justify-center items-center px-4 py-20 md:py-32">
+        {/* Background decorations */}
+        <GridPattern />
+        <FloatingOrb
+          className="top-20 -left-40"
+          size="600px"
+          color="rgba(0, 71, 125, 0.06)"
+          delay={0}
+        />
+        <FloatingOrb
+          className="top-40 -right-40"
+          size="500px"
+          color="rgba(17, 68, 113, 0.05)"
+          delay={1000}
+        />
+        <FloatingOrb
+          className="bottom-20 left-1/4"
+          size="400px"
+          color="rgba(0, 71, 125, 0.04)"
+          delay={2000}
+        />
+
+        <div className="relative z-10 max-w-5xl mx-auto text-center">
           <FadeIn>
-            <div className="text-white pt-44 w-full text-4xl md:text-5xl lg:text-7xl text-center font-light">
-              GENERATING OPINIONS THAT MATTER.
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#F6F7F9] border border-[#AFBEC6]/50 rounded-full text-sm text-[#486884] mb-8">
+              <span className="w-2 h-2 bg-yellow-500 rounded-full" />
+              AgentWatch and Quench now in BETA
             </div>
-            <div className="text-white pt-6 w-full text-3xl md:text-4xl lg:text-6xl text-center font-light">
-              TO YOU.
-            </div>
-            <div className="text-lg md:text-xl lg:text-2xl text-white pt-10 w-full flex justify-center text-center font-light">
-              Informed-opinion generation and population analysis is here.
+          </FadeIn>
+
+          <FadeIn delay={100}>
+            <h1 className="text-[#114471] text-4xl md:text-6xl lg:text-7xl text-center font-semibold max-w-4xl mx-auto leading-[1.1] tracking-tight">
+              Agent{" "}
+              <span className="bg-gradient-to-r from-[#114471] via-[#00477D] to-[#3596FF] bg-clip-text text-transparent">
+                monitoring
+              </span>{" "}
+              and model{" "}
+              <span className="bg-gradient-to-r from-[#00477D] to-[#3596FF] bg-clip-text text-transparent">
+                evaluations
+              </span>{" "}
+              at scale.
+            </h1>
+          </FadeIn>
+
+          <FadeIn delay={200}>
+            <p className="text-[#486884] text-lg md:text-xl lg:text-2xl text-center mt-8 max-w-2xl mx-auto leading-relaxed">
+              We build monitoring and evaluation tools for the next generation of AI systems. From research to production.
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={300}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+              <Link
+                href="/apps"
+                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#114471] to-[#00477D] text-white font-medium rounded-xl hover:shadow-lg hover:shadow-[#114471]/25 transition-all duration-300 hover:-translate-y-0.5"
+              >
+                Explore Apps
+                <svg
+                  className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </Link>
+              <Link
+                href="/research"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border border-[#AFBEC6] text-[#114471] font-medium rounded-xl hover:border-[#114471] hover:bg-[#F6F7F9] transition-all duration-300"
+              >
+                View Research
+              </Link>
             </div>
           </FadeIn>
         </div>
-        <div className="pt-48">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="100%"
-            height="auto"
-            viewBox="0 0 1728 243"
-            preserveAspectRatio="xMidYMid meet"
-            className="w-full h-auto max-h-[243px]"
-            fill="none"
-          >
-            <g filter="url(#filter0_d_179_460)">
-              <path
-                d="M-89 166.5C-89 166.5 231.852 43 866.403 43C1434.91 43 1813 166.5 1813 166.5V226H-89V166.5Z"
-                fill="#090F20"
-              />
-            </g>
-            <defs>
-              <filter
-                id="filter0_d_179_460"
-                x="-119"
-                y="0"
-                width="1962"
-                height="243"
-                filterUnits="userSpaceOnUse"
-                color-interpolation-filters="sRGB"
-              >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                <feColorMatrix
-                  in="SourceAlpha"
-                  type="matrix"
-                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                  result="hardAlpha"
-                />
-                <feOffset dy="-13" />
-                <feGaussianBlur stdDeviation="15" />
-                <feComposite in2="hardAlpha" operator="out" />
-                <feColorMatrix
-                  type="matrix"
-                  values="0 0 0 0 0.422021 0 0 0 0 0.556883 0 0 0 0 1 0 0 0 1 0"
-                />
-                <feBlend
-                  mode="normal"
-                  in2="BackgroundImageFix"
-                  result="effect1_dropShadow_179_460"
-                />
-                <feBlend
-                  mode="normal"
-                  in="SourceGraphic"
-                  in2="effect1_dropShadow_179_460"
-                  result="shape"
-                />
-              </filter>
-            </defs>
-          </svg>
+
+      </section>
+
+      {/* Features Section */}
+      <section className="relative py-12 px-4 bg-gradient-to-b from-white to-[#F6F7F9]">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+            <FeatureCard
+              icon={
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              }
+              title="Agent Monitoring"
+              description="Real-time observability for multi-agent systems. Detect behavioral change and emergent behaviors."
+              status="beta"
+              delay={100}
+            />
+            <FeatureCard
+              icon={
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="12" cy="12" r="10" strokeWidth={2} />
+                  <circle cx="12" cy="12" r="6" strokeWidth={2} />
+                  <circle cx="12" cy="12" r="2" strokeWidth={2} />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 2v4m0 12v4"
+                  />
+                </svg>
+              }
+              title="System Evaluation"
+              description="Efficient evaluation frameworks for AI systems. Easily integrated into existing evaluation flows."
+              status="beta"
+              delay={200}
+            />
+            <FeatureCard
+              icon={
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                  />
+                </svg>
+              }
+              title="Research"
+              description="Public technical reports and published papers on monitoring and evaluating models, agents, and multi-agent systems."
+              delay={300}
+            />
+          </div>
         </div>
-        {/* <div className="pt-48 w-full px-4 md:px-8 lg:px-24 flex flex-col xl:flex-row justify-center xl:justify-between gap-8 align-center">
-         // LHS
-          <div className="pt-10 xl:pt-[300px] w-full max-w-[500px] mx-auto xl:mx-0 font-raleway">
-            <FadeIn>
-              <div className="font-lorin font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center font-raleway">
-                Create
-              </div>
-              <div className="font-lorin font-bold text-lg md:text-xl lg:text-2xl text-white text-center font-raleway pt-8">
-              Entire opinion landscapes based on your document
-              </div>
-            
-            </FadeIn>
-            
-            // Mobile GIF for Select section - hidden on xl screens
-            <div className="mt-8 flex justify-center xl:hidden">
-              <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
-                <img
-                  src="/gifs/Select.GIF"
-                  alt="Select GIF"
-                  className="w-full max-w-[600px] h-auto object-contain block"
-                />
-              </div>
-            </div>
-            
-            // Section 1
-            <div className="mt-36 md:mt-0">
-              <FadeIn>
-              <div className="font-lorin font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center font-raleway md:pt-[300px] xl:pt-[750px]">
-                Explore
-              </div>
-              <div className="font-lorin font-bold text-lg md:text-xl lg:text-2xl text-white text-center font-raleway pt-8">
-              Similarities of different individuals and demographics for document-specific subtopics
-              </div>
-                
-                
-              </FadeIn>
-            </div>
-            
-            // Mobile GIF for Ask section - hidden on xl screens
-            <div className="mt-8 flex justify-center xl:hidden">
-              <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
-                <img
-                  src="/gifs/Ask.GIF"
-                  alt="Ask GIF"
-                  className="w-full max-w-[600px] h-auto object-contain block"
-                />
-              </div>
-            </div>
+      </section>
 
-            // Section 2 
-            <div className="mt-36 md:mt-0">
-              <FadeIn>
-                
-                <div className="font-lorin font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center font-raleway md:pt-[300px] xl:pt-[750px]">
-                Interact
-              </div>
-              <div className="font-lorin font-bold text-lg md:text-xl lg:text-2xl text-white text-center font-raleway pt-8">
-              Directly with individuals, panels, or crowds to better understand their positions
-              </div>
-                
-              </FadeIn>
-            </div>
-            
-            // Mobile GIF for Explore section - hidden on xl screens
-            <div className="mt-8 flex justify-center xl:hidden">
-              <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
-                <img
-                  src="/gifs/Explore.GIF"
-                  alt="Explore GIF"
-                  className="w-full max-w-[600px] h-auto object-contain block"
-                />
-              </div>
-            </div>
-
-            // Section 3 
-            <div className="mt-36 md:mt-0">
-              <FadeIn>
-                <div className="font-lorin font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center font-raleway md:pt-[300px] xl:pt-[700px]">
-                Predict
-              </div>
-              <div className="font-lorin font-bold text-lg md:text-xl lg:text-2xl text-white text-center font-raleway pt-8">
-              Individual and demographic behavior relevant to your content
-              </div>
-                
-              </FadeIn>
-            </div>
-            
-            // Mobile GIF for Interact section - hidden on xl screens 
-            <div className="mt-8 flex justify-center xl:hidden">
-              <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
-                <img
-                  src="/gifs/Interact.GIF"
-                  alt="Interact GIF"
-                  className="w-full max-w-[600px] h-auto object-contain block"
-                />
-              </div>
-            </div>
-          </div>
-
-         // Divider - Hide on mobile, show on xl 
-          <div className="hidden xl:flex flex-col items-center">
-            <div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="15"
-                height="14"
-                viewBox="0 0 15 14"
-                fill="none"
-              >
-                <ellipse
-                  cx="7.5"
-                  cy="6.98473"
-                  rx="7.5"
-                  ry="6.98473"
-                  fill="#BBCBFD"
-                />
-              </svg>
-            </div>
-            <div className="bg-[#BBCBFD] w-[3px] h-80" />
-            <FadeIn threshold={0.5}>
-              <div className="flex items-center justify-center w-24 h-24 border-[3px] border-[#BBCBFD] rounded-full">
-                <span className="font-lorin text-white text-3xl ">1</span>
-              </div>
-            </FadeIn>
-            <div className="bg-[#BBCBFD] w-[3px] h-[770px]" />
-            <FadeIn threshold={0.5}>
-              <div className="flex items-center justify-center w-24 h-24 border-[3px] border-[#BBCBFD] rounded-full">
-                <span className="font-lorin text-white text-3xl ">2</span>
-              </div>
-            </FadeIn>
-            <div className="bg-[#BBCBFD] w-[3px] h-[860px]" />
-            <FadeIn threshold={0.5}>
-              <div className="flex items-center justify-center w-24 h-24 border-[3px] border-[#BBCBFD] rounded-full">
-                <span className="font-lorin text-white text-3xl ">3</span>
-              </div>
-            </FadeIn>
-            <div className="bg-[#BBCBFD] w-[3px] h-[770px]" />
-            <FadeIn threshold={0.5}>
-              <div className="flex items-center justify-center w-24 h-24 border-[3px] border-[#BBCBFD] rounded-full">
-                <span className="font-lorin text-white text-3xl ">4</span>
-              </div>
-            </FadeIn>
-            <div className="bg-[#BBCBFD] w-[3px] h-[500px]" />
-            <div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="15"
-                height="14"
-                viewBox="0 0 15 14"
-                fill="none"
-              >
-                <ellipse
-                  cx="7.5"
-                  cy="6.98473"
-                  rx="7.5"
-                  ry="6.98473"
-                  fill="#BBCBFD"
-                />
-              </svg>
-            </div>
-          </div>
-
-          // RHS - Only show on xl screens
-          <div className="hidden xl:flex flex-col pt-[220px]">
-            <FadeIn delay={200}>
-              <div className="flex justify-center">
-                <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
-                  <img
-                    src="/gifs/Create.GIF"
-                    alt="Create GIF"
-                    className="w-full h-full object-cover block"
-                  />
-                </div>
-              </div>
-            </FadeIn>
-            <FadeIn delay={200}>
-              <div className="mt-[510px] flex justify-center">
-                <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
-                  <img
-                    src="/gifs/Explore.GIF"
-                    alt="Explore GIF"
-                    className="w-[600px] min-w-[600px] h-auto object-contain block"
-                  />
-                </div>
-              </div>
-            </FadeIn>
-            <FadeIn delay={200}>
-              <div className="mt-[570px] flex justify-center">
-                <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden mt-10">
-                  <img
-                    src="/gifs/Interact.GIF"
-                    alt="Interact GIF"
-                    className="w-[600px] min-w-[600px] h-auto object-contain block"
-                  />
-                </div>
-              </div>
-            </FadeIn>
-            <FadeIn delay={200}>
-              <div className="mt-[520px] flex justify-center">
-                <div className="shadow-[0px_0px_24px_1px_#6C8EFF] border-[1px] border-white rounded-[12px] overflow-hidden">
-                  <img
-                    src="/gifs/Predict.GIF"
-                    alt="Predict GIF"
-                    className="w-[600px] min-w-[600px] h-auto object-contain block"
-                  />
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-        </div> */}
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 };
