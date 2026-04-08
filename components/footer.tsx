@@ -54,6 +54,14 @@ export const Footer = () => {
                 Jataware Corp
               </div>
             </div>
+            <div className="flex flex-row gap-[12px] items-center justify-center md:justify-start">
+              <div className="w-[40px] h-[40px] flex items-center justify-center flex-shrink-0 bg-[#486884] rounded text-white font-bold text-sm">
+                C
+              </div>
+              <div className="text-[#486884] text-base md:text-lg font-normal">
+                Calcifer Computing
+              </div>
+            </div>
           </div>
         </div>
 

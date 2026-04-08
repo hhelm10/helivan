@@ -33,6 +33,25 @@ interface Article {
 }
 
 export default function Research() {
+  const papers2026: Article[] = [
+    {
+      url: "https://arxiv.org/abs/2505.00006",
+      title: "Toward a Digital Twin of U.S. Congress",
+      subtitle:
+        "Empirical evidence that a collection of language models parameterized by real people's data satisfies the definition of a digital twin.",
+      tags: ["Monitor"],
+      venue: "ACL 2026",
+    },
+    {
+      url: "https://openreview.net/forum?id=bYZZQdXDfA&noteId=W36dqMum1O",
+      title: "A Model of The Language Process",
+      subtitle:
+        "Expanding the capabilities of prediction with explicit time-conditioning.",
+      tags: ["Monitor"],
+      venue: "ACL 2026",
+    },
+  ];
+
   const papers2025: Article[] = [
     {
       url: "https://arxiv.org/abs/2512.05013",
@@ -55,13 +74,6 @@ export default function Research() {
         "Gaussian mixture models as a proxy for interacting language models",
       subtitle:
         "Using Gaussian mixture models to approximate and analyze the behavior of interacting language model systems.",
-      tags: ["Monitor"],
-    },
-    {
-      url: "https://arxiv.org/abs/2505.00006",
-      title: "Toward a Digital Twin of U.S. Congress",
-      subtitle:
-        "Empirical evidence that a collection of language models parameterized by real people's data satisfies the definition of a digital twin.",
       tags: ["Monitor"],
     },
     {
@@ -127,7 +139,7 @@ export default function Research() {
     },
   ];
 
-  const totalPapers = papers2025.length + papers2024.length + papers2023.length;
+  const totalPapers = papers2026.length + papers2025.length + papers2024.length + papers2023.length;
 
   return (
     <div className="flex w-full min-h-screen bg-white flex-col overflow-hidden">
@@ -197,6 +209,23 @@ export default function Research() {
               </span>
             </div>
           </FadeIn>
+
+          {/* 2026 */}
+          <FadeIn>
+            <h3 className="text-xl font-semibold text-[#114471] mb-6 flex items-center gap-3">
+              <span className="bg-gradient-to-r from-[#114471] to-[#3596FF] bg-clip-text text-transparent">2026</span>
+              <span className="h-px flex-1 bg-[#AFBEC6]/50" />
+            </h3>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch mb-12">
+            {papers2026.map((article, idx) => (
+              <FadeIn key={idx} delay={50 + idx * 50}>
+                <div className="h-full">
+                  <ResearchCard {...article} />
+                </div>
+              </FadeIn>
+            ))}
+          </div>
 
           {/* 2025 */}
           <FadeIn>
@@ -283,6 +312,11 @@ export default function Research() {
               <div className="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
                 <div className="text-[#114471] font-semibold text-lg">
                   Jataware Corp
+                </div>
+              </div>
+              <div className="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+                <div className="text-[#114471] font-semibold text-lg">
+                  Calcifer Computing
                 </div>
               </div>
             </div>
