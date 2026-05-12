@@ -35,6 +35,29 @@ interface Article {
 export default function Research() {
   const papers2026: Article[] = [
     {
+      url: "https://arxiv.org/abs/2512.05013",
+      title: "Detecting Perspective Shifts in Multi-agent Systems",
+      subtitle:
+        "Methods for detecting when agents in multi-agent systems experience shifts in their perspectives or behaviors.",
+      tags: ["Monitor"],
+      venue: "ICML 2026",
+    },
+    {
+      url: "https://arxiv.org/abs/2605.07096v1",
+      title: "Query-efficient model evaluation using cached responses",
+      subtitle:
+        "Leveraging cached responses from previously-evaluated models to reduce the number of queries needed for accurately evaluating new models on benchmarks.",
+      tags: ["Evaluate"],
+      venue: "ICML 2026",
+    },
+    {
+      url: "https://arxiv.org/abs/2605.07878",
+      title: "Black-box model classification under the discriminative factorization",
+      subtitle:
+        "A framework for evaluating query set quality when classifying black-box AI models, demonstrating exponential decay of classification error with query budget.",
+      tags: ["Evaluate"],
+    },
+    {
       url: "https://arxiv.org/abs/2505.00006",
       title: "Toward a Digital Twin of U.S. Congress",
       subtitle:
@@ -53,13 +76,6 @@ export default function Research() {
   ];
 
   const papers2025: Article[] = [
-    {
-      url: "https://arxiv.org/abs/2512.05013",
-      title: "Detecting Perspective Shifts in Multi-agent Systems",
-      subtitle:
-        "Methods for detecting when agents in multi-agent systems experience shifts in their perspectives or behaviors.",
-      tags: ["Monitor"],
-    },
     {
       url: "https://arxiv.org/abs/2509.10963",
       title:
