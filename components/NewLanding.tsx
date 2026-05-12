@@ -148,7 +148,7 @@ const FeatureCard = ({
 
 export const NewLanding = () => {
   return (
-    <div className="flex w-full min-h-screen bg-white flex-col overflow-hidden">
+    <div className="flex w-full min-h-screen bg-[#F0F6FB] flex-col overflow-hidden">
       <Header />
 
       {/* Hero Section */}
@@ -185,11 +185,11 @@ export const NewLanding = () => {
           <FadeIn delay={100}>
             <h1 className="text-[#114471] text-4xl md:text-6xl lg:text-7xl text-center font-semibold max-w-4xl mx-auto leading-[1.1] tracking-tight">
               Agent{" "}
-              <span className="bg-gradient-to-r from-[#114471] via-[#00477D] to-[#3596FF] bg-clip-text text-transparent">
+              <span className="text-[#114471]">
                 monitoring
               </span>{" "}
               and model{" "}
-              <span className="bg-gradient-to-r from-[#00477D] to-[#3596FF] bg-clip-text text-transparent">
+              <span className="text-[#114471]">
                 evaluations
               </span>{" "}
               at scale.

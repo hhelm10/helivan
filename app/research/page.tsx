@@ -158,7 +158,7 @@ export default function Research() {
   const totalPapers = papers2026.length + papers2025.length + papers2024.length + papers2023.length;
 
   return (
-    <div className="flex w-full min-h-screen bg-white flex-col overflow-hidden">
+    <div className="flex w-full min-h-screen bg-[#F0F6FB] flex-col overflow-hidden">
       <Header />
 
       {/* Hero Section */}
@@ -198,15 +198,15 @@ export default function Research() {
           <FadeIn delay={100}>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-[#114471] mb-4 leading-tight">
               Advancing the science of{" "}
-              <span className="bg-gradient-to-r from-[#114471] to-[#3596FF] bg-clip-text text-transparent">
-                AI systems
+              <span className="text-[#114471]">
+                agent evaluation and monitoring
               </span>
             </h1>
           </FadeIn>
 
           <FadeIn delay={200}>
             <p className="text-[#486884] text-lg md:text-xl max-w-2xl leading-relaxed">
-              Our research focuses on understanding and building monitoring and evaluation tools for models, agents, and multi-agent systems.
+              Our research focuses on developing statistically principled monitoring and evaluation tools for models, agents, and multi-agent systems.
             </p>
           </FadeIn>
         </div>
@@ -215,21 +215,10 @@ export default function Research() {
       {/* Papers Section */}
       <section className="relative py-12 px-4 md:px-8 lg:px-16 flex-1">
         <div className="max-w-6xl mx-auto">
-          <FadeIn>
-            <div className="flex items-center justify-between mb-12">
-              <h2 className="text-2xl md:text-3xl font-semibold text-[#114471]">
-                Publications
-              </h2>
-              <span className="text-sm text-[#486884] bg-white px-4 py-2 rounded-full border border-[#AFBEC6]/50">
-                {totalPapers} papers
-              </span>
-            </div>
-          </FadeIn>
-
           {/* 2026 */}
           <FadeIn>
             <h3 className="text-xl font-semibold text-[#114471] mb-6 flex items-center gap-3">
-              <span className="bg-gradient-to-r from-[#114471] to-[#3596FF] bg-clip-text text-transparent">2026</span>
+              <span className="text-[#114471]">2026</span>
               <span className="h-px flex-1 bg-[#AFBEC6]/50" />
             </h3>
           </FadeIn>
@@ -246,7 +235,7 @@ export default function Research() {
           {/* 2025 */}
           <FadeIn>
             <h3 className="text-xl font-semibold text-[#114471] mb-6 flex items-center gap-3">
-              <span className="bg-gradient-to-r from-[#114471] to-[#3596FF] bg-clip-text text-transparent">2025</span>
+              <span className="text-[#114471]">2025</span>
               <span className="h-px flex-1 bg-[#AFBEC6]/50" />
             </h3>
           </FadeIn>
@@ -263,7 +252,7 @@ export default function Research() {
           {/* 2024 */}
           <FadeIn>
             <h3 className="text-xl font-semibold text-[#114471] mb-6 flex items-center gap-3">
-              <span className="bg-gradient-to-r from-[#114471] to-[#3596FF] bg-clip-text text-transparent">2024</span>
+              <span className="text-[#114471]">2024</span>
               <span className="h-px flex-1 bg-[#AFBEC6]/50" />
             </h3>
           </FadeIn>
@@ -280,7 +269,7 @@ export default function Research() {
           {/* 2023 */}
           <FadeIn>
             <h3 className="text-xl font-semibold text-[#114471] mb-6 flex items-center gap-3">
-              <span className="bg-gradient-to-r from-[#114471] to-[#3596FF] bg-clip-text text-transparent">2023</span>
+              <span className="text-[#114471]">2023</span>
               <span className="h-px flex-1 bg-[#AFBEC6]/50" />
             </h3>
           </FadeIn>
@@ -310,31 +299,36 @@ export default function Research() {
 
           <FadeIn delay={100}>
             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-              <div className="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+              <a href="https://ai.jhu.edu/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+                <img src="/jhu-logo.png" alt="Johns Hopkins University" className="h-12 w-48 object-contain" />
                 <div className="text-[#114471] font-semibold text-lg">
                   Johns Hopkins University
                 </div>
-              </div>
-              <div className="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+              </a>
+              <a href="https://www.microsoft.com/en-us/research/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+                <img src="/msr_logo.png" alt="Microsoft Research" className="h-12 w-40 object-contain" />
                 <div className="text-[#114471] font-semibold text-lg">
                   Microsoft Research
                 </div>
-              </div>
-              <div className="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+              </a>
+              <a href="https://www.nomic.ai/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+                <img src="/nomic_logo.svg" alt="Nomic AI" className="h-16 w-16 object-contain" />
                 <div className="text-[#114471] font-semibold text-lg">
                   Nomic AI
                 </div>
-              </div>
-              <div className="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+              </a>
+              <a href="https://www.jataware.com/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+                <div className="h-16 w-16 flex items-center justify-center bg-[#486884] rounded text-white font-bold text-lg">J</div>
                 <div className="text-[#114471] font-semibold text-lg">
                   Jataware Corp
                 </div>
-              </div>
-              <div className="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+              </a>
+              <a href="https://www.calcifercomputing.com/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+                <img src="/calco_prof.png" alt="Calcifer Computing" className="h-16 w-16 rounded object-cover" />
                 <div className="text-[#114471] font-semibold text-lg">
                   Calcifer Computing
                 </div>
-              </div>
+              </a>
             </div>
           </FadeIn>
         </div>

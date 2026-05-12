@@ -6,7 +6,7 @@ export default function Header() {
   const [activeTab, setActiveTab] = useState<string | null>(null);
 
   return (
-    <div className="w-full flex flex-col md:flex-row justify-center md:justify-between items-center py-4 px-4 md:px-8 lg:px-16 bg-white border-b border-[#AFBEC6]">
+    <div className="w-full flex flex-col md:flex-row justify-center md:justify-between items-center py-4 px-4 md:px-8 lg:px-16 bg-[#F0F6FB] border-b border-[#AFBEC6]">
       <Link href="/" className="flex items-center mb-4 md:mb-0">
         <Image
           src="/favicon.png"

@@ -183,7 +183,7 @@ const QuenchIcon = () => (
 
 export default function AppsPage() {
   return (
-    <div className="flex w-full min-h-screen bg-white flex-col overflow-hidden">
+    <div className="flex w-full min-h-screen bg-[#F0F6FB] flex-col overflow-hidden">
       <Header />
 
       {/* Hero section */}
@@ -223,7 +223,7 @@ export default function AppsPage() {
           <FadeIn delay={100}>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-[#114471] mb-4 leading-tight">
               Tools for AI{" "}
-              <span className="bg-gradient-to-r from-[#114471] to-[#3596FF] bg-clip-text text-transparent">
+              <span className="text-[#114471]">
                 monitoring and evaluation
               </span>
             </h1>
