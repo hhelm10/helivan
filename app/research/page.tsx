@@ -58,6 +58,20 @@ export default function Research() {
       tags: ["Evaluate"],
     },
     {
+      url: "https://arxiv.org/abs/2605.26409",
+      title: "Jailbreak susceptibility prediction and mitigation via the behavioral geometry of models",
+      subtitle:
+        "Efficient susceptibility prediction and effective defense transfer for jailbreak defense / blue teaming.",
+      tags: ["Evaluate"],
+    },
+    {
+      url: "https://arxiv.org/abs/2605.27463",
+      title: "When prompt perturbations break your A/B test: A valid statistical test for generative surveying",
+      subtitle:
+        "Valid & robust statistical analysis of generative surveying data.",
+      tags: ["Evaluate"],
+    },
+    {
       url: "https://arxiv.org/abs/2505.00006",
       title: "Toward a Digital Twin of U.S. Congress",
       subtitle:
