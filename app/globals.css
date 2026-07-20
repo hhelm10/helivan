@@ -24,7 +24,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: #E5E7EB;
+  background: #F4F7FC;
 }
 /**************************************************
 *
@@ -315,7 +315,7 @@ body {
 
 @layer base {
   html {
-    font-family: Alexandria, sans-serif;
+    font-family: var(--font-inter), Inter, sans-serif;
   }
 }
 
@@ -1201,7 +1201,7 @@ video {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: #E5E7EB;
+  background: #F4F7FC;
 }
 
 /**************************************************

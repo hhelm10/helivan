@@ -7,7 +7,7 @@ import { FadeIn } from "@/components/NewLanding";
 const FloatingOrb = ({
   className,
   size = "400px",
-  color = "rgba(0, 71, 125, 0.08)",
+  color = "rgba(51, 80, 122, 0.08)",
 }: {
   className?: string;
   size?: string;
@@ -172,7 +172,7 @@ export default function Research() {
   const totalPapers = papers2026.length + papers2025.length + papers2024.length + papers2023.length;
 
   return (
-    <div className="flex w-full min-h-screen bg-[#F0F6FB] flex-col overflow-hidden">
+    <div className="flex w-full min-h-screen bg-[#F4F7FC] flex-col overflow-hidden">
       <Header />
 
       {/* Hero Section */}
@@ -181,17 +181,17 @@ export default function Research() {
         <FloatingOrb
           className="top-0 -right-40"
           size="500px"
-          color="rgba(0, 71, 125, 0.05)"
+          color="rgba(51, 80, 122, 0.05)"
         />
         <FloatingOrb
           className="top-40 -left-40"
           size="400px"
-          color="rgba(17, 68, 113, 0.04)"
+          color="rgba(38, 60, 92, 0.04)"
         />
 
         <div className="relative max-w-6xl mx-auto">
           <FadeIn>
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#F6F7F9] border border-[#AFBEC6]/50 rounded-full text-sm text-[#486884] mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#F4F7FC] border border-[#DFE6F2]/50 rounded-full text-sm text-[#5C6B8A] mb-6">
               <svg
                 className="w-4 h-4"
                 fill="none"
@@ -205,22 +205,22 @@ export default function Research() {
                   d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
                 />
               </svg>
-              Technical reports & published papers
+              technical reports & published papers
             </div>
           </FadeIn>
 
           <FadeIn delay={100}>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-[#114471] mb-4 leading-tight">
-              Advancing the science of{" "}
-              <span className="text-[#114471]">
+            <h1 className="font-grotesk text-4xl md:text-5xl lg:text-6xl font-semibold text-[#0A1638] mb-4 leading-tight">
+              advancing the science of{" "}
+              <span className="text-[#0A1638]">
                 agent evaluation and monitoring
               </span>
             </h1>
           </FadeIn>
 
           <FadeIn delay={200}>
-            <p className="text-[#486884] text-lg md:text-xl max-w-2xl leading-relaxed">
-              Our research focuses on developing statistically principled monitoring and evaluation tools for models, agents, and multi-agent systems.
+            <p className="text-[#5C6B8A] text-lg md:text-xl max-w-2xl leading-relaxed">
+              our research focuses on developing statistically principled monitoring and evaluation tools for models, agents, and multi-agent systems.
             </p>
           </FadeIn>
         </div>
@@ -231,9 +231,9 @@ export default function Research() {
         <div className="max-w-6xl mx-auto">
           {/* 2026 */}
           <FadeIn>
-            <h3 className="text-xl font-semibold text-[#114471] mb-6 flex items-center gap-3">
-              <span className="text-[#114471]">2026</span>
-              <span className="h-px flex-1 bg-[#AFBEC6]/50" />
+            <h3 className="text-xl font-semibold text-[#0A1638] mb-6 flex items-center gap-3">
+              <span className="text-[#0A1638]">2026</span>
+              <span className="w-8 h-px bg-drift-amber" /><span className="h-px flex-1 bg-[#DFE6F2]/50" />
             </h3>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch mb-12">
@@ -248,9 +248,9 @@ export default function Research() {
 
           {/* 2025 */}
           <FadeIn>
-            <h3 className="text-xl font-semibold text-[#114471] mb-6 flex items-center gap-3">
-              <span className="text-[#114471]">2025</span>
-              <span className="h-px flex-1 bg-[#AFBEC6]/50" />
+            <h3 className="text-xl font-semibold text-[#0A1638] mb-6 flex items-center gap-3">
+              <span className="text-[#0A1638]">2025</span>
+              <span className="w-8 h-px bg-drift-amber" /><span className="h-px flex-1 bg-[#DFE6F2]/50" />
             </h3>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch mb-12">
@@ -265,9 +265,9 @@ export default function Research() {
 
           {/* 2024 */}
           <FadeIn>
-            <h3 className="text-xl font-semibold text-[#114471] mb-6 flex items-center gap-3">
-              <span className="text-[#114471]">2024</span>
-              <span className="h-px flex-1 bg-[#AFBEC6]/50" />
+            <h3 className="text-xl font-semibold text-[#0A1638] mb-6 flex items-center gap-3">
+              <span className="text-[#0A1638]">2024</span>
+              <span className="w-8 h-px bg-drift-amber" /><span className="h-px flex-1 bg-[#DFE6F2]/50" />
             </h3>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch mb-12">
@@ -282,9 +282,9 @@ export default function Research() {
 
           {/* 2023 */}
           <FadeIn>
-            <h3 className="text-xl font-semibold text-[#114471] mb-6 flex items-center gap-3">
-              <span className="text-[#114471]">2023</span>
-              <span className="h-px flex-1 bg-[#AFBEC6]/50" />
+            <h3 className="text-xl font-semibold text-[#0A1638] mb-6 flex items-center gap-3">
+              <span className="text-[#0A1638]">2023</span>
+              <span className="w-8 h-px bg-drift-amber" /><span className="h-px flex-1 bg-[#DFE6F2]/50" />
             </h3>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
@@ -300,14 +300,14 @@ export default function Research() {
       </section>
 
       {/* Collaborators Section */}
-      <section className="relative py-20 px-4 md:px-8 lg:px-16 bg-[#F6F7F9]">
+      <section className="relative py-20 px-4 md:px-8 lg:px-16 bg-[#F4F7FC]">
         <div className="max-w-6xl mx-auto text-center">
           <FadeIn>
-            <h2 className="text-2xl md:text-3xl font-semibold text-[#114471] mb-4">
-              Research Partners
+            <h2 className="font-grotesk text-2xl md:text-3xl font-semibold text-[#0A1638] mb-4">
+              research partners
             </h2>
-            <p className="text-[#486884] text-lg mb-12">
-              Collaborating with leading institutions to advance AI research
+            <p className="text-[#5C6B8A] text-lg mb-12">
+              collaborating with leading institutions to advance AI research
             </p>
           </FadeIn>
 
@@ -315,31 +315,31 @@ export default function Research() {
             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
               <a href="https://ai.jhu.edu/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
                 <img src="/jhu-logo.png" alt="Johns Hopkins University" className="h-12 w-48 object-contain" />
-                <div className="text-[#114471] font-semibold text-lg">
+                <div className="text-[#0A1638] font-semibold text-lg">
                   Johns Hopkins University
                 </div>
               </a>
               <a href="https://www.microsoft.com/en-us/research/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
                 <img src="/msr_logo.png" alt="Microsoft Research" className="h-12 w-40 object-contain" />
-                <div className="text-[#114471] font-semibold text-lg">
+                <div className="text-[#0A1638] font-semibold text-lg">
                   Microsoft Research
                 </div>
               </a>
               <a href="https://www.nomic.ai/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
                 <img src="/nomic_logo.svg" alt="Nomic AI" className="h-16 w-16 object-contain" />
-                <div className="text-[#114471] font-semibold text-lg">
+                <div className="text-[#0A1638] font-semibold text-lg">
                   Nomic AI
                 </div>
               </a>
               <a href="https://www.jataware.com/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
-                <div className="h-16 w-16 flex items-center justify-center bg-[#486884] rounded text-white font-bold text-lg">J</div>
-                <div className="text-[#114471] font-semibold text-lg">
+                <div className="h-16 w-16 flex items-center justify-center bg-[#5C6B8A] rounded text-white font-bold text-lg">J</div>
+                <div className="text-[#0A1638] font-semibold text-lg">
                   Jataware Corp
                 </div>
               </a>
               <a href="https://www.calcifercomputing.com/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
                 <img src="/calco_prof.png" alt="Calcifer Computing" className="h-16 w-16 rounded object-cover" />
-                <div className="text-[#114471] font-semibold text-lg">
+                <div className="text-[#0A1638] font-semibold text-lg">
                   Calcifer Computing
                 </div>
               </a>
@@ -349,18 +349,18 @@ export default function Research() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-20 px-4 bg-gradient-to-b from-[#F6F7F9] to-white">
+      <section className="relative py-20 px-4 bg-gradient-to-b from-[#F4F7FC] to-white">
         <div className="max-w-3xl mx-auto text-center">
           <FadeIn>
-            <h2 className="text-2xl md:text-3xl font-semibold text-[#114471] mb-4">
-              Interested in collaborating?
+            <h2 className="font-grotesk text-2xl md:text-3xl font-semibold text-[#0A1638] mb-4">
+              interested in collaborating?
             </h2>
-            <p className="text-[#486884] text-lg mb-8">
-              We're always looking for research partners and collaborators.
+            <p className="text-[#5C6B8A] text-lg mb-8">
+              we're always looking for research partners and collaborators.
             </p>
             <a
               href="mailto:info@helivan.io"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#114471] to-[#00477D] text-white font-medium rounded-xl hover:shadow-lg hover:shadow-[#114471]/25 transition-all duration-300 hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#0A1638] to-[#263C5C] text-white font-medium rounded-xl hover:shadow-lg hover:shadow-[#0A1638]/25 transition-all duration-300 hover:-translate-y-0.5"
             >
               Get in touch
               <svg
@@ -398,26 +398,26 @@ const ResearchCard = ({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative flex flex-col p-6 bg-white border border-[#AFBEC6]/50 rounded-2xl hover:border-[#114471]/30 hover:shadow-xl hover:shadow-[#114471]/5 transition-all duration-300 hover:-translate-y-1 h-full"
+      className="group relative flex flex-col p-6 bg-white border border-[#DFE6F2]/50 rounded-2xl hover:border-[#0A1638]/30 hover:shadow-xl hover:shadow-[#0A1638]/5 transition-all duration-300 hover:-translate-y-1 h-full"
     >
       {/* Gradient overlay on hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#114471]/5 via-transparent to-[#3596FF]/5 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0A1638]/5 via-transparent to-[#33507A]/5 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300" />
 
       <div className="relative flex flex-col h-full">
         {/* Header with venue badge and link icon */}
         <div className="flex items-start justify-between mb-3">
           {venue ? (
-            <span className="px-3 py-1 text-xs font-semibold text-white bg-gradient-to-r from-[#114471] to-[#00477D] rounded-full">
+            <span className="px-3 py-1 text-xs font-semibold text-white bg-gradient-to-r from-[#0A1638] to-[#263C5C] rounded-full">
               {venue}
             </span>
           ) : (
-            <span className="px-3 py-1 text-xs font-medium text-[#486884] bg-[#F6F7F9] rounded-full">
+            <span className="px-3 py-1 text-xs font-medium text-[#5C6B8A] bg-[#F4F7FC] rounded-full">
               arXiv
             </span>
           )}
-          <div className="flex items-center justify-center w-8 h-8 rounded-full bg-[#F6F7F9] group-hover:bg-[#114471] transition-colors duration-300">
+          <div className="flex items-center justify-center w-8 h-8 rounded-full bg-[#F4F7FC] group-hover:bg-[#0A1638] transition-colors duration-300">
             <svg
-              className="w-4 h-4 text-[#486884] group-hover:text-white transition-colors duration-300"
+              className="w-4 h-4 text-[#5C6B8A] group-hover:text-white transition-colors duration-300"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -433,12 +433,12 @@ const ResearchCard = ({
         </div>
 
         {/* Title */}
-        <h3 className="text-base md:text-lg font-semibold text-[#114471] mb-2 leading-snug group-hover:text-[#00477D] transition-colors">
+        <h3 className="text-base md:text-lg font-semibold text-[#0A1638] mb-2 leading-snug group-hover:text-[#263C5C] transition-colors">
           {title}
         </h3>
 
         {/* Subtitle */}
-        <p className="text-[#486884] text-sm leading-relaxed mb-4 flex-grow">
+        <p className="text-[#5C6B8A] text-sm leading-relaxed mb-4 flex-grow">
           {subtitle}
         </p>
 
@@ -448,7 +448,7 @@ const ResearchCard = ({
             {tags.map((tag, idx) => (
               <span
                 key={idx}
-                className="px-2 py-1 text-xs font-medium text-[#486884] bg-[#F6F7F9] rounded-full"
+                className="px-2 py-1 text-xs font-medium text-[#5C6B8A] bg-[#F4F7FC] rounded-full"
               >
                 {tag}
               </span>

@@ -58,7 +58,7 @@ export const FadeIn = ({
 const FloatingOrb = ({
   className,
   size = "400px",
-  color = "rgba(0, 71, 125, 0.08)",
+  color = "rgba(51, 80, 122, 0.08)",
   delay = 0,
 }: {
   className?: string;
@@ -84,8 +84,8 @@ const GridPattern = () => (
     className="absolute inset-0 pointer-events-none opacity-[0.03]"
     style={{
       backgroundImage: `
-        linear-gradient(to right, #114471 1px, transparent 1px),
-        linear-gradient(to bottom, #114471 1px, transparent 1px)
+        linear-gradient(to right, #33507A 1px, transparent 1px),
+        linear-gradient(to bottom, #33507A 1px, transparent 1px)
       `,
       backgroundSize: "60px 60px",
     }}
@@ -107,24 +107,23 @@ const FeatureCard = ({
   status?: "live" | "beta" | "coming-soon";
 }) => {
   const statusColors = {
-    live: "bg-green-500",
-    beta: "bg-yellow-500",
-    "coming-soon": "bg-[#486884]",
+    live: "bg-pass-green",
+    beta: "bg-drift-amber",
+    "coming-soon": "bg-brand-muted",
   };
 
   const statusText = {
-    live: "Live",
-    beta: "Beta",
-    "coming-soon": "Coming Soon",
+    live: "live",
+    beta: "beta",
+    "coming-soon": "coming soon",
   };
 
   return (
     <FadeIn delay={delay}>
-      <div className="group relative h-full p-6 bg-white/80 backdrop-blur-sm border border-[#AFBEC6]/50 rounded-2xl hover:border-[#114471]/30 hover:shadow-xl hover:shadow-[#114471]/5 transition-all duration-300">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#114471]/5 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300" />
+      <div className="group relative h-full p-6 bg-white border border-hairline rounded-2xl hover:border-steel/40 hover:shadow-xl hover:shadow-steel/5 transition-all duration-300">
         <div className="relative flex flex-col h-full">
           <div className="flex items-start justify-between mb-4">
-            <div className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-[#114471] to-[#00477D] rounded-xl text-white group-hover:scale-110 transition-transform duration-300">
+            <div className="w-12 h-12 flex items-center justify-center bg-midnight rounded-xl text-white group-hover:scale-110 transition-transform duration-300">
               {icon}
             </div>
             {status && (
@@ -132,14 +131,14 @@ const FeatureCard = ({
                 <span
                   className={`w-2 h-2 rounded-full ${statusColors[status]} ${status === "live" ? "animate-pulse" : ""}`}
                 />
-                <span className="text-xs text-[#486884] font-medium uppercase tracking-wider">
+                <span className="text-xs text-brand-muted font-medium tracking-wider">
                   {statusText[status]}
                 </span>
               </div>
             )}
           </div>
-          <h3 className="text-lg font-semibold text-[#114471] mb-2">{title}</h3>
-          <p className="text-[#486884] text-sm leading-relaxed flex-grow">{description}</p>
+          <h3 className="font-grotesk text-lg font-semibold text-midnight mb-2">{title}</h3>
+          <p className="text-brand-muted text-sm leading-relaxed flex-grow">{description}</p>
         </div>
       </div>
     </FadeIn>
@@ -148,7 +147,7 @@ const FeatureCard = ({
 
 export const NewLanding = () => {
   return (
-    <div className="flex w-full min-h-screen bg-[#F0F6FB] flex-col overflow-hidden">
+    <div className="flex w-full min-h-screen bg-mist flex-col overflow-hidden">
       <Header />
 
       {/* Hero Section */}
@@ -158,47 +157,39 @@ export const NewLanding = () => {
         <FloatingOrb
           className="top-20 -left-40"
           size="600px"
-          color="rgba(0, 71, 125, 0.06)"
+          color="rgba(51, 80, 122, 0.06)"
           delay={0}
         />
         <FloatingOrb
           className="top-40 -right-40"
           size="500px"
-          color="rgba(17, 68, 113, 0.05)"
+          color="rgba(38, 60, 92, 0.05)"
           delay={1000}
         />
         <FloatingOrb
           className="bottom-20 left-1/4"
           size="400px"
-          color="rgba(0, 71, 125, 0.04)"
+          color="rgba(51, 80, 122, 0.04)"
           delay={2000}
         />
 
         <div className="relative z-10 max-w-5xl mx-auto text-center">
           <FadeIn>
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#F6F7F9] border border-[#AFBEC6]/50 rounded-full text-sm text-[#486884] mb-8">
-              <span className="w-2 h-2 bg-yellow-500 rounded-full" />
-              AgentWatch and Quench now in BETA
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-hairline rounded-full text-sm text-brand-muted mb-8">
+              <span className="w-2 h-2 bg-drift-amber rounded-full" />
+              AgentWatch and Quench now in beta
             </div>
           </FadeIn>
 
           <FadeIn delay={100}>
-            <h1 className="text-[#114471] text-4xl md:text-6xl lg:text-7xl text-center font-semibold max-w-4xl mx-auto leading-[1.1] tracking-tight">
-              Agent{" "}
-              <span className="text-[#114471]">
-                monitoring
-              </span>{" "}
-              and model{" "}
-              <span className="text-[#114471]">
-                evaluations
-              </span>{" "}
-              at scale.
+            <h1 className="font-grotesk text-midnight text-4xl md:text-6xl lg:text-7xl text-center font-semibold max-w-4xl mx-auto leading-[1.1] tracking-tight">
+              agent monitoring and model evaluations at scale<span className="text-drift-amber">.</span>
             </h1>
           </FadeIn>
 
           <FadeIn delay={200}>
-            <p className="text-[#486884] text-lg md:text-xl lg:text-2xl text-center mt-8 max-w-2xl mx-auto leading-relaxed">
-              We build monitoring and evaluation tools for the next generation of AI systems. From research to production.
+            <p className="text-brand-muted text-lg md:text-xl lg:text-2xl text-center mt-8 max-w-2xl mx-auto leading-relaxed">
+              we build monitoring and evaluation tools for the next generation of AI systems. from research to production.
             </p>
           </FadeIn>
 
@@ -206,9 +197,9 @@ export const NewLanding = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
               <Link
                 href="/apps"
-                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#114471] to-[#00477D] text-white font-medium rounded-xl hover:shadow-lg hover:shadow-[#114471]/25 transition-all duration-300 hover:-translate-y-0.5"
+                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-steel text-white font-medium rounded-xl hover:bg-steel-deep hover:shadow-lg hover:shadow-steel/25 transition-all duration-300 hover:-translate-y-0.5"
               >
-                Explore Apps
+                explore apps
                 <svg
                   className="w-4 h-4 group-hover:translate-x-1 transition-transform"
                   fill="none"
@@ -225,9 +216,9 @@ export const NewLanding = () => {
               </Link>
               <Link
                 href="/research"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border border-[#AFBEC6] text-[#114471] font-medium rounded-xl hover:border-[#114471] hover:bg-[#F6F7F9] transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border border-hairline text-steel font-medium rounded-xl hover:border-steel hover:bg-mist transition-all duration-300"
               >
-                View Research
+                view research
               </Link>
             </div>
           </FadeIn>
@@ -236,7 +227,7 @@ export const NewLanding = () => {
       </section>
 
       {/* Features Section */}
-      <section className="relative py-12 px-4 bg-gradient-to-b from-white to-[#F6F7F9]">
+      <section className="relative py-12 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             <FeatureCard
@@ -255,8 +246,8 @@ export const NewLanding = () => {
                   />
                 </svg>
               }
-              title="Agent Monitoring"
-              description="Real-time observability for multi-agent systems. Detect behavioral change and emergent behaviors."
+              title="agent monitoring"
+              description="real-time observability for multi-agent systems. detect behavioral change and emergent behaviors."
               status="beta"
               delay={100}
             />
@@ -279,8 +270,8 @@ export const NewLanding = () => {
                   />
                 </svg>
               }
-              title="System Evaluation"
-              description="Efficient evaluation frameworks for AI systems. Easily integrated into existing evaluation flows."
+              title="system evaluation"
+              description="efficient evaluation frameworks for AI systems. easily integrated into existing evaluation flows."
               status="beta"
               delay={200}
             />
@@ -300,8 +291,8 @@ export const NewLanding = () => {
                   />
                 </svg>
               }
-              title="Research"
-              description="Public technical reports and published papers on monitoring and evaluating models, agents, and multi-agent systems."
+              title="research"
+              description="public technical reports and published papers on monitoring and evaluating models, agents, and multi-agent systems."
               delay={300}
             />
           </div>

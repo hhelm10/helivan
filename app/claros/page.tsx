@@ -4,7 +4,7 @@ export default async function Claros() {
     return (
     <div>
       <div className="static-header text-blue-4">
-        <div> <a href="/"> <img src={"/favicon.png"} width='67rem'/> </a>
+        <div> <a href="/"> <img src={"/brand/helivan-mark-midnight.svg"} width="56" alt="Helivan"/> </a>
         </div>
         <div className="text-2xl float-right word-spacing-20pt font-impact center-vertical">
             <a href="/claros"> 

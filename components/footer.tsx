@@ -1,13 +1,24 @@
+import Image from "next/image";
+
 export const Footer = () => {
   return (
-    <div className="flex flex-col gap-0 w-full mt-auto bg-[#F6F7F9] pb-8">
+    <div className="flex flex-col gap-0 w-full mt-auto bg-mist pb-8">
       {/* Divider */}
-      <div className="flex w-full h-[1px] bg-[#AFBEC6]" />
+      <div className="flex w-full h-[1px] bg-hairline" />
 
       {/* Bottom copyright & social */}
       <div className="flex flex-col md:flex-row w-full justify-center md:justify-between items-center py-8 md:py-6 md:h-[100px] px-4 md:px-[70px] gap-4 md:gap-0">
-        <div className="text-[#486884] text-sm md:text-base font-normal text-center md:text-left">
-          &copy; 2026 Helivan Corp. All rights reserved.
+        <div className="flex items-center gap-3">
+          <Image
+            src="/brand/helivan-mark-scanline-midnight.svg"
+            alt=""
+            width={20}
+            height={20}
+            className="opacity-60"
+          />
+          <div className="text-brand-muted text-sm md:text-base font-normal text-center md:text-left">
+            &copy; 2026 helivan corp. all rights reserved.
+          </div>
         </div>
         <div
           className="cursor-pointer"
@@ -33,7 +44,7 @@ const LinkedIn = () => {
     >
       <path
         d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-        stroke="#486884"
+        stroke="#33507A"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -43,7 +54,7 @@ const LinkedIn = () => {
         y="9"
         width="4"
         height="12"
-        stroke="#486884"
+        stroke="#33507A"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -52,7 +63,7 @@ const LinkedIn = () => {
         cx="4"
         cy="4"
         r="2"
-        stroke="#486884"
+        stroke="#33507A"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"

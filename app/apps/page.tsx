@@ -7,7 +7,7 @@ import { FadeIn } from "@/components/NewLanding";
 const FloatingOrb = ({
   className,
   size = "400px",
-  color = "rgba(0, 71, 125, 0.08)",
+  color = "rgba(51, 80, 122, 0.08)",
 }: {
   className?: string;
   size?: string;
@@ -44,15 +44,15 @@ const AppCard = ({
   features = [],
 }: AppCardProps) => {
   const statusColors = {
-    live: "bg-green-500",
-    beta: "bg-yellow-500",
-    "coming-soon": "bg-[#486884]",
+    live: "bg-pass-green",
+    beta: "bg-drift-amber",
+    "coming-soon": "bg-[#5C6B8A]",
   };
 
   const statusText = {
-    live: "Live",
-    beta: "Beta",
-    "coming-soon": "Coming Soon",
+    live: "live",
+    beta: "beta",
+    "coming-soon": "coming soon",
   };
 
   return (
@@ -60,22 +60,22 @@ const AppCard = ({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative flex flex-col p-8 bg-white/80 backdrop-blur-sm border border-[#AFBEC6]/50 rounded-2xl hover:border-[#114471]/30 hover:shadow-2xl hover:shadow-[#114471]/10 transition-all duration-300 hover:-translate-y-1"
+      className="group relative flex flex-col p-8 bg-white/80 backdrop-blur-sm border border-[#DFE6F2]/50 rounded-2xl hover:border-[#0A1638]/30 hover:shadow-2xl hover:shadow-[#0A1638]/10 transition-all duration-300 hover:-translate-y-1"
     >
       {/* Gradient overlay on hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#114471]/5 via-transparent to-[#3596FF]/5 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0A1638]/5 via-transparent to-[#33507A]/5 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300" />
 
       <div className="relative">
         {/* Header with icon and status */}
         <div className="flex items-start justify-between mb-6">
-          <div className="flex items-center justify-center w-14 h-14 bg-gradient-to-br from-[#114471] to-[#00477D] rounded-xl text-white group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-[#114471]/25 transition-all duration-300">
+          <div className="flex items-center justify-center w-14 h-14 bg-gradient-to-br from-[#0A1638] to-[#263C5C] rounded-xl text-white group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-[#0A1638]/25 transition-all duration-300">
             {icon}
           </div>
           <div className="flex items-center gap-2">
             <span
               className={`w-2 h-2 rounded-full ${statusColors[status]} ${status === "live" ? "animate-pulse" : ""}`}
             />
-            <span className="text-xs text-[#486884] font-medium uppercase tracking-wider">
+            <span className="text-xs text-[#5C6B8A] font-medium tracking-wider">
               {statusText[status]}
             </span>
           </div>
@@ -86,13 +86,13 @@ const AppCard = ({
           {titleIcon && (
             <img src={titleIcon} alt="" className="w-10 h-10" />
           )}
-          <h3 className="text-2xl font-semibold text-[#114471] group-hover:text-[#00477D] transition-colors">
+          <h3 className="text-2xl font-semibold text-[#0A1638] group-hover:text-[#263C5C] transition-colors">
             {title}
           </h3>
         </div>
 
         {/* Description */}
-        <p className="text-[#486884] text-base leading-relaxed mb-6">
+        <p className="text-[#5C6B8A] text-base leading-relaxed mb-6">
           {description}
         </p>
 
@@ -102,10 +102,10 @@ const AppCard = ({
             {features.map((feature, idx) => (
               <li
                 key={idx}
-                className="flex items-center gap-2 text-sm text-[#486884]"
+                className="flex items-center gap-2 text-sm text-[#5C6B8A]"
               >
                 <svg
-                  className="w-4 h-4 text-[#00477D]"
+                  className="w-4 h-4 text-[#263C5C]"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -124,8 +124,8 @@ const AppCard = ({
         )}
 
         {/* CTA */}
-        <div className="flex items-center text-[#00477D] font-medium group-hover:text-[#114471]">
-          {status === "coming-soon" ? "Get notified" : "Go to web application"}
+        <div className="flex items-center text-[#263C5C] font-medium group-hover:text-[#0A1638]">
+          {status === "coming-soon" ? "get notified" : "go to web application"}
           <svg
             className="ml-2 w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-300"
             fill="none"
@@ -183,7 +183,7 @@ const QuenchIcon = () => (
 
 export default function AppsPage() {
   return (
-    <div className="flex w-full min-h-screen bg-[#F0F6FB] flex-col overflow-hidden">
+    <div className="flex w-full min-h-screen bg-[#F4F7FC] flex-col overflow-hidden">
       <Header />
 
       {/* Hero section */}
@@ -192,17 +192,17 @@ export default function AppsPage() {
         <FloatingOrb
           className="top-0 -right-40"
           size="500px"
-          color="rgba(0, 71, 125, 0.05)"
+          color="rgba(51, 80, 122, 0.05)"
         />
         <FloatingOrb
           className="top-40 -left-40"
           size="400px"
-          color="rgba(17, 68, 113, 0.04)"
+          color="rgba(38, 60, 92, 0.04)"
         />
 
         <div className="relative max-w-6xl mx-auto">
           <FadeIn>
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#F6F7F9] border border-[#AFBEC6]/50 rounded-full text-sm text-[#486884] mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#F4F7FC] border border-[#DFE6F2]/50 rounded-full text-sm text-[#5C6B8A] mb-6">
               <svg
                 className="w-4 h-4"
                 fill="none"
@@ -216,22 +216,22 @@ export default function AppsPage() {
                   d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
                 />
               </svg>
-              Applications
+              applications
             </div>
           </FadeIn>
 
           <FadeIn delay={100}>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-[#114471] mb-4 leading-tight">
-              Tools for AI{" "}
-              <span className="text-[#114471]">
+            <h1 className="font-grotesk text-4xl md:text-5xl lg:text-6xl font-semibold text-[#0A1638] mb-4 leading-tight">
+              tools for AI{" "}
+              <span className="text-[#0A1638]">
                 monitoring and evaluation
               </span>
             </h1>
           </FadeIn>
 
           <FadeIn delay={200}>
-            <p className="text-[#486884] text-lg md:text-xl max-w-2xl leading-relaxed">
-              Monitor multi-agent systems and evaluate system performance with
+            <p className="text-[#5C6B8A] text-lg md:text-xl max-w-2xl leading-relaxed">
+              monitor multi-agent systems and evaluate system performance with
               our suite of purpose-built tools.
             </p>
           </FadeIn>

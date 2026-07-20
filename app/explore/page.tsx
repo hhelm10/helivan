@@ -177,7 +177,7 @@ export default async function Projects() {
     return (
     <div>
       <div className="static-header">
-        <div> <a href="/"> <img src={"/favicon.png"} width='67rem'/> </a>
+        <div> <a href="/"> <img src={"/brand/helivan-mark-midnight.svg"} width="56" alt="Helivan"/> </a>
         </div>
         <div className="text-blue-4 text-2xl float-right word-spacing-20pt font-impact center-vertical">
             <a href="/claros"> 

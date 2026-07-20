@@ -26,12 +26,24 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ["Alexandria", "sans-serif"], // Make Alexandria the default sans font
+      sans: ["var(--font-inter)", "Inter", "sans-serif"],
+      grotesk: ["var(--font-grotesk)", "Space Grotesk", "sans-serif"],
+      mono: ["var(--font-mono)", "IBM Plex Mono", "monospace"],
       alexandria: ["Alexandria", "sans-serif"],
       lorin: ["Lorin", "serif"],
     },
     extend: {
       colors: {
+        // Helivan brand — the Steel system (brand spec v1.0)
+        midnight: "#0A1638",
+        steel: "#33507A",
+        "steel-deep": "#263C5C",
+        "steel-tint": "#C9D6E8",
+        mist: "#F4F7FC",
+        hairline: "#DFE6F2",
+        "brand-muted": "#5C6B8A",
+        "drift-amber": "#F59E0B",
+        "pass-green": "#10B981",
         "euclid-blue": "#006895",
         "euclid-red": "#f62516",
         "euclid-yellow": "#ffba00",

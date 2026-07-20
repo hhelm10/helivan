@@ -15,7 +15,11 @@ export default function Landing() {
         <div>
           <a href="/">
             {" "}
-            <img src={"/logo-v2.png"} className="w-[300px] sm:w-[400px]" />{" "}
+            <img
+              src={"/brand/helivan-lockup-midnight.svg"}
+              alt="Helivan"
+              className="w-[300px] sm:w-[400px]"
+            />{" "}
           </a>
         </div>
         <div className="mt-8">
