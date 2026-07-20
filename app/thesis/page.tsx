@@ -674,7 +674,12 @@ const Fig4 = () => {
    the page
 ================================================================ */
 const Kicker = ({ children }: { children: React.ReactNode }) => (
-  <div className="font-mono text-[13px] text-steel tracking-wide mt-16 mb-3">{children}</div>
+  <div className="flex items-center gap-4 mt-16 mb-3">
+    <span className="font-mono text-[13px] text-brand-muted tracking-[0.18em] whitespace-nowrap">
+      {children}
+    </span>
+    <span className="flex-1 h-px bg-hairline" />
+  </div>
 );
 
 const H2 = ({ children }: { children: React.ReactNode }) => (
@@ -701,10 +706,15 @@ export default function ThesisPage() {
 
       <main className="w-full max-w-[46rem] mx-auto px-5 py-16 md:py-24 flex-1">
         {/* title */}
-        <div className="font-mono text-[13px] text-brand-muted mb-4">the helivan thesis</div>
+        <div className="flex items-center gap-4 mb-4">
+          <span className="font-mono text-[13px] text-brand-muted tracking-[0.18em] whitespace-nowrap">
+            the helivan thesis
+          </span>
+          <span className="flex-1 h-px bg-hairline" />
+        </div>
         <h1 className="font-grotesk text-3xl md:text-5xl font-semibold text-midnight leading-[1.15] tracking-tight">
-          the world is filling with ai agents. someone has to understand them
-          <span className="text-drift-amber">.</span>
+          the world is filling with ai agents.{" "}
+          <span className="text-steel">someone has to understand them.</span>
         </h1>
         <p className="text-[#2B3A5C] text-lg md:text-xl leading-relaxed mt-6">
           helivan builds the instruments: statistical tools for evaluating and monitoring
