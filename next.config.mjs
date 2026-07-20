@@ -10,6 +10,15 @@ import rehypeKatex from "rehype-katex";
 const nextConfig = {
     pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
     reactStrictMode: true,
+    async redirects() {
+        return [
+            {
+                source: '/about',
+                destination: '/',
+                permanent: true,
+            },
+        ];
+    },
     typescript: {
         ignoreBuildErrors: true,
     },

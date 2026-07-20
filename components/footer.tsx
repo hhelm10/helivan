@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export const Footer = () => {
   return (
@@ -6,19 +7,45 @@ export const Footer = () => {
       {/* Divider */}
       <div className="flex w-full h-[1px] bg-hairline" />
 
-      {/* Bottom copyright & social */}
-      <div className="flex flex-col md:flex-row w-full justify-center md:justify-between items-center py-8 md:py-6 md:h-[100px] px-4 md:px-[70px] gap-4 md:gap-0">
-        <div className="flex items-center gap-3">
+      {/* Nav & contact */}
+      <div className="flex flex-col md:flex-row w-full justify-between items-center pt-8 px-4 md:px-[70px] gap-6 md:gap-0">
+        <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/brand/helivan-mark-scanline-midnight.svg"
-            alt=""
-            width={20}
-            height={20}
-            className="opacity-60"
+            src="/brand/helivan-mark-midnight.svg"
+            alt="Helivan"
+            width={24}
+            height={24}
           />
-          <div className="text-brand-muted text-sm md:text-base font-normal text-center md:text-left">
-            &copy; 2026 helivan corp. all rights reserved.
-          </div>
+          <span className="font-grotesk font-bold text-midnight text-sm tracking-[0.075em]">
+            HELIVAN
+          </span>
+        </Link>
+        <nav className="flex flex-row items-center gap-6 md:gap-8">
+          <Link
+            href="/research"
+            className="text-brand-muted text-sm font-medium hover:text-midnight transition-colors"
+          >
+            research
+          </Link>
+          <Link
+            href="/apps"
+            className="text-brand-muted text-sm font-medium hover:text-midnight transition-colors"
+          >
+            apps
+          </Link>
+          <a
+            href="mailto:info@helivan.io"
+            className="text-brand-muted text-sm font-medium hover:text-midnight transition-colors"
+          >
+            info@helivan.io
+          </a>
+        </nav>
+      </div>
+
+      {/* Bottom copyright & social */}
+      <div className="flex flex-col md:flex-row w-full justify-center md:justify-between items-center py-6 px-4 md:px-[70px] gap-4 md:gap-0">
+        <div className="text-brand-muted text-sm font-normal text-center md:text-left">
+          &copy; 2026 helivan corp. all rights reserved.
         </div>
         <div
           className="cursor-pointer"
@@ -36,8 +63,8 @@ export const Footer = () => {
 const LinkedIn = () => {
   return (
     <svg
-      width="32"
-      height="32"
+      width="24"
+      height="24"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

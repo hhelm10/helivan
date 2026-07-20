@@ -22,23 +22,26 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://helivan.io"),
-  title: "Helivan",
+  title: {
+    default: "helivan — agent monitoring & model evals",
+    template: "%s · helivan",
+  },
   description:
-    "Monitoring and evaluation tools for the next generation of AI systems. From research to production.",
+    "monitoring and evaluation tools for the next generation of AI systems. from research to production.",
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Helivan",
+    title: "helivan — agent monitoring & model evals",
     description:
-      "Monitoring and evaluation tools for the next generation of AI systems. From research to production.",
+      "monitoring and evaluation tools for the next generation of AI systems. from research to production.",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Helivan",
+    title: "helivan — agent monitoring & model evals",
     images: ["/og-image.png"],
   },
 };
