@@ -333,7 +333,7 @@ const Fig2 = () => {
         <span className="font-mono text-xs text-brand-muted ml-auto">
           {hover
             ? `agent-${String(hover.id).padStart(3, "0")} · type ${hover.type + 1} · score ${hover.score.toFixed(2)}`
-            : "hover a point"}
+            : "hover / tap a point"}
         </span>
       </div>
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full rounded-xl border border-hairline bg-mist">
@@ -478,7 +478,7 @@ const Fig3 = () => {
 
   return (
     <div>
-      <div className="flex items-center gap-3 mb-3">
+      <div className="flex flex-wrap items-center gap-3 mb-3">
         <FigButton onClick={() => setPlaying(true)} disabled={playing || t >= T}>
           ▶ play
         </FigButton>
@@ -490,19 +490,23 @@ const Fig3 = () => {
         >
           reset
         </FigButton>
-        <span className="font-mono text-xs text-brand-muted">t = {t}</span>
-        <span
-          className={`font-mono text-xs ml-auto mr-2 ${
-            driftNow ? "text-drift-amber" : recovered && t > 0 ? "text-pass-green" : "text-brand-muted"
-          }`}
-        >
-          {driftNow
-            ? "⚠ drift detected · agent-03"
-            : recovered && t > 0
-              ? "✓ recovered · verified"
-              : "monitoring"}
+        <span className="font-mono text-xs text-brand-muted whitespace-nowrap">t = {t}</span>
+        <span className="flex items-center gap-2 w-full sm:w-auto sm:ml-auto">
+          <span
+            className={`font-mono text-xs whitespace-nowrap ${
+              driftNow ? "text-drift-amber" : recovered && t > 0 ? "text-pass-green" : "text-brand-muted"
+            }`}
+          >
+            {driftNow
+              ? "⚠ drift detected · agent-03"
+              : recovered && t > 0
+                ? "✓ recovered · verified"
+                : "monitoring"}
+          </span>
+          <span className="ml-auto sm:ml-0">
+            <Mark drift={driftNow} size={34} />
+          </span>
         </span>
-        <Mark drift={driftNow} size={34} />
       </div>
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full rounded-xl border border-hairline bg-mist">
         {/* normal band */}
