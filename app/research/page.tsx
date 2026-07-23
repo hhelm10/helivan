@@ -58,6 +58,13 @@ export default function Research() {
       tags: ["Evaluate"],
     },
     {
+      url: "https://arxiv.org/abs/2605.11135",
+      title: "Control charts for multi-agent systems",
+      subtitle:
+        "Extending adaptive control charts to automated monitoring of open-ended multi-agent systems, revealing a fundamental tension between agent learning and robustness to slowly-defecting adversaries.",
+      tags: ["Monitor"],
+    },
+    {
       url: "https://arxiv.org/abs/2605.26409",
       title: "Jailbreak susceptibility prediction and mitigation via the behavioral geometry of models",
       subtitle:
