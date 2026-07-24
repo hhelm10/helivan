@@ -37,8 +37,9 @@ export default function Header() {
       </Link>
 
       <nav className="flex flex-row items-center space-x-5 md:space-x-10">
-        <NavLink href="/apps" label="apps" />
+        <NavLink href="/thesis" label="thesis" />
         <NavLink href="/research" label="research" />
+        <NavLink href="/apps" label="apps" />
       </nav>
     </div>
   );
