@@ -9,7 +9,7 @@ import { Footer } from "@/components/footer";
    its drift state. */
 
 const CSS = `
-  .thesis-root{font-family:var(--inter);background:#fff;color:var(--midnight);font-size:15.5px;-webkit-font-smoothing:antialiased}
+  .thesis-root{font-family:var(--inter);background:#F4F7FC;color:var(--midnight);font-size:15.5px;-webkit-font-smoothing:antialiased}
   .thesis-root{
     --midnight:#0A1638; --steel:#33507A; --steel-deep:#263C5C; --tint:#C9D6E8;
     --mist:#F4F7FC; --line:#DFE6F2; --muted:#5C6B8A; --amber:#F59E0B; --amber-dk:#B45309; --green:#10B981;
@@ -31,13 +31,13 @@ const CSS = `
   .thesis-root p.big{font-size:16px}
   .thesis-root .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0 10px}
   @media(max-width:560px){.thesis-root .stats{grid-template-columns:1fr}}
-  .thesis-root .stat{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--mist)}
+  .thesis-root .stat{border:1px solid var(--line);border-radius:12px;padding:16px;background:#fff}
   .thesis-root .stat .n{font-family:var(--grotesk);font-weight:700;font-size:29px;letter-spacing:-.01em}
   .thesis-root .stat .l{font-size:12px;color:var(--muted);line-height:1.5;margin-top:4px}
   .thesis-root .srcs{font-family:var(--mono);font-size:10.5px;color:#9AA1B0;margin:6px 0 0}
   .thesis-root .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0 10px}
   @media(max-width:560px){.thesis-root .cards{grid-template-columns:1fr}}
-  .thesis-root .exc{border:1px solid var(--line);border-radius:12px;background:var(--mist);padding:14px;display:flex;flex-direction:column;gap:10px}
+  .thesis-root .exc{border:1px solid var(--line);border-radius:12px;background:#fff;padding:14px;display:flex;flex-direction:column;gap:10px}
   .thesis-root .exc svg{display:block}
   .thesis-root .exc .t{font-family:var(--grotesk);font-weight:600;font-size:14.5px}
   .thesis-root .exc .d{font-size:12.5px;color:var(--muted);line-height:1.55}
@@ -49,7 +49,7 @@ const CSS = `
   .thesis-root .obs p{margin:0;font-size:15.5px}
   .thesis-root .aside{font-family:var(--mono);font-size:12.5px;line-height:1.7;color:var(--muted);margin:18px 0 0;padding-left:14px;border-left:2px solid var(--tint);max-width:62ch}
   .thesis-root figure{margin:26px 0 8px}
-  .thesis-root .fig-shell{border:1px solid var(--line);border-radius:14px;background:var(--mist);overflow:hidden}
+  .thesis-root .fig-shell{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden}
   .thesis-root .fig-head{padding:16px 18px 6px}
   .thesis-root .fig-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--steel);text-transform:lowercase}
   .thesis-root .fig-title{font-family:var(--grotesk);font-weight:600;font-size:15.5px;margin-top:2px}
@@ -59,7 +59,7 @@ const CSS = `
   .thesis-root figcaption{font-family:var(--mono);font-size:12px;line-height:1.65;color:var(--muted);margin-top:12px}
   .thesis-root figcaption a{color:var(--steel)}
   .thesis-root button.ctl{font-family:var(--inter);font-size:12.5px;font-weight:600;cursor:pointer;background:#fff;color:var(--steel);border:1px solid var(--tint);border-radius:8px;padding:7px 13px;transition:.15s}
-  .thesis-root button.ctl:hover{background:var(--mist)}
+  .thesis-root button.ctl:hover{background:#F4F7FC}
   .thesis-root button.ctl[aria-pressed="true"]{background:var(--midnight);color:#fff;border-color:var(--midnight)}
   .thesis-root .readout{font-variant-numeric:tabular-nums}
   .thesis-root .closer{font-family:var(--grotesk);font-weight:600;font-size:clamp(22px,3.4vw,30px);line-height:1.25;letter-spacing:-.01em;margin:52px 0 8px;max-width:24ch}
@@ -1188,7 +1188,7 @@ export default function ThesisPage() {
   useEffect(() => initThesisViz(), []);
 
   return (
-    <div className="thesis-root min-h-screen flex flex-col bg-white">
+    <div className="thesis-root min-h-screen flex flex-col bg-mist">
       <style
         dangerouslySetInnerHTML={{
           __html:

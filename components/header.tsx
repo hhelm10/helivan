@@ -51,7 +51,7 @@ const Mark = () => (
 
 export default function Header() {
   return (
-    <header className="w-full">
+    <header className="sticky top-0 z-50 w-full bg-mist/90 backdrop-blur border-b border-hairline/60">
       <div className="max-w-[920px] mx-auto flex items-center gap-6 px-6 py-[18px]">
         <Link
           href="/"

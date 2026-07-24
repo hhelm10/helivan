@@ -183,7 +183,7 @@ const QuenchIcon = () => (
 
 export default function AppsPage() {
   return (
-    <div className="flex w-full min-h-screen bg-[#F4F7FC] flex-col overflow-hidden">
+    <div className="flex w-full min-h-screen bg-[#F4F7FC] flex-col [overflow-x:clip]">
       <Header />
 
       {/* Hero section */}

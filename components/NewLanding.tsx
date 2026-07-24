@@ -147,7 +147,7 @@ const FeatureCard = ({
 
 export const NewLanding = () => {
   return (
-    <div className="flex w-full min-h-screen bg-mist flex-col overflow-hidden">
+    <div className="flex w-full min-h-screen bg-mist flex-col [overflow-x:clip]">
       <Header />
 
       {/* Hero Section */}
@@ -197,7 +197,7 @@ export const NewLanding = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
               <Link
                 href="/apps"
-                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-steel text-white font-medium rounded-xl hover:bg-steel-deep hover:shadow-lg hover:shadow-steel/25 transition-all duration-300 hover:-translate-y-0.5"
+                className="group inline-flex items-center justify-center gap-2 px-[18px] py-[11px] bg-midnight text-white text-sm font-semibold rounded-[10px] hover:bg-steel-deep transition-colors duration-200"
               >
                 explore apps
                 <svg
@@ -216,7 +216,7 @@ export const NewLanding = () => {
               </Link>
               <Link
                 href="/research"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border border-hairline text-steel font-medium rounded-xl hover:border-steel hover:bg-mist transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 px-[18px] py-[11px] border border-steel-tint text-steel text-sm font-semibold rounded-[10px] hover:border-steel transition-colors duration-200"
               >
                 view research
               </Link>

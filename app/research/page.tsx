@@ -179,7 +179,7 @@ export default function Research() {
   const totalPapers = papers2026.length + papers2025.length + papers2024.length + papers2023.length;
 
   return (
-    <div className="flex w-full min-h-screen bg-[#F4F7FC] flex-col overflow-hidden">
+    <div className="flex w-full min-h-screen bg-[#F4F7FC] flex-col [overflow-x:clip]">
       <Header />
 
       {/* Hero Section */}
@@ -367,7 +367,7 @@ export default function Research() {
             </p>
             <a
               href="mailto:info@helivan.io"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#0A1638] to-[#263C5C] text-white font-medium rounded-xl hover:shadow-lg hover:shadow-[#0A1638]/25 transition-all duration-300 hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 px-[18px] py-[11px] bg-[#0A1638] text-white text-sm font-semibold rounded-[10px] hover:bg-[#263C5C] transition-colors duration-200"
             >
               Get in touch
               <svg
