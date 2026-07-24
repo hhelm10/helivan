@@ -1,5 +1,7 @@
 "use client";
 import { useEffect } from "react";
+import Header from "@/components/header";
+import { Footer } from "@/components/footer";
 
 /* Self-contained page: markup, styles, and canvas figures ported verbatim
    from the design's standalone HTML. The nav is inline SVG (not the shared
@@ -15,12 +17,7 @@ const CSS = `
     --inter:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     --mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;
   }
-  .thesis-root a{color:var(--steel)}
-  .thesis-root .nav{display:flex;align-items:center;gap:26px;padding:18px 24px;max-width:920px;margin:0 auto}
-  .thesis-root .brand{display:flex;align-items:center;gap:10px;font-family:var(--grotesk);font-weight:700;letter-spacing:.075em;font-size:15px}
-  .thesis-root .nav .links{margin-left:auto;display:flex;gap:20px;font-size:13.5px;font-weight:500;color:var(--muted)}
-  .thesis-root .nav .links a{text-decoration:none;color:inherit}
-  .thesis-root .nav .links .active{color:var(--midnight);font-weight:600;border-bottom:2px solid var(--amber);padding-bottom:2px}
+  .thesis-root .essay a{color:var(--steel)}
   .thesis-root .essay{max-width:700px;margin:0 auto;padding:40px 24px 80px}
   .thesis-root .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;color:var(--muted);display:flex;align-items:center;gap:14px;margin:54px 0 14px}
   .thesis-root .eyebrow::after{content:"";flex:1;height:1px;background:var(--line)}
@@ -68,26 +65,11 @@ const CSS = `
   .thesis-root .closer{font-family:var(--grotesk);font-weight:600;font-size:clamp(22px,3.4vw,30px);line-height:1.25;letter-spacing:-.01em;margin:52px 0 8px;max-width:24ch}
   .thesis-root .cta{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
   .thesis-root .cta a{text-decoration:none;font-weight:600;font-size:14px;border-radius:10px;padding:11px 18px}
-  .thesis-root .cta .p{background:var(--midnight);color:#fff}
+  .thesis-root .cta .p{background:var(--midnight);color:#fff !important}
   .thesis-root .cta .s{border:1px solid var(--tint);color:var(--steel)}
-  .thesis-root .foot{border-top:1px solid var(--line);padding:22px 24px;max-width:920px;margin:40px auto 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:12.5px;font-family:var(--mono)}
-  .thesis-root .foot a{color:inherit}
 `;
 
 const HTML = `
-<nav class="nav">
-  <span class="brand">
-    <svg width="26" height="26" viewBox="0 0 96 96" aria-label="helivan">
-      <rect x="16" y="44.5" width="64" height="7" rx="2" transform="rotate(-28.6 48 48)" fill="#0A1638"/>
-      <rect x="30" y="26" width="14" height="56" rx="3" fill="#0A1638"/>
-      <rect id="logoSeg" x="66.5" y="44.5" width="13.5" height="7" rx="2" transform="rotate(-28.6 48 48)" fill="#F59E0B" opacity="0"/>
-      <rect id="logoBar" x="52" y="14" width="14" height="56" rx="3" fill="#0A1638"/>
-    </svg>
-    HELIVAN
-  </span>
-  <span class="links"><span class="active">thesis</span><a href="/research">research</a><a href="/apps">apps</a></span>
-</nav>
-
 <div class="essay">
 
   <div class="eyebrow first">000 · the helivan thesis</div>
@@ -270,12 +252,6 @@ const HTML = `
     <a class="p" href="/apps">explore the apps</a>
     <a class="s" href="/research">read the research</a>
   </div>
-</div>
-
-<div class="foot">
-  <span>HELIVAN</span>
-  <span><a href="mailto:info@helivan.io">info@helivan.io</a></span>
-  <span>© 2026 helivan corp.</span>
 </div>
 `;
 
@@ -1212,7 +1188,7 @@ export default function ThesisPage() {
   useEffect(() => initThesisViz(), []);
 
   return (
-    <div className="thesis-root min-h-screen">
+    <div className="thesis-root min-h-screen flex flex-col bg-white">
       <style
         dangerouslySetInnerHTML={{
           __html:
@@ -1220,7 +1196,9 @@ export default function ThesisPage() {
             CSS,
         }}
       />
-      <div dangerouslySetInnerHTML={{ __html: HTML }} />
+      <Header />
+      <div className="flex-1" dangerouslySetInnerHTML={{ __html: HTML }} />
+      <Footer />
     </div>
   );
 }
