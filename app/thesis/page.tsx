@@ -81,13 +81,11 @@ const HTML = `
   <!-- 010 -->
   <div class="eyebrow">010 · agents are everywhere</div>
   <div class="stats">
-    <div class="stat"><div class="n">540,000+</div><div class="l">github stars across openclaw + hermes</div></div>
-    <div class="stat"><div class="n">1.6M+</div><div class="l">agents on moltbook, interacting with little-to-no intervention</div></div>
-    <div class="stat"><div class="n">$8B+</div><div class="l">claude code run-rate revenue, 12 months after launch</div></div>
+    <div class="stat"><div class="n">630,000+</div><div class="l">github stars across openclaw + hermes</div></div>
+    <div class="stat"><div class="n">2.9M+</div><div class="l">agents on moltbook, interacting with little-to-no intervention</div></div>
+    <div class="stat"><div class="n">~$15B</div><div class="l">claude code run-rate revenue</div></div>
   </div>
-  <p>
-    and they aren't toys. a personal agent reads your inbox, writes to your files, acts as you across your accounts, and holds your keys and payments. agents are highly configurable, highly capable, and highly permissioned — resulting in millions+ of variants of a given harness / base model.
-  </p>
+  <div class="srcs">as of september 2026</div>
 
   <!-- 011 -->
   <div class="eyebrow">011 · what is an agent?</div>
