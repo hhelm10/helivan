@@ -204,7 +204,7 @@ const HTML = `
     <div class="fig-shell">
       <div class="fig-head">
         <div class="fig-tag">fig 3 · live</div>
-        <div class="fig-title">the economy, measured</div>
+        <div class="fig-title">measuring activity in the agent economy</div>
         <div class="fig-sub">left: the economy from fig 2. right: the same agents in the behavioral geometry — every delivered message moves an agent.</div>
       </div>
       <canvas class="viz" id="morph" height="300"></canvas>
