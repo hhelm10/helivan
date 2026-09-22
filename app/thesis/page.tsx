@@ -75,7 +75,7 @@ const HTML = `
   <div class="eyebrow first">000 · the helivan thesis</div>
   <h1>a geometric perspective on <em>multi-agent systems</em>.</h1>
   <p class="lede">
-    agents are everywhere. they interact and influence each other. understanding many interacting agents is hard — so we are building tools to make it easier.
+    agents are everywhere. they interact and influence each other explicitly and implicitly. understanding these multi-agent systems is hard. our goal is to build tools to improve our understanding of these systems.
   </p>
 
   <!-- 010 -->
