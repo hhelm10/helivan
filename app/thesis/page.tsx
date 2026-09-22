@@ -87,7 +87,7 @@ const HTML = `
   </div>
   <div class="srcs">as of september 2026</div>
   <p style="margin-top:14px">
-    a personal agent reads your inbox, writes to your files, acts as you across your accounts, and holds your keys and payments. agents are highly configurable, highly capable, and highly permissioned — resulting in millions+ of variants of a given harness / base model.
+    agents are highly configurable, highly capable, and highly permissioned — resulting in millions+ of variants of a given harness / base model.
   </p>
 
   <!-- 011 -->
