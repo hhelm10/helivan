@@ -56,6 +56,7 @@ export default function Research() {
       subtitle:
         "A framework for evaluating query set quality when classifying black-box AI models, demonstrating exponential decay of classification error with query budget.",
       tags: ["Evaluate"],
+      venue: "NeurIPS 2026",
     },
     {
       url: "https://arxiv.org/abs/2605.11135",
@@ -63,6 +64,7 @@ export default function Research() {
       subtitle:
         "Extending adaptive control charts to automated monitoring of open-ended multi-agent systems, revealing a fundamental tension between agent learning and robustness to slowly-defecting adversaries.",
       tags: ["Monitor"],
+      venue: "NeurIPS 2026",
     },
     {
       url: "https://arxiv.org/abs/2605.26409",
@@ -70,6 +72,7 @@ export default function Research() {
       subtitle:
         "Efficient susceptibility prediction and effective defense transfer for jailbreak defense / blue teaming.",
       tags: ["Evaluate"],
+      venue: "NeurIPS 2026",
     },
     {
       url: "https://arxiv.org/abs/2605.27463",
