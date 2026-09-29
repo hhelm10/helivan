@@ -82,6 +82,13 @@ export default function Research() {
       tags: ["Evaluate"],
     },
     {
+      url: "https://arxiv.org/abs/2607.26545",
+      title: "A Persona-based Rate Action Index",
+      subtitle:
+        "Personas built from ~25,000 text chunks of FOMC members' public statements capture monetary-policy stances and predict Federal Reserve rate actions.",
+      tags: ["Monitor"],
+    },
+    {
       url: "https://arxiv.org/abs/2505.00006",
       title: "Toward a Digital Twin of U.S. Congress",
       subtitle:
