@@ -133,6 +133,8 @@ canvas { display: block; width: 100%; }
 .track { display: grid; grid-auto-flow: column; grid-auto-columns: 100%; align-items: start; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; transition: height 0.25s ease;
   scroll-behavior: smooth; border: 1px solid var(--edge); border-radius: var(--radius); background: var(--surface); scrollbar-width: none; }
 .track::-webkit-scrollbar { display: none; }
+.track { overscroll-behavior-x: contain; }
+.slide { scroll-snap-stop: always; }
 .slide { scroll-snap-align: start; padding: 20px; display: grid; gap: 14px; align-content: start; min-width: 0; }
 .slide-head { display: grid; gap: 4px; }
 .slide-head .label { display: flex; gap: 10px; align-items: center; }
@@ -526,12 +528,15 @@ footer { font-size: 13px; color: var(--ink-mute); display: grid; gap: 8px; }
   function carousel(p) {
     const C = { slides: [], cur: 0 };
     const tr = () => $(p + 'Track');
-    C.set = (i) => {
+    C.mark = (i) => {
       C.cur = i; $(p + 'Count').textContent = `${i + 1} / ${C.slides.length}`;
-      const sl = tr().children[i]; if (sl) tr().style.height = sl.offsetHeight + 'px';
       $(p + 'Tabs').querySelectorAll('button').forEach((b, j) => b.setAttribute('aria-current', j === i));
       $(p + 'Prev').disabled = i === 0; $(p + 'Next').disabled = i === C.slides.length - 1;
     };
+    C.size = () => { const sl = tr().children[C.cur]; if (sl) tr().style.height = sl.offsetHeight + 'px'; };
+    C.set = (i) => { C.mark(i); C.size(); };
+    // after a swipe comes to rest: settle on the nearest slide, then fit the height
+    const settle = () => { if (C.lock || !tr().clientWidth) return; C.set(Math.round(tr().scrollLeft / tr().clientWidth)); };
     C.go = (i) => {
       i = Math.max(0, Math.min(C.slides.length - 1, i)); C.set(i);
       clearTimeout(C.t); C.lock = true; C.t = setTimeout(() => (C.lock = false), 700);   // ignore our own scroll events
@@ -545,7 +550,13 @@ footer { font-size: 13px; color: var(--ink-mute); display: grid; gap: 8px; }
       tr().scrollLeft = 0; C.set(0);
     };
     $(p + 'Prev').onclick = () => C.go(C.cur - 1); $(p + 'Next').onclick = () => C.go(C.cur + 1);
-    tr().addEventListener('scroll', () => { if (C.lock) return; const i = Math.round(tr().scrollLeft / tr().clientWidth); if (i !== C.cur) C.set(i); }, { passive: true });
+    tr().addEventListener('scroll', () => {
+      if (C.lock) return;
+      const i = Math.round(tr().scrollLeft / tr().clientWidth); if (i !== C.cur) C.mark(i);   // counter and tabs follow the finger
+      clearTimeout(C.s); C.s = setTimeout(settle, 150);                                         // height waits until the swipe stops
+    }, { passive: true });
+    tr().addEventListener('scrollend', settle);
+    addEventListener('resize', () => { if (!C.slides.length) return; tr().scrollLeft = C.cur * tr().clientWidth; C.size(); });
     tr().addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') { C.go(C.cur + 1); e.preventDefault(); } if (e.key === 'ArrowLeft') { C.go(C.cur - 1); e.preventDefault(); } });
     return C;
   }
