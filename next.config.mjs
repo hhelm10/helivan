@@ -19,13 +19,13 @@ const nextConfig = {
             },
         ];
     },
-    // Standalone HTML pages live in public/artifacts/<name>/index.html
-    // and are served at /artifacts/<name>
+    // Standalone HTML pages live in public/projects/<name>/index.html
+    // and are served at /projects/<name>
     async rewrites() {
         return [
             {
-                source: '/artifacts/:name',
-                destination: '/artifacts/:name/index.html',
+                source: '/projects/:name',
+                destination: '/projects/:name/index.html',
             },
         ];
     },
