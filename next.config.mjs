@@ -17,6 +17,11 @@ const nextConfig = {
                 destination: '/',
                 permanent: true,
             },
+            {
+                source: '/projects/demas',
+                destination: '/projects/decs',
+                permanent: true,
+            },
         ];
     },
     // Standalone HTML pages live in public/projects/<name>/index.html
