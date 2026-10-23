@@ -19,6 +19,16 @@ const nextConfig = {
             },
         ];
     },
+    // Standalone HTML pages live in public/artifacts/<name>/index.html
+    // and are served at /artifacts/<name>
+    async rewrites() {
+        return [
+            {
+                source: '/artifacts/:name',
+                destination: '/artifacts/:name/index.html',
+            },
+        ];
+    },
     typescript: {
         ignoreBuildErrors: true,
     },
