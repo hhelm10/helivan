@@ -89,6 +89,20 @@ export default function Research() {
       tags: ["Monitor"],
     },
     {
+      url: "https://arxiv.org/abs/2611.03614",
+      title: "Benchmark prediction with sparse and unpaired cached responses",
+      subtitle:
+        "The Product Kernel Perspective Space represents models by comparing their responses to similar, not just identical, queries, enabling query-efficient benchmark prediction from sparse and unpaired evaluation data.",
+      tags: ["Evaluate"],
+    },
+    {
+      url: "https://arxiv.org/abs/2611.06803",
+      title: "Task-efficient agent evaluation using cached traces",
+      subtitle:
+        "Embedding LLM-written summaries of agent traces to predict a new system's full benchmark score from a handful of executed tasks on SWE-bench Verified and Terminal-Bench 2.0.",
+      tags: ["Evaluate"],
+    },
+    {
       url: "https://arxiv.org/abs/2505.00006",
       title: "Toward a Digital Twin of U.S. Congress",
       subtitle:
