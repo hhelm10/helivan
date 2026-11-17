@@ -362,6 +362,12 @@ export default function Research() {
                   Nomic AI
                 </div>
               </a>
+              <a href="https://huggingface.co/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+                <img src="/hf_logo.svg" alt="Hugging Face" className="h-16 w-16 object-contain" />
+                <div className="text-[#0A1638] font-semibold text-lg">
+                  Hugging Face
+                </div>
+              </a>
               <a href="https://www.jataware.com/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
                 <div className="h-16 w-16 flex items-center justify-center bg-[#5C6B8A] rounded text-white font-bold text-lg">J</div>
                 <div className="text-[#0A1638] font-semibold text-lg">
