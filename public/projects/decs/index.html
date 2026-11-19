@@ -106,8 +106,21 @@ button:disabled { cursor: not-allowed; opacity: 0.5; }
 .counters { display: flex; gap: 18px; font-family: var(--font-data); font-size: 12.5px; color: var(--ink-mute); }
 .counters b { color: var(--ink-title); font-weight: 500; font-size: 15px; }
 canvas { display: block; width: 100%; }
-#act { height: 110px; }
-#persp { height: min(360px, 42vh); min-height: 240px; background: var(--wash); border-radius: 4px; }
+#act { height: 110px; cursor: ew-resize; touch-action: pan-y; border-radius: 4px; }
+#act:focus-visible, #persp:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.pwrap { position: relative; }
+#persp { height: min(480px, 56vh); min-height: 280px; background: var(--wash); border-radius: 4px; cursor: grab; touch-action: none; }
+#persp:active { cursor: grabbing; }
+.ptools { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 12.5px; color: var(--ink-mute); }
+.ptools button { padding: 4px 10px; font-size: 12.5px; }
+.tog { display: inline-flex; align-items: center; gap: 5px; cursor: pointer; }
+.tip { position: absolute; pointer-events: none; background: var(--surface); border: 1px solid var(--edge); border-radius: var(--radius); padding: 8px 10px;
+  display: grid; gap: 2px; font-family: var(--font-data); font-size: 11.5px; color: var(--ink-mute); box-shadow: 0 4px 14px rgba(10, 34, 69, 0.12); max-width: 280px; z-index: 2; }
+.tip b { color: var(--ink-title); font-weight: 500; font-size: 12.5px; }
+.tip .swatch { width: 8px; height: 8px; margin-right: 6px; vertical-align: 0; }
+.pick { align-items: center; }
+.pick button { padding: 3px 9px; font: 500 12px var(--font-data); display: inline-flex; align-items: center; gap: 6px; }
+.pick .swatch { width: 8px; height: 8px; }
 
 /* analysis */
 #analysis { display: grid; gap: 28px; scroll-margin-top: 16px; }
@@ -222,12 +235,17 @@ footer { font-size: 13px; color: var(--ink-mute); display: grid; gap: 8px; }
       <div class="panel" style="padding:14px">
         <div class="mon-head"><h3>Activity monitor <span class="caption" style="font-weight:400">posts and comments per hour by the 2,574 agents</span></h3>
           <div class="counters"><span><b class="num" id="nAct">0</b> actions</span><span><b class="num" id="nAg">0</b> agents</span></div></div>
-        <canvas id="act" aria-label="Actions per hour"></canvas>
+        <canvas id="act" tabindex="0" role="slider" aria-label="Time: drag the blue handle to move through the collection period" aria-valuemin="0" aria-valuemax="240" aria-valuenow="0"></canvas>
       </div>
       <div class="panel" style="padding:14px">
-        <div class="mon-head"><h3>Perspective monitor</h3></div>
-        <canvas id="persp" aria-label="Agents' estimated perspectives, moving over time"></canvas>
+        <div class="mon-head"><h3>Perspective monitor</h3>
+          <div class="ptools"><span class="num" id="selInfo"></span><button id="selClear" type="button" hidden>Clear selection</button>
+            <label class="tog"><input type="checkbox" id="trails" checked> Trails</label><button id="viewReset" type="button">Reset view</button></div></div>
+        <div class="pwrap"><canvas id="persp" tabindex="0" aria-label="Agents' estimated perspectives in three dimensions, moving over time. Drag to rotate, arrow keys rotate, plus and minus zoom."></canvas>
+          <div class="tip" id="tip" role="status" hidden></div></div>
+        <div class="chips pick" id="subPick" hidden></div>
         <p class="caption" id="pcap"></p>
+        <p class="caption" id="phelp">Drag to rotate, scroll or pinch to zoom, double-click to reset, and hover a dot for details. Click dots to select them and follow their trails; shift-drag to select a group. Drag the blue handle on the activity monitor to move forward or back in time.</p>
       </div>
     </div>
   </section>
@@ -337,51 +355,223 @@ footer { font-size: 13px; color: var(--ink-mute); display: grid; gap: 8px; }
       c.save(); c.beginPath(); c.rect(X(B[st.stopped]), Tp, X(st.hour) - X(B[st.stopped]), ph); c.clip();
       area(st.hour, css('--null'), 0.9); c.restore();
     }
-    c.strokeStyle = st.stopped ? css('--stop') : css('--focus'); c.lineWidth = 2;
-    const cx = X(st.stopped ? B[st.stopped] : st.hour); c.beginPath(); c.moveTo(cx, Tp); c.lineTo(cx, Tp + ph); c.stroke();
+    if (st.stopped) { const sx = X(B[st.stopped]); c.strokeStyle = css('--stop'); c.lineWidth = 2; c.beginPath(); c.moveTo(sx, Tp); c.lineTo(sx, Tp + ph); c.stroke(); }
+    const cx = X(st.hour); c.strokeStyle = css('--focus'); c.lineWidth = 2; c.beginPath(); c.moveTo(cx, Tp + 6); c.lineTo(cx, Tp + ph); c.stroke();
+    c.fillStyle = css('--focus'); c.strokeStyle = css('--surface'); c.lineWidth = 1.5; c.beginPath(); c.arc(cx, Tp + 6, 5.5, 0, 7); c.fill(); c.stroke();   // handle: drag to move through time
+    const cvA = $('act'); cvA.setAttribute('aria-valuemax', String(Math.round(st.stopped ? B[st.stopped] : H))); cvA.setAttribute('aria-valuenow', String(Math.round(st.hour)));
+    cvA.setAttribute('aria-valuetext', dateOf(st.hour, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false }) + ' UTC');
     c.fillStyle = css('--ink-mute'); c.textAlign = 'center'; c.textBaseline = 'top'; c.font = font(11);
     for (let d = 0; d <= 10; d += 1) c.fillText(dateOf(d * 24, { month: 'short', day: 'numeric' }), X(d * 24), Tp + ph + 4);
   }
 
-  // ---------- perspective monitor
+  // ---------- perspective monitor (3D: drag to rotate, wheel or pinch to zoom, hover for details, click or shift-drag to select)
   const MON = M.monitor || { xy: [], name: [] };
-  const PCAP = `Each dot is one of the ${fmt(MON.xy.length)} agents.`;
+  const PTS = MON.xyz || MON.xy;                                  // xyz: three leading directions; xy: two (third axis flat)
+  const DIM = MON.xyz ? 3 : 2;
+  const P3 = (p) => (p ? [p[0], p[1], DIM === 3 ? p[2] : 0] : null);
+  const PCAP = `Each dot is one of the ${fmt(PTS.length)} agents.`;
+  const HELP = 'Drag to rotate, scroll or pinch to zoom, hover a dot for details. Click dots to select them; shift-drag to select a group.';
   $('pcap').textContent = PCAP;
   let ext = 1;
-  { const v = []; MON.xy.forEach((a) => a.forEach((p) => p && v.push(Math.abs(p[0]), Math.abs(p[1])))); v.sort((a, b) => a - b); ext = v[Math.floor(v.length * 0.985)] || 1; }
+  { const v = []; PTS.forEach((a) => a.forEach((p) => p && p.forEach((x) => v.push(Math.abs(x))))); v.sort((a, b) => a - b); ext = v[Math.floor(v.length * 0.985)] || 1; }
+  const nActive = PTS.map((a) => a.filter(Boolean).length);
+  const idxOf = new Map(); MON.name.forEach((n, i) => n && idxOf.set(n, i));
   let colorOf = new Map();
+  const view = { yaw: -0.55, pitch: 0.32, zoom: 1 };
+  const VIEW0 = Object.assign({}, view);
+  const sel = new Set();
+  let proj = [], hover = -1, box = null;
+  const stepAt = (hr, upto) => { let s = mids.findIndex((m) => m > hr) - 1; if (s < -1) s = upto - 1; return Math.min(s, upto - 1); };
   function posAt(i, hr, upto) {
-    const a = MON.xy[i], last = upto - 1;
-    let s = mids.findIndex((m) => m > hr) - 1; if (s < -1) s = last; s = Math.min(s, last);
-    if (s < 0) return a[0] ? { p: a[0], f: Math.max(0.35, hr / mids[0]) } : null;
-    const p0 = a[s], p1 = s + 1 <= last ? a[s + 1] : null;
+    const a = PTS[i], last = upto - 1, s = stepAt(hr, upto);
+    if (s < 0) return a[0] ? { p: P3(a[0]), f: Math.max(0.35, hr / mids[0]) } : null;
+    const p0 = P3(a[s]), p1 = s + 1 <= last ? P3(a[s + 1]) : null;
     if (!p0 && !p1) return null;
     if (!p0) return { p: p1, f: 0.4 };
     if (!p1) return { p: p0, f: 1 };
     const u = Math.min(1, (hr - mids[s]) / (mids[s + 1] - mids[s])), e = u * u * (3 - 2 * u);
-    return { p: [p0[0] + (p1[0] - p0[0]) * e, p0[1] + (p1[1] - p0[1]) * e], f: 1 };
+    return { p: p0.map((x, k) => x + (p1[k] - x) * e), f: 1 };
+  }
+  const viewHour = () => (st.stopped ? Math.min(st.hour, mids[st.stopped - 1]) : st.hour);
+  function projector(w, h) {
+    const sc = (Math.min(w, h) / 2 / (ext * 2.15)) * view.zoom, cx = w / 2, cy = h / 2, D = ext * 6;
+    const ca = Math.cos(view.yaw), sa = Math.sin(view.yaw), cb = Math.cos(view.pitch), sb = Math.sin(view.pitch);
+    return (p) => {
+      const x1 = p[0] * ca + p[2] * sa, z1 = -p[0] * sa + p[2] * ca;
+      const y2 = p[1] * cb - z1 * sb, z2 = p[1] * sb + z1 * cb, f = D / (D + z2);
+      return [cx + x1 * sc * f, cy - y2 * sc * f, z2, f];
+    };
   }
   function drawPersp() {
-    const { c, w, h } = fit($('persp'));
-    const sc = Math.min(w, h) / 2 / (ext * 1.08), cx = w / 2, cy = h / 2;
-    const upto = st.stopped || T, hr = st.stopped ? Math.min(st.hour, mids[st.stopped - 1]) : st.hour;
-    const P = (p) => [cx + p[0] * sc, cy - p[1] * sc], hi = [];
-    c.fillStyle = css('--ink-mute');
-    MON.xy.forEach((_, i) => {
-      const q = posAt(i, hr, upto); if (!q) return;
-      const g = MON.name[i] && colorOf.get(MON.name[i]);
-      if (g) { hi.push([q, g]); return; }
-      const [x, y] = P(q.p); c.globalAlpha = 0.35 * q.f * (colorOf.size ? 0.6 : 1);
-      c.beginPath(); c.arc(x, y, 2.2, 0, 7); c.fill();
+    const { c, w, h } = fit($('persp')), Pj = projector(w, h);
+    const upto = st.stopped || T, hr = viewHour(), any = sel.size > 0;
+    // reference cube and axes
+    const e = ext * 1.05, cube = [];
+    for (const x of [-e, e]) for (const y of [-e, e]) for (const z of [-e, e]) cube.push(Pj([x, y, z]));
+    c.strokeStyle = css('--grid'); c.lineWidth = 1; c.beginPath();
+    [[0, 1], [2, 3], [4, 5], [6, 7], [0, 2], [1, 3], [4, 6], [5, 7], [0, 4], [1, 5], [2, 6], [3, 7]].forEach(([a, b]) => { c.moveTo(cube[a][0], cube[a][1]); c.lineTo(cube[b][0], cube[b][1]); });
+    c.stroke();
+    c.font = font(10.5); c.fillStyle = css('--ink-mute'); c.textAlign = 'center'; c.textBaseline = 'middle';
+    [[e, -e, -e, 'dim 1'], [-e, e, -e, 'dim 2'], [-e, -e, e, 'dim 3']].forEach(([x, y, z, lab]) => { const o = Pj([-e, -e, -e]), q = Pj([x, y, z]); c.strokeStyle = css('--null'); c.beginPath(); c.moveTo(o[0], o[1]); c.lineTo(q[0], q[1]); c.stroke(); c.fillText(lab, q[0] + (q[0] - o[0]) * 0.06, q[1] + (q[1] - o[1]) * 0.06); });
+    // points, back to front
+    proj = [];
+    PTS.forEach((_, i) => { const q = posAt(i, hr, upto); if (!q) return; const s = Pj(q.p); proj.push({ i, x: s[0], y: s[1], z: s[2], f: s[3], a: q.f, p: q.p }); });
+    proj.sort((a, b) => b.z - a.z);
+    const ink = css('--ink-mute'), surf = css('--surface'), title = css('--ink-title');
+    // trails of the selected agents through the steps so far
+    if (any && $('trails').checked) {
+      const s = stepAt(hr, upto);
+      sel.forEach((i) => {
+        const g = MON.name[i] && colorOf.get(MON.name[i]), col = g ? SUB(g) : title, path = [];
+        for (let t = 0; t <= Math.max(s, 0); t++) { const p = P3(PTS[i][t]); if (p) path.push(Pj(p)); }
+        const now = posAt(i, hr, upto); if (now) path.push(Pj(now.p));
+        if (path.length < 2) return;
+        c.strokeStyle = col; c.lineWidth = 1.6; c.globalAlpha = 0.55; c.beginPath();
+        path.forEach((q, k) => (k ? c.lineTo(q[0], q[1]) : c.moveTo(q[0], q[1]))); c.stroke();
+        c.fillStyle = col; path.slice(0, -1).forEach((q) => { c.beginPath(); c.arc(q[0], q[1], 2, 0, 7); c.fill(); });
+        c.globalAlpha = 1;
+      });
+    }
+    proj.forEach((d) => {
+      const g = MON.name[d.i] && colorOf.get(MON.name[d.i]), on = sel.has(d.i);
+      if (on) return;
+      const r = (g ? 4.2 : 2.2) * d.f;
+      c.globalAlpha = (g ? 1 : 0.35 * d.a * (colorOf.size ? 0.6 : 1)) * (any ? 0.25 : 1);
+      c.fillStyle = g ? SUB(g) : ink; c.beginPath(); c.arc(d.x, d.y, r, 0, 7); c.fill();
+      if (g) { c.strokeStyle = surf; c.lineWidth = 1; c.stroke(); }
     });
-    c.globalAlpha = 1; c.strokeStyle = css('--surface');
-    hi.forEach(([q, g]) => { const [x, y] = P(q.p); c.fillStyle = SUB(g); c.beginPath(); c.arc(x, y, 4.2, 0, 7); c.fill(); c.stroke(); });
+    c.globalAlpha = 1;
+    const labels = [];
+    proj.forEach((d) => {                                         // selected agents on top, ringed
+      if (!sel.has(d.i)) return;
+      const g = MON.name[d.i] && colorOf.get(MON.name[d.i]);
+      c.fillStyle = g ? SUB(g) : title; c.beginPath(); c.arc(d.x, d.y, 4.5 * d.f, 0, 7); c.fill();
+      c.strokeStyle = surf; c.lineWidth = 2; c.stroke();
+      c.strokeStyle = title; c.lineWidth = 1.4; c.beginPath(); c.arc(d.x, d.y, 8 * d.f, 0, 7); c.stroke();
+      labels.push(d);
+    });
+    if (labels.length <= 12) labels.forEach((d) => {
+      const lab = MON.name[d.i] || `#${d.i + 1}`; c.font = font(11.5); c.textBaseline = 'middle';
+      const right = d.x + 12 + c.measureText(lab).width < w - 4; c.textAlign = right ? 'left' : 'right';
+      const tx = right ? d.x + 12 : d.x - 12;
+      c.lineWidth = 3; c.strokeStyle = surf; c.strokeText(lab, tx, d.y); c.fillStyle = title; c.fillText(lab, tx, d.y);
+    });
+    if (hover >= 0) { const d = proj.find((q) => q.i === hover); if (d) { c.strokeStyle = title; c.lineWidth = 1.5; c.beginPath(); c.arc(d.x, d.y, 6.5, 0, 7); c.stroke(); } }
+    if (box) { c.fillStyle = css('--focus'); c.globalAlpha = 0.12; c.fillRect(box.x0, box.y0, box.x1 - box.x0, box.y1 - box.y0); c.globalAlpha = 1;
+      c.strokeStyle = css('--focus'); c.lineWidth = 1; c.strokeRect(box.x0, box.y0, box.x1 - box.x0, box.y1 - box.y0); }
+    selUI();
+  }
+  function nearest(x, y, rad = 10) {
+    let best = -1, bd = rad * rad;
+    for (let k = proj.length - 1; k >= 0; k--) { const d = proj[k], dd = (d.x - x) ** 2 + (d.y - y) ** 2; if (dd < bd) { bd = dd; best = d.i; } }
+    return best;
+  }
+  function selUI() {
+    const n = sel.size;
+    $('selInfo').textContent = n ? `${fmt(n)} selected` : '';
+    $('selClear').hidden = !n;
+  }
+  function tipFor(i, px, py) {
+    const tip = $('tip'), upto = st.stopped || T, hr = viewHour(), s = Math.max(0, stepAt(hr, upto));
+    const q = posAt(i, hr, upto), g = MON.name[i] && colorOf.get(MON.name[i]);
+    const cur = PTS[i][s], prev = s > 0 ? PTS[i][s - 1] : null;
+    const mv = cur && prev ? Math.hypot(...P3(cur).map((x, k) => x - P3(prev)[k])) : null;
+    const f3 = (v) => (v < 0 ? '−' : '') + Math.abs(v).toFixed(2);
+    tip.innerHTML = `<b>${esc(MON.name[i] || `Agent #${i + 1}`)}</b>` +
+      (g ? `<span><i class="swatch" style="background:${SUB(g)}"></i>Subnetwork ${g}</span>` : '') +
+      `<span>step ${s + 1} of ${upto}${cur ? '' : ' · inactive'}</span>` +
+      (q ? `<span>dim 1 ${f3(q.p[0])} · dim 2 ${f3(q.p[1])}${DIM === 3 ? ` · dim 3 ${f3(q.p[2])}` : ''}</span>` : '') +
+      (mv !== null ? `<span>moved ${mv.toFixed(2)} since step ${s}</span>` : '') +
+      `<span>active in ${nActive[i]} of ${T} steps</span>` + (sel.has(i) ? '<span>selected · click to deselect</span>' : '<span>click to select</span>');
+    tip.hidden = false;
+    const wrap = $('persp').getBoundingClientRect(), tw = tip.offsetWidth, th = tip.offsetHeight;
+    tip.style.left = `${Math.min(wrap.width - tw - 4, px + 14)}px`; tip.style.top = `${py + 14 + th > wrap.height ? py - th - 10 : py + 14}px`;
+  }
+  {
+    const cv = $('persp'), ptrs = new Map();
+    let drag = null, pinch = null;
+    const at = (e) => { const r = cv.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
+    cv.addEventListener('pointerdown', (e) => {
+      cv.setPointerCapture(e.pointerId); ptrs.set(e.pointerId, at(e));
+      if (ptrs.size === 2) { const [a, b] = [...ptrs.values()]; pinch = { d: Math.hypot(a[0] - b[0], a[1] - b[1]), z: view.zoom }; drag = null; return; }
+      const [x, y] = at(e); drag = { x, y, x0: x, y0: y, shift: e.shiftKey, moved: false };
+    });
+    cv.addEventListener('pointermove', (e) => {
+      const [x, y] = at(e);
+      if (ptrs.has(e.pointerId)) ptrs.set(e.pointerId, [x, y]);
+      if (pinch && ptrs.size === 2) { const [a, b] = [...ptrs.values()]; view.zoom = Math.max(0.4, Math.min(8, pinch.z * Math.hypot(a[0] - b[0], a[1] - b[1]) / pinch.d)); drawPersp(); return; }
+      if (drag) {
+        if (Math.hypot(x - drag.x0, y - drag.y0) > 4) drag.moved = true;
+        if (drag.shift) box = { x0: Math.min(drag.x0, x), y0: Math.min(drag.y0, y), x1: Math.max(drag.x0, x), y1: Math.max(drag.y0, y) };
+        else if (drag.moved) { view.yaw += (x - drag.x) * 0.01; view.pitch = Math.max(-1.5, Math.min(1.5, view.pitch + (y - drag.y) * 0.01)); }
+        drag.x = x; drag.y = y; $('tip').hidden = true; hover = -1; drawPersp(); return;
+      }
+      const i = nearest(x, y);
+      if (i !== hover) { hover = i; drawPersp(); }
+      if (i >= 0) { tipFor(i, x, y); cv.style.cursor = 'pointer'; } else { $('tip').hidden = true; cv.style.cursor = 'grab'; }
+    });
+    const end = (e) => {
+      ptrs.delete(e.pointerId);
+      if (pinch) { if (ptrs.size < 2) pinch = null; drag = null; return; }
+      if (!drag) return;
+      if (box) { proj.forEach((d) => { if (d.x >= box.x0 && d.x <= box.x1 && d.y >= box.y0 && d.y <= box.y1) sel.add(d.i); }); box = null; }
+      else if (!drag.moved && e.type === 'pointerup') { const i = nearest(drag.x0, drag.y0, e.pointerType === 'touch' ? 16 : 10); if (i >= 0) { sel.has(i) ? sel.delete(i) : sel.add(i); if (e.pointerType !== 'mouse') tipFor(i, drag.x0, drag.y0); } }
+      drag = null; drawPersp();
+    };
+    cv.addEventListener('pointerup', end); cv.addEventListener('pointercancel', end);
+    cv.addEventListener('pointerleave', () => { if (!drag && hover >= 0) { hover = -1; $('tip').hidden = true; drawPersp(); } });
+    cv.addEventListener('wheel', (e) => { e.preventDefault(); view.zoom = Math.max(0.4, Math.min(8, view.zoom * Math.exp(-e.deltaY * 0.0015))); drawPersp(); }, { passive: false });
+    cv.addEventListener('dblclick', () => { Object.assign(view, VIEW0); drawPersp(); });
+    cv.addEventListener('keydown', (e) => {
+      const k = e.key, r = 0.08;
+      if (k === 'ArrowLeft') view.yaw -= r; else if (k === 'ArrowRight') view.yaw += r;
+      else if (k === 'ArrowUp') view.pitch = Math.max(-1.5, view.pitch - r); else if (k === 'ArrowDown') view.pitch = Math.min(1.5, view.pitch + r);
+      else if (k === '+' || k === '=') view.zoom = Math.min(8, view.zoom * 1.15); else if (k === '-') view.zoom = Math.max(0.4, view.zoom / 1.15);
+      else if (k === '0') Object.assign(view, VIEW0); else if (k === 'Escape') sel.clear(); else return;
+      e.preventDefault(); drawPersp();
+    });
+    $('viewReset').onclick = () => { Object.assign(view, VIEW0); drawPersp(); };
+    $('selClear').onclick = () => { sel.clear(); drawPersp(); };
+    $('trails').onchange = drawPersp;
+  }
+  function subPicker() {                                          // after analysis: select a detected subnetwork in one click
+    const box = $('subPick'), subs = st.run ? st.run.subnetworks : [];
+    if (!subs.length) { box.hidden = true; box.innerHTML = ''; return; }
+    box.hidden = false;
+    box.innerHTML = '<span class="label">Select</span>' + subs.map((s) => `<button type="button" data-sub="${s.id}"><i class="swatch" style="background:${SUB(s.id)}"></i>Subnetwork ${s.id}</button>`).join('');
+    box.querySelectorAll('[data-sub]').forEach((b) => (b.onclick = () => {
+      const s = subs[+b.dataset.sub - 1], ids = s.members.map((m) => idxOf.get(m.name)).filter((i) => i !== undefined);
+      const all = ids.every((i) => sel.has(i)); ids.forEach((i) => (all ? sel.delete(i) : sel.add(i))); drawPersp();
+    }));
+  }
+
+  // ---------- activity monitor as a slider: drag the blue bar (or click anywhere) to move through time
+  {
+    const cv = $('act');
+    const hourAt = (x) => { const r = cv.getBoundingClientRect(), L = 40, R = 8; return ((x - r.left - L) / (r.width - L - R)) * H; };
+    const maxHour = () => (st.stopped ? B[st.stopped] : H);
+    const seek = (hr) => { st.playing = false; st.target = null; st.analyzeAfter = false; st.hour = Math.max(0, Math.min(maxHour(), hr)); draw(); };
+    let dragging = false;
+    cv.addEventListener('pointerdown', (e) => { dragging = true; cv.setPointerCapture(e.pointerId); seek(hourAt(e.clientX)); });
+    cv.addEventListener('pointermove', (e) => { if (dragging) seek(hourAt(e.clientX)); });
+    const up = () => { dragging = false; };
+    cv.addEventListener('pointerup', up); cv.addEventListener('pointercancel', up);
+    cv.addEventListener('keydown', (e) => {
+      const d = e.shiftKey ? 24 : 1, k = e.key;
+      if (k === 'ArrowRight') seek(st.hour + d); else if (k === 'ArrowLeft') seek(st.hour - d);
+      else if (k === 'Home') seek(0); else if (k === 'End') seek(maxHour());
+      else if (k === 'PageUp') { const n = B.find((b) => b > st.hour + 0.1); seek(n === undefined ? maxHour() : n); }
+      else if (k === 'PageDown') { const p = [...B].reverse().find((b) => b < st.hour - 0.1); seek(p === undefined ? 0 : p); }
+      else return;
+      e.preventDefault();
+    });
   }
 
   // ---------- console
   function controlsUI() {
     const k = complete(st.hour);
-    const hr = st.stopped ? B[st.stopped] : st.hour, i = Math.min(H - 1, Math.floor(hr));
+    const hr = st.hour, i = Math.min(H - 1, Math.floor(hr));
+    document.querySelector('.clock .label').textContent = st.stopped ? 'Viewing' : 'Collecting';
     $('when').textContent = dateOf(hr, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false }) + ' UTC';
     $('nAct').textContent = fmt(upTo(cumAct, M.per_hour, hr)); $('nAg').textContent = fmt(upTo(cumAg, M.new_agents, hr));
     $('play').disabled = (st.playing && st.target == null) || !!st.stopped;
@@ -704,7 +894,8 @@ footer { font-size: 13px; color: var(--ink-mute); display: grid; gap: 8px; }
     }
     stage(1, 'done', `${run.rounds.length} rounds · B = ${run.B}`); stage(2, 'done', `${sub} subnetwork${sub === 1 ? '' : 's'}`);
     $('verdict').textContent = sub === 0 ? `No colluding subnetwork detected among ${fmt(run.N)} activated agents.` : `${sub} colluding subnetwork${sub === 1 ? '' : 's'} detected among ${fmt(run.N)} activated agents.`;
-    $('pcap').textContent = 'Each dot is one agent\'s estimated perspective. Colored: agents in the detected subnetworks.';
+    $('pcap').textContent = 'Each dot is one agent\'s estimated perspective. Colored: agents in the detected subnetworks. Drag the blue handle above to replay the analyzed period.';
+    subPicker();
     $('detection').hidden = false;
     if (sub) { ['carMove', 'carSub'].forEach((id) => ($(id).hidden = false)); buildCarousels(); }
     drawScan(); scanTable();
@@ -712,7 +903,7 @@ footer { font-size: 13px; color: var(--ink-mute); display: grid; gap: 8px; }
   }
   function startAnalysis() {
     const k = complete(st.hour); if (k < 3) return;
-    st.playing = false; st.target = null; st.stopped = k; draw(); analyze(k);
+    st.playing = false; st.target = null; st.stopped = k; st.hour = B[k]; draw(); analyze(k);
   }
   $('stop').onclick = () => {                   // Analyze: if collection is running, stop it first
     if (st.playing) { st.analyzeAfter = true; stopCollection(); if (!st.playing) { st.analyzeAfter = false; startAnalysis(); } return; }
@@ -721,7 +912,7 @@ footer { font-size: 13px; color: var(--ink-mute); display: grid; gap: 8px; }
   const resetAll = () => {
     st.runId = (st.runId || 0) + 1;
     st.stopped = null; st.run = null; st.hour = 0; st.playing = false; st.target = null; st.analyzeAfter = false; colorOf = new Map();
-    $('analysis').hidden = true; $('pcap').textContent = PCAP;
+    $('analysis').hidden = true; $('pcap').textContent = PCAP; subPicker();
     draw();
   };
   $('reset').onclick = () => { resetAll(); window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); };
